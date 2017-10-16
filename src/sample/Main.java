@@ -14,7 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-        System.out.println("boom bitch");
+        System.out.println("Productive commit");
     }
 
 
