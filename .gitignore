@@ -1,4 +1,4 @@
 .DS_Store
 out/
 *.class
-workspace.xml
+.idea/workspace.xml
