@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?package Controllers ?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.QuizController">
+   <children>
+       <Button fx:id="returnButton" contentDisplay="CENTER" maxHeight="30" maxWidth="30" minHeight="30" minWidth="30" mnemonicParsing="false" onMouseClicked="#returnToMainMenu" prefHeight="30" prefWidth="30" text="Return" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
+   </children>
+</Pane>
