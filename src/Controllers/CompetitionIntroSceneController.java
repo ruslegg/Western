@@ -16,27 +16,28 @@ import java.util.ResourceBundle;
 public class CompetitionIntroSceneController implements Initializable {
     private Stage stage;
     @FXML
-    public Button startId;
+    public Button startButton;
     @FXML
-    public Button leaderboardId;
+    public Button leaderboardButton;
     @FXML
-    public Button backId;
+    public Button backButton;
     @Override
-    public void initialize(URL location, ResourceBundle resources) { startId.getStyleClass().add("start-id"); }
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 
 
-    public void toStart() throws IOException {
-        stage = (Stage) startId.getScene().getWindow();
+    public void toStart(MouseEvent event) throws IOException {
+        stage = (Stage) startButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/start.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/start.css");
         stage.setScene(scene);
         System.out.println("ToStart");
-        startId.getStyleClass().add("start-id");
     }
     public void toLeaderboard(MouseEvent event) throws  IOException{
-        stage = (Stage) leaderboardId.getScene().getWindow();
+        stage = (Stage) leaderboardButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/leaderboard.fxml"));
         Scene scene = new Scene(root);
@@ -46,13 +47,12 @@ public class CompetitionIntroSceneController implements Initializable {
 
     }
     public void toBack(MouseEvent event) throws IOException{
-        stage = (Stage) startId.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/back.fxml"));
         Scene scene = new Scene(root,1000,1000);
         scene.getStylesheets().add("/css/generate.css");
         stage.setScene(scene);
         System.out.println("ToBack");
-
     }
 }
