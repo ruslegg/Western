@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/GameController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/game.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css/game.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -110,8 +107,8 @@
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -510,7 +507,7 @@
       <workItem from="1508149341202" duration="956000" />
       <workItem from="1508152558170" duration="1777000" />
       <workItem from="1508399172224" duration="15564000" />
-      <workItem from="1508744640812" duration="2417000" />
+      <workItem from="1508744640812" duration="2455000" />
     </task>
     <task id="LOCAL-00001" summary="booom bitch">
       <created>1508149903736</created>
@@ -568,11 +565,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508420218107</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="MainGame Scene Controller+CSS+FXML">
+      <created>1508755030705</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1508755030706</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22537000" />
+    <option name="totallyTimeSpent" value="22575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -627,7 +631,8 @@
     <MESSAGE value="added super functionality" />
     <MESSAGE value="edited .gitignore" />
     <MESSAGE value="Connected FXML&#10;Connected CSS&#10;Basic UI&#10;Basic Design&#10;Change scenes functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connected FXML&#10;Connected CSS&#10;Basic UI&#10;Basic Design&#10;Change scenes functionality" />
+    <MESSAGE value="MainGame Scene Controller+CSS+FXML" />
+    <option name="LAST_COMMIT_MESSAGE" value="MainGame Scene Controller+CSS+FXML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -972,8 +977,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
