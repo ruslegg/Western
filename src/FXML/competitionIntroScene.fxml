@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane prefHeight="1080.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controllers.CompetitionIntroSceneController">
+<GridPane prefHeight="1080.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CompetitionIntroSceneController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -20,12 +20,12 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#toLeaderboard" prefHeight="100.0" prefWidth="200.0" text="Leaderboard" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="leaderboardButton" contentDisplay="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#toLeaderboard" prefHeight="100.0" prefWidth="200.0" text="Leaderboard" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#toBack" prefHeight="100.0" prefWidth="200.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="backButton" contentDisplay="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#toBack" prefHeight="100.0" prefWidth="200.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
