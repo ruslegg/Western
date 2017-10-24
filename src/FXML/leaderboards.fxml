@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+
+<BorderPane maxHeight="1080.0" maxWidth="1280.0" minHeight="1080.0" minWidth="1280.0" prefHeight="1080.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LeaderboardsController">
+   <top>
+      <Label fx:id="leaderboardsLabel" alignment="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="200.0" text="Leaderbords" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <TableView fx:id="leaderboardsTableView" maxHeight="200.0" maxWidth="300.0" minHeight="200.0" minWidth="300.0" prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="rankTableColumn" prefWidth="75.0" text="Rank" />
+          <TableColumn fx:id="nameTableColumn" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="scoreTableColumn" prefWidth="75.0" text="Score" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <Button fx:id="toChooseTypeOfGameController" alignment="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#toChooseTypeOfGame" prefHeight="100.0" prefWidth="200.0" text="Continue" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </bottom>
+</BorderPane>

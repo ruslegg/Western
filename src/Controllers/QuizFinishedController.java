@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class QuizFinishedController implements Initializable {
+public class QuizFinishedController  {
     private Stage stage;
     @FXML
     public Label congratulationLabel;
@@ -29,15 +29,12 @@ public class QuizFinishedController implements Initializable {
     public Button toLeaderboardsButton;
     @FXML
 
-    public void initialize(URL location, ResourceBundle resources) {
 
+
+    public void congratulation() throws IOException {
     }
 
-
-    public void Congratulation() throws IOException {
-    }
-
-    public void Score() throws IOException {
+    public void score() throws IOException {
 
     }
 
@@ -45,13 +42,12 @@ public class QuizFinishedController implements Initializable {
 
     }
 
-    public void ToLeaderboards(MouseEvent event) throws IOException{
+    public void toLeaderboards(MouseEvent event) throws IOException{
         stage = (Stage) toLeaderboardsButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/leaderboards.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/leaderboards.css");
         stage.setScene(scene);
-        System.out.println("ToLeaderboards");
     }
 }
