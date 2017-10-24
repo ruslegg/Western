@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class GameIntroController implements Initializable {
     private Stage stage;
     @FXML
-    public Button button;
+    public Button imageButton;
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -24,7 +24,7 @@ public class GameIntroController implements Initializable {
 
 
     public void toBriefing(MouseEvent event) throws IOException {
-        stage = (Stage) button.getScene().getWindow();
+        stage = (Stage) imageButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/briefing.fxml"));
         Scene scene = new Scene(root);
