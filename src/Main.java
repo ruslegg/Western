@@ -8,7 +8,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         try {
-            GridPane root = FXMLLoader.load(getClass().getResource("FXML/main.fxml"));
+            GridPane root = FXMLLoader.load(getClass().getResource("FXML/login.fxml"));
             Scene scene = new Scene(root,626, 590);
             scene.getStylesheets().add("/css/main.css");
             root.getStyleClass().add("mainbackground");

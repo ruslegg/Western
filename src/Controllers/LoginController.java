@@ -35,7 +35,7 @@ public class LoginController extends Application {
     @FXML
     public PasswordField password;
     @FXML
-    private CheckBox accountType;
+    public CheckBox accountType;
 
 
     private Stage stage;
@@ -55,7 +55,6 @@ public class LoginController extends Application {
         GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
 
         Scene scene = new Scene(root);
-
 
         stage.setScene(scene);
     }
