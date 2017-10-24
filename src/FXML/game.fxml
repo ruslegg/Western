@@ -46,7 +46,7 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="answerButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#checkAnswer" text="AnswerButton 1" />
+                  <Button fx:id="answerButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#dead" text="AnswerButton 1" />
                   <Label fx:id="answerLabel1" text="Answer #1" />
                </children>
             </VBox>

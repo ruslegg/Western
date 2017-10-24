@@ -18,7 +18,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Button fx:id="restartButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="RESTART" />
-      <Button fx:id="menuButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="MENU" GridPane.rowIndex="1" />
+      <Button fx:id="restartButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="RESTART" onMouseClicked="#toGame" />
+      <Button fx:id="menuButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="MENU" GridPane.rowIndex="1" onMouseClicked="#toMainMenu"/>
    </children>
 </GridPane>

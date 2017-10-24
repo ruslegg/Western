@@ -10,15 +10,13 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -28,24 +26,20 @@ import java.sql.SQLException;
 
 import includes.MYSQL;
 
-public class LoginController extends Application {
+public class LoginController{
 
     @FXML
     public TextField username;
     @FXML
     public PasswordField password;
     @FXML
-    public CheckBox accountType;
+    private CheckBox accountType;
+    @FXML
+    private Button loginButton;
 
 
     private Stage stage;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    public void start(Stage primaryStage) {
-    }
 
     public void showRegisterDialog(MouseEvent event) throws IOException, SQLException {
         // Get the current stage.
@@ -55,6 +49,7 @@ public class LoginController extends Application {
         GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
 
         Scene scene = new Scene(root);
+
 
         stage.setScene(scene);
     }
@@ -89,5 +84,14 @@ public class LoginController extends Application {
 
             createAccountQuery.executeUpdate();
         }
+    }
+
+    public void toMainMenu(MouseEvent event) throws IOException {
+        stage = (Stage) loginButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/mainMenu.css");
+        stage.setScene(scene);
     }
 }

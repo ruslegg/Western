@@ -1,12 +1,20 @@
 package Controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 
 public class GameController {
+    Stage stage;
     @FXML
     Button answerButton1,answerButton2,answerButton3,answerButton4,doorButton,exitButton;
     @FXML
@@ -15,6 +23,25 @@ public class GameController {
     ImageView questionPersonImage;
 
     public void newQuestion(){
+
+    }
+    public void dead() throws IOException {
+        stage = (Stage) answerButton1.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/loseMenu.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/loseMenu.css");
+        stage.setScene(scene);
+    }
+    public void exit() throws  IOException {
+        stage = (Stage) exitButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/mainMenu.css");
+        stage.setScene(scene);
+    }
+    public void checkAnswer() throws IOException{
 
     }
 

@@ -27,16 +27,24 @@ public class MainMenuController implements Initializable {
     }
 
 
-    public void toQuiz() throws IOException {
+    public void toTypeOfGame() throws IOException {
         stage = (Stage) startButton.getScene().getWindow();
         Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/quiz.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/quiz.css");
+        scene.getStylesheets().add("/css/chooseTypeOfGame.css");
         stage.setScene(scene);
-        System.out.println("ToQuiz");
-        startButton.getStyleClass().add("quiz-id");
     }
-
+    public void toSettings() throws IOException {
+        stage = (Stage) settingsButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/settings.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/settings.css");
+        stage.setScene(scene);
+    }
+    public void quit(){
+        System.exit(0);
+    }
 
 }

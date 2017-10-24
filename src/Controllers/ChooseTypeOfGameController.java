@@ -16,21 +16,20 @@ import java.util.ResourceBundle;
 public class ChooseTypeOfGameController implements Initializable {
     private Stage stage;
     @FXML
-    public Button CompetitionButton;
+    public Button competitionButton;
     @FXML
-    public Button NormalGameButton;
+    public Button normalGameButton;
     @FXML
-    public Button BackButton;
+    public Button backButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        CompetitionButton.getStyleClass().add("Competition");
     }
 
     public void toCompetition() throws IOException {
-        stage = (Stage) CompetitionButton.getScene().getWindow();
+        stage = (Stage) competitionButton.getScene().getWindow();
         Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/subjectList.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/subjectlist.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/subjectlist.css");
         stage.setScene(scene);
@@ -39,8 +38,8 @@ public class ChooseTypeOfGameController implements Initializable {
     }
 
     public void toNormal(MouseEvent event) throws IOException {
-        stage = (Stage) NormalGameButton.getScene().getWindow();
-        Pane root;
+        stage = (Stage) normalGameButton.getScene().getWindow();
+        Button root;
         root = FXMLLoader.load(getClass().getResource("/FXML/gameIntro.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -48,11 +47,11 @@ public class ChooseTypeOfGameController implements Initializable {
     }
 
     public void toMainMenu(MouseEvent event) throws IOException {
-        stage = (Stage) BackButton.getScene().getWindow();
+        stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        Scene scene = new Scene(root, 1000, 1000);
-        scene.getStylesheets().add("/css/back.css");
+        Scene scene = new Scene(root, 1280, 1080);
+        scene.getStylesheets().add("/css/mainMenu.css");
         stage.setScene(scene);
         System.out.println("Back");
     }

@@ -13,27 +13,28 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class LoseMenuController implements Initializable {
+public class LoseMenuController{
     private Stage stage;
     @FXML
     public Button restartButton;
     @FXML
     public Button menuButton;
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        restartButton.getStyleClass().add("quiz-id");
-    }
 
-
-    public void toQuiz() throws IOException {
+    public void toGame() throws IOException {
         stage = (Stage) restartButton.getScene().getWindow();
         Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/quiz.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/quiz.css");
+        scene.getStylesheets().add("/css/game.css");
         stage.setScene(scene);
-        System.out.println("ToQuiz");
-       restartButton.getStyleClass().add("quiz-id");
+    }
+    public void toMainMenu() throws IOException{
+        stage = (Stage) menuButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/mainMenu.css");
+        stage.setScene(scene);
     }
 
 

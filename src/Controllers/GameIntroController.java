@@ -15,14 +15,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class GameIntroController implements Initializable {
+public class GameIntroController{
     private Stage stage;
     @FXML
     public Button gameIntroButton;
-    @FXML
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
 
 
     public void toBriefing(MouseEvent event) throws IOException {
