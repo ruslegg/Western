@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +18,7 @@ import java.util.ResourceBundle;
 public class GameIntroController implements Initializable {
     private Stage stage;
     @FXML
-    public Button imageButton;
+    public Button gameIntroButton;
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -24,7 +26,7 @@ public class GameIntroController implements Initializable {
 
 
     public void toBriefing(MouseEvent event) throws IOException {
-        stage = (Stage) imageButton.getScene().getWindow();
+        stage = (Stage) gameIntroButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/briefing.fxml"));
         Scene scene = new Scene(root);
