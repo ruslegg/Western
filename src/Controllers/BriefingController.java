@@ -6,17 +6,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.swing.text.html.ImageView;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 // need timer
-public class BriefingController implements Initializable {
+public class BriefingController{
     private Stage stage;
     @FXML
     public Label cityLabel;
@@ -24,23 +26,17 @@ public class BriefingController implements Initializable {
     public ImageView briefingNPC;
     @FXML
     public Label textBriefing;
+    @FXML
+    public Button gameButton;
 
 
-    public void changeScene() throws IOException {
-            stage = (Stage) cityLabel.getScene().getWindow();
-            Pane root;
-            root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add("/css/game.css");
-            stage.setScene(scene);
-    }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        try {
-            changeScene();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void toGame(MouseEvent event) throws IOException, InterruptedException {
+        System.out.println("Check");
+        stage = (Stage) gameButton.getScene().getWindow();
+        Pane root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/game.css");
+        stage.setScene(scene);
     }
 }

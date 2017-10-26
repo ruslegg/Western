@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class CompetitionIntroSceneController{
     private Stage stage;
     @FXML
-    public Button startButton;
+    public Button competitionButton;
     @FXML
     public Button leaderboardButton;
     @FXML
@@ -25,17 +25,17 @@ public class CompetitionIntroSceneController{
 
 
     public void toStart(MouseEvent event) throws IOException {
-        stage = (Stage) startButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
+        stage = (Stage) competitionButton.getScene().getWindow();
+        Button root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/gameIntro.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/game.css");
+        scene.getStylesheets().add("/css/gameIntro.css");
         stage.setScene(scene);
     }
     public void toLeaderboard(MouseEvent event) throws  IOException{
         stage = (Stage) leaderboardButton.getScene().getWindow();
         Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/leaderboard.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/leaderboards.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/leaderboard.css");
         stage.setScene(scene);

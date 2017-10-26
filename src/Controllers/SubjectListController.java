@@ -17,16 +17,16 @@ public class SubjectListController {
     @FXML
     TableView tableView;
     @FXML
-    Button backButton,playButton;
+    Button backButton,nextButton;
 
 
 
-    public void toGame(MouseEvent event) throws IOException{
-        stage = (Stage) playButton.getScene().getWindow();
+    public void toCompetitionIntro(MouseEvent event) throws IOException{
+        stage = (Stage) nextButton.getScene().getWindow();
         Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/competitionIntroScene.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/game.css");
+        scene.getStylesheets().add("/css/competitionIntroScene.css");
         stage.setScene(scene);
     }
 

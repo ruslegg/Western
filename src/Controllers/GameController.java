@@ -41,9 +41,17 @@ public class GameController {
         scene.getStylesheets().add("/css/mainMenu.css");
         stage.setScene(scene);
     }
-    public void checkAnswer() throws IOException{
-
+    public void checkAnswer() throws IOException {
     }
+    public void results() throws IOException {
+            stage = (Stage) exitButton.getScene().getWindow();
+            Pane root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/css/quizfinished.css");
+            stage.setScene(scene);
+        }
+
 
 }
 
