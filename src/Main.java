@@ -1,3 +1,4 @@
+import Controllers.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ public class Main extends Application {
         } catch(Exception e) {
             e.printStackTrace();
         }
+
 
     }
 
