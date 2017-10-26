@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.layout.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="1080.0" maxWidth="1280.0" minHeight="1080.0" minWidth="1280.0" prefHeight="1080.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LeaderboardsController">
+<BorderPane maxHeight="1080.0" maxWidth="1280.0" minHeight="1080.0" minWidth="1280.0" prefHeight="1080.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LeaderboardsController">
    <top>
-      <Label fx:id="leaderboardsLabel" alignment="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="200.0" text="Leaderbords" BorderPane.alignment="CENTER">
+      <Label fx:id="leaderboardsLabel" alignment="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="200.0" text="Leaderboard" BorderPane.alignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
    </top>
    <center>
-      <TableView fx:id="leaderboardsTableView" maxHeight="200.0" maxWidth="300.0" minHeight="200.0" minWidth="300.0" prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="leaderboardsTableView" maxHeight="200.0" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1160.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="rankTableColumn" prefWidth="75.0" text="Rank" />
+          <TableColumn fx:id="rankTableColumn" prefWidth="75.0" resizable="false" text="Rank" />
           <TableColumn fx:id="nameTableColumn" prefWidth="75.0" text="Name" />
             <TableColumn fx:id="scoreTableColumn" prefWidth="75.0" text="Score" />
         </columns>
       </TableView>
    </center>
-   <bottom>
-      <Button fx:id="toChooseTypeOfGameController" alignment="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#toChooseTypeOfGame" prefHeight="100.0" prefWidth="200.0" text="Continue" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-   </bottom>
+   <right>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" prefWidth="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="toChooseTypeOfGameController" alignment="CENTER" maxHeight="27.0" maxWidth="113.0" minHeight="27.0" minWidth="113.0" mnemonicParsing="false" onMouseClicked="#toChooseTypeOfGame" prefHeight="27.0" prefWidth="113.0" text="Continue" />
+         </children>
+      </HBox>
+   </right>
 </BorderPane>

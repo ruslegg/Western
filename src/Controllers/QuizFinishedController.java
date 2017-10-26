@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class QuizFinishedController  {
+public class QuizFinishedController implements Initializable  {
     private Stage stage;
     @FXML
     public Label congratulationLabel;
@@ -26,28 +26,47 @@ public class QuizFinishedController  {
     @FXML
     public Label answerRateLabel;
     @FXML
-    public Button toLeaderboardsButton;
-    @FXML
+    public Button leaderBoardButton,restartButton,mainMenuButton;
+    public static double correctAnswers=0;
+    public static double timePassed=0;
+    public static double numberOfQuestions=0;
 
 
 
-    public void congratulation() throws IOException {
-    }
 
-    public void score() throws IOException {
 
-    }
 
-    public void answerRate() throws IOException {
-
-    }
-
-    public void toLeaderboards(MouseEvent event) throws IOException{
-        stage = (Stage) toLeaderboardsButton.getScene().getWindow();
+    public void toLeaderBoard(MouseEvent event) throws IOException{
+        stage = (Stage) leaderBoardButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/leaderboards.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/leaderboards.css");
+        stage.setScene(scene);
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        answerRateLabel.setText(String.valueOf((double) Math.round(((correctAnswers*100)/numberOfQuestions) * 100d) / 100d)+"%");
+    }
+
+    public void restart(MouseEvent event) throws IOException {
+        stage = (Stage) restartButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/game.css");
+        stage.setScene(scene);
+
+    }
+
+    public void toMainMenu(MouseEvent event) throws IOException {
+        stage = (Stage) mainMenuButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/mainMenu.css");
         stage.setScene(scene);
     }
 }
