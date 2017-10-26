@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/BriefingController.java" afterPath="$PROJECT_DIR$/src/Controllers/BriefingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/ChooseTypeOfGameController.java" afterPath="$PROJECT_DIR$/src/Controllers/ChooseTypeOfGameController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java" afterPath="$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/GameController.java" afterPath="$PROJECT_DIR$/src/Controllers/GameController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/GameIntroController.java" afterPath="$PROJECT_DIR$/src/Controllers/GameIntroController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/SubjectListController.java" afterPath="$PROJECT_DIR$/src/Controllers/SubjectListController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/briefing.fxml" afterPath="$PROJECT_DIR$/src/FXML/briefing.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/competitionIntroScene.fxml" afterPath="$PROJECT_DIR$/src/FXML/competitionIntroScene.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/game.fxml" afterPath="$PROJECT_DIR$/src/FXML/game.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/gameIntro.fxml" afterPath="$PROJECT_DIR$/src/FXML/gameIntro.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/subjectlist.fxml" afterPath="$PROJECT_DIR$/src/FXML/subjectlist.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -81,25 +73,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+            <state relative-caret-position="317">
+              <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#dead#0;class#GameController#0" expanded="false" />
+                <marker date="1509023606224" expanded="true" signature="1017:1058" ph="SELECT * FRO... questions" />
+                <marker date="1509023606224" expanded="true" signature="1017:1059" ph="SELECT field... questions" />
+                <marker date="1509023606224" expanded="true" signature="1017:1060" ph="SELECT * FRO... questions" />
+                <marker date="1509023606224" expanded="true" signature="1017:1076" ph="SELECT * FRO... questions" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoseMenuController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/LoseMenuController.java">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="151">
+              <caret line="60" column="86" lean-forward="true" selection-start-line="60" selection-start-column="86" selection-end-line="60" selection-end-column="87" />
+              <folding>
+                <marker date="1508838675590" expanded="true" signature="1665:1715" ph="SELECT * FRO... users" />
+                <marker date="1508838675590" expanded="true" signature="2411:2468" ph="INSERT INTO `users`... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,8 +106,8 @@
       <file leaf-file-name="ChooseTypeOfGameController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ChooseTypeOfGameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="172">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -117,24 +116,11 @@
       <file leaf-file-name="BriefingController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/BriefingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+            <state relative-caret-position="336">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="briefing.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FXML/briefing.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="27" column="131" lean-forward="false" selection-start-line="27" selection-start-column="131" selection-end-line="27" selection-end-column="131" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -142,12 +128,24 @@
       <file leaf-file-name="SubjectListController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/SubjectListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="28" column="21" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+            <state relative-caret-position="129">
+              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#toChooseTypeOfGame#0;class#SubjectListController#0" expanded="false" />
+                <marker date="1509023268771" expanded="true" signature="1985:2009" ph="SELECT 'fiel... users" />
+                <marker date="1509023268771" expanded="true" signature="1985:2010" ph="SELECT * FRO... questions" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MYSQL.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/includes/MYSQL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="63" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -158,10 +156,13 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            <state relative-caret-position="165">
+              <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
               <folding>
-                <marker date="1508854411311" expanded="true" signature="1138:1152" ph="..." />
+                <marker date="1509023375805" expanded="true" signature="1009:1092" ph="..." />
+                <marker date="1509023375805" expanded="true" signature="1009:1112" ph="..." />
+                <marker date="1509023375805" expanded="true" signature="1009:1125" ph="..." />
+                <marker date="1509023375805" expanded="true" signature="1125:1139" ph="..." />
               </folding>
             </state>
           </provider>
@@ -180,11 +181,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompetitionIntroSceneController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CompetitionIntroSceneController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+            <state relative-caret-position="450">
+              <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -262,7 +263,6 @@
         <option value="$PROJECT_DIR$/src/FXML/settings.fxml" />
         <option value="$PROJECT_DIR$/src/FXML/chooseTypeOfGame.fxml" />
         <option value="$PROJECT_DIR$/src/FXML/loseMenu.fxml" />
-        <option value="$PROJECT_DIR$/src/FXML/subjectlist.fxml" />
         <option value="$PROJECT_DIR$/src/FXML/game.fxml" />
         <option value="$PROJECT_DIR$/src/Controllers/LoseMenuController.java" />
         <option value="$PROJECT_DIR$/src/FXML/gameIntro.fxml" />
@@ -270,9 +270,10 @@
         <option value="$PROJECT_DIR$/src/Controllers/ChooseTypeOfGameController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/GameIntroController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/BriefingController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/GameController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/SubjectListController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java" />
+        <option value="$PROJECT_DIR$/src/FXML/subjectlist.fxml" />
+        <option value="$PROJECT_DIR$/src/Controllers/SubjectListController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/GameController.java" />
       </list>
     </option>
   </component>
@@ -667,7 +668,7 @@
       <workItem from="1508149341202" duration="956000" />
       <workItem from="1508152558170" duration="1777000" />
       <workItem from="1508399172224" duration="15564000" />
-      <workItem from="1508744640812" duration="19554000" />
+      <workItem from="1508744640812" duration="23469000" />
     </task>
     <task id="LOCAL-00001" summary="booom bitch">
       <created>1508149903736</created>
@@ -753,11 +754,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508843036706</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="skeleton done, connection between done, some small issues and bugs fixed">
+      <created>1509019214667</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1509019214667</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39674000" />
+    <option name="totallyTimeSpent" value="43589000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -769,9 +777,9 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33764705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33764705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -782,7 +790,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39925373" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39882353" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -835,11 +843,12 @@
     <MESSAGE value="MainGame Scene Controller+CSS+FXML" />
     <MESSAGE value="added SubjectListController + FXML + CSS" />
     <MESSAGE value="connect frames, functionality to buttons most of them, fix errors, fix bugs, mysql working" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect frames, functionality to buttons most of them, fix errors, fix bugs, mysql working" />
+    <MESSAGE value="skeleton done, connection between done, some small issues and bugs fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="skeleton done, connection between done, some small issues and bugs fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1085,25 +1094,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/includes/MYSQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="86" column="5" lean-forward="false" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-          <folding>
-            <marker date="1508838675590" expanded="true" signature="1665:1715" ph="SELECT * FRO... users" />
-            <marker date="1508838675590" expanded="true" signature="2411:2468" ph="INSERT INTO `users`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FXML/chooseTypeOfGame.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1182,53 +1172,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/ChooseTypeOfGameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/GameIntroController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/BriefingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#dead#0;class#GameController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/subjectlist.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <marker date="1508854411311" expanded="true" signature="1138:1152" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1243,22 +1191,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/SubjectListController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="28" column="21" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        <state relative-caret-position="450">
+          <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/includes/MYSQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="60" column="86" lean-forward="true" selection-start-line="60" selection-start-column="86" selection-end-line="60" selection-end-column="87" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#toChooseTypeOfGame#0;class#SubjectListController#0" expanded="false" />
+            <marker date="1508838675590" expanded="true" signature="1665:1715" ph="SELECT * FRO... users" />
+            <marker date="1508838675590" expanded="true" signature="2411:2468" ph="INSERT INTO `users`... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/ChooseTypeOfGameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/subjectlist.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-          <folding />
+          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding>
+            <marker date="1509023375805" expanded="true" signature="1009:1092" ph="..." />
+            <marker date="1509023375805" expanded="true" signature="1009:1112" ph="..." />
+            <marker date="1509023375805" expanded="true" signature="1009:1125" ph="..." />
+            <marker date="1509023375805" expanded="true" signature="1125:1139" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/SubjectListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#toChooseTypeOfGame#0;class#SubjectListController#0" expanded="false" />
+            <marker date="1509023268771" expanded="true" signature="1985:2009" ph="SELECT 'fiel... users" />
+            <marker date="1509023268771" expanded="true" signature="1985:2010" ph="SELECT * FRO... questions" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/BriefingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#dead#0;class#GameController#0" expanded="false" />
+            <marker date="1509023606224" expanded="true" signature="1017:1058" ph="SELECT * FRO... questions" />
+            <marker date="1509023606224" expanded="true" signature="1017:1059" ph="SELECT field... questions" />
+            <marker date="1509023606224" expanded="true" signature="1017:1060" ph="SELECT * FRO... questions" />
+            <marker date="1509023606224" expanded="true" signature="1017:1076" ph="SELECT * FRO... questions" />
+          </folding>
         </state>
       </provider>
     </entry>

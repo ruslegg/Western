@@ -1,5 +1,6 @@
 package Controllers;
 
+import includes.MYSQL;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +12,10 @@ import javafx.stage.Stage;
 
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class GameController {
@@ -22,7 +27,17 @@ public class GameController {
     @FXML
     ImageView questionPersonImage;
 
-    public void newQuestion(){
+
+
+    public static String fieldString = "";
+
+    public void newQuestion() throws SQLException {
+        Connection connHandle = MYSQL.getConnection();
+        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `questions` WHERE `field` = `"+fieldString+"`");
+        ResultSet rs = checkUserQuery.executeQuery();
+        while (rs.next()){
+
+        }
 
     }
     public void dead() throws IOException {
