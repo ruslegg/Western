@@ -47,7 +47,7 @@ public class LoginController {
     private Stage stage;
 
     public void music() throws IOException, SQLException, UnsupportedAudioFileException, LineUnavailableException {
-        AudioInputStream as1 = AudioSystem.getAudioInputStream(new java.io.FileInputStream("Cumbusters.wav"));
+        /*AudioInputStream as1 = AudioSystem.getAudioInputStream(new java.io.FileInputStream("Cumbusters.wav"));
         AudioFormat af = as1.getFormat();
         Clip clip1 = AudioSystem.getClip();
         DataLine.Info info = new DataLine.Info(Clip.class, af);
@@ -59,7 +59,7 @@ public class LoginController {
             clip1.open(as1);
             clip1.loop(Clip.LOOP_CONTINUOUSLY);
             clip1.start();
-        }
+        }*/
     }
 
     public void showRegisterDialog(MouseEvent event) throws IOException, SQLException {
