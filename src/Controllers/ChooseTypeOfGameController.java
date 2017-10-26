@@ -46,7 +46,7 @@ public class ChooseTypeOfGameController implements Initializable {
         System.out.println("Normal");
     }
 
-    public void toMainMenu(MouseEvent event) throws IOException {
+    public void toMainMenu(MouseEvent event) throws IOException, InterruptedException {
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
@@ -54,6 +54,7 @@ public class ChooseTypeOfGameController implements Initializable {
         scene.getStylesheets().add("/css/mainMenu.css");
         stage.setScene(scene);
         System.out.println("Back");
+
     }
 
 }

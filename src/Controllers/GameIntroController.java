@@ -13,22 +13,27 @@ import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 
 public class GameIntroController{
     private Stage stage;
     @FXML
-    public Button gameIntroButton;
+    public Button gameIntroButton,gameButton;
 
 
 
-    public void toBriefing(MouseEvent event) throws IOException {
+    public void toBriefing(MouseEvent event) throws IOException, InterruptedException {
         stage = (Stage) gameIntroButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/briefing.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/briefing.css");
         stage.setScene(scene);
-        System.out.println("ToBriefing");
+
     }
+
+
 }

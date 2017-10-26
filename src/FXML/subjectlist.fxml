@@ -17,7 +17,7 @@
    <right>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="50.0">
          <children>
-          <Button fx:id="playButton" mnemonicParsing="false" onMouseClicked="#toGame" text="Play" />
+          <Button fx:id="nextButton" mnemonicParsing="false" onMouseClicked="#toCompetitionIntro" text="Next" />
             <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toChooseTypeOfGame" text="Back" />
          </children>
       </VBox>
