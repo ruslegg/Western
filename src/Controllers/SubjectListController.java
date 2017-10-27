@@ -74,6 +74,9 @@ public class SubjectListController implements Initializable{
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event){
+                    if (SettingsController.effects){
+                        LoginController.soundPlayer.play();
+                    }
                     GameController.fieldString =  button.getText();
                     stage = (Stage) backButton.getScene().getWindow();
                     Pane root = null;

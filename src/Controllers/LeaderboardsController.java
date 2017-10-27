@@ -28,6 +28,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import static Controllers.GameController.fieldString;
+
 
 public class LeaderboardsController implements Initializable{
     private Stage stage;
@@ -46,7 +48,8 @@ public class LeaderboardsController implements Initializable{
     @FXML
     public TableColumn<Person,String> fieldColumn;
     @FXML
-    public Button toChooseTypeOfGameButton;
+    public Button backButton;
+
     ObservableList<Person> persons = FXCollections.observableArrayList();
     Person person = new Person();
 
@@ -56,12 +59,12 @@ public class LeaderboardsController implements Initializable{
 
 
 
-    public void toChooseTypeOfGame(MouseEvent event) throws IOException{
-        stage = (Stage) toChooseTypeOfGameButton.getScene().getWindow();
+    public void toCompetitionIntro(MouseEvent event) throws IOException{
+        stage = (Stage) backButton.getScene().getWindow();
         Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/leaderboards.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/competitionIntroScene.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/leaderboards.css");
+        scene.getStylesheets().add("/css/competitionIntroScene.css");
         stage.setScene(scene);
     }
 
@@ -72,17 +75,17 @@ public class LeaderboardsController implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        rankColumn.setCellValueFactory(new PropertyValueFactory<>("rank"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        scoreColumn.setCellValueFactory(new PropertyValueFactory<>("score"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
-        fieldColumn.setCellValueFactory(new PropertyValueFactory<>("field"));
+        rankColumn.setCellValueFactory(new PropertyValueFactory<Person,Integer>("rank"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("name"));
+        scoreColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("score"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Person,Integer>("time"));
+        fieldColumn.setCellValueFactory(new PropertyValueFactory<Person,String>("field"));
         tableView.setItems(persons);
     }
 
     public void getPersons() throws SQLException {
         Connection connHandle = MYSQL.getConnection();
-        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `leaderboard`");
+        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `leaderboard` WHERE `field` = '"+fieldString+"'");
         ResultSet rs = checkUserQuery.executeQuery();
         while (rs.next()){
             int rank = rs.getInt("rank");
@@ -94,7 +97,7 @@ public class LeaderboardsController implements Initializable{
             person= new Person(rank,firstName,lastName,score,field,time);
             persons.add(person);
             for (int i =0;i<persons.size();i++){
-                System.out.println(persons.get(i));
+                System.out.println(persons.get(i).toString());
             }
         }
     }

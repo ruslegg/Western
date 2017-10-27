@@ -1,7 +1,7 @@
 package Model;
 
 public class Person {
-    public String firstName,lastName,score,field;
+    public String name,score,field;
     public int rank,time;
 
 
@@ -10,16 +10,55 @@ public class Person {
 
     }
     public Person(String firstName,String lastName){
-        this.firstName=firstName;
-        this.lastName=lastName;
+        this.name=firstName+lastName;
     }
 
     public Person(int rank,String firstName, String lastName, String score, String field, int time) {
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.score = score;
         this.time = time;
         this.field = field;
         this.rank = rank;
+        this.name=firstName+" "+lastName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }
