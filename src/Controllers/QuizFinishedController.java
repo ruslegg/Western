@@ -37,6 +37,9 @@ public class QuizFinishedController implements Initializable  {
 
 
     public void toLeaderBoard(MouseEvent event) throws IOException{
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) leaderBoardButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/leaderboards.fxml"));
@@ -52,6 +55,9 @@ public class QuizFinishedController implements Initializable  {
     }
 
     public void restart(MouseEvent event) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) restartButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
@@ -62,6 +68,9 @@ public class QuizFinishedController implements Initializable  {
     }
 
     public void toMainMenu(MouseEvent event) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) mainMenuButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));

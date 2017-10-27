@@ -27,6 +27,9 @@ public class ChooseTypeOfGameController implements Initializable {
     }
 
     public void toCompetition() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) competitionButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/subjectlist.fxml"));
@@ -38,6 +41,9 @@ public class ChooseTypeOfGameController implements Initializable {
     }
 
     public void toNormal(MouseEvent event) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) normalGameButton.getScene().getWindow();
         Button root;
         root = FXMLLoader.load(getClass().getResource("/FXML/gameIntro.fxml"));
@@ -47,6 +53,9 @@ public class ChooseTypeOfGameController implements Initializable {
     }
 
     public void toMainMenu(MouseEvent event) throws IOException, InterruptedException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));

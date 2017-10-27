@@ -10,18 +10,20 @@
 
 <BorderPane maxHeight="1080.0" maxWidth="1280.0" minHeight="1080.0" minWidth="1280.0" prefHeight="1080.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LeaderboardsController">
    <top>
-      <Label fx:id="leaderboardsLabel" alignment="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="200.0" text="Leaderboard" BorderPane.alignment="CENTER">
+      <Label fx:id="leaderBoardLabel" alignment="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="200.0" text="Leaderboard" BorderPane.alignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
    </top>
    <center>
-      <TableView fx:id="leaderboardsTableView" maxHeight="200.0" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1160.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableView" maxHeight="200.0" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="980.0" prefWidth="1160.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="rankTableColumn" prefWidth="75.0" resizable="false" text="Rank" />
-          <TableColumn fx:id="nameTableColumn" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="scoreTableColumn" prefWidth="75.0" text="Score" />
+          <TableColumn fx:id="rankColumn" prefWidth="75.0" resizable="false" text="Rank" />
+          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="scoreColumn" prefWidth="75.0" text="Score" />
+            <TableColumn fx:id="timeColumn" prefWidth="75.0" resizable="false" text="Time" />
+            <TableColumn fx:id="fieldColumn" prefWidth="75.0" resizable="false" text="Field" />
         </columns>
       </TableView>
    </center>

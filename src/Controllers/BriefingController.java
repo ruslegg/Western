@@ -38,5 +38,8 @@ public class BriefingController{
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/game.css");
         stage.setScene(scene);
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
     }
 }

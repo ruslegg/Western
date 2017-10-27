@@ -21,6 +21,9 @@ public class LoseMenuController{
     public Button menuButton;
 
     public void toGame() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) restartButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
@@ -29,6 +32,9 @@ public class LoseMenuController{
         stage.setScene(scene);
     }
     public void toMainMenu() throws IOException{
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) menuButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));

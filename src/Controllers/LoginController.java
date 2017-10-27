@@ -6,6 +6,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,16 +15,22 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import includes.MYSQL;
 import sun.audio.AudioData;
@@ -33,7 +40,7 @@ import sun.audio.ContinuousAudioDataStream;
 
 import javax.sound.sampled.*;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
     @FXML
     public TextField username;
@@ -43,20 +50,21 @@ public class LoginController {
     private CheckBox accountType;
     @FXML
     private Button loginButton;
-
     private Stage stage;
+    private static File musicFile=new File("src/assets/musicTheme.mp3");
+    private static final String musicSource=musicFile.toURI().toString();
+    static Media musicMedia = new Media(musicSource);
+    static MediaPlayer musicPlayer = new MediaPlayer(musicMedia);
+    public static final AudioClip soundPlayer = new AudioClip(AudioPlayer.class.getResource("/assets/press.mp3").toString());
+
 
 
     public void showRegisterDialog(MouseEvent event) throws IOException, SQLException {
         // Get the current stage.
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-
         // Change the current stage.
         GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
-
         Scene scene = new Scene(root);
-
-
         stage.setScene(scene);
     }
 
@@ -99,5 +107,16 @@ public class LoginController {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/css/mainMenu.css");
         stage.setScene(scene);
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        musicPlayer.play();
+    }
+
+
 }

@@ -25,6 +25,9 @@ public class StartCompetitionScene implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
     public void toGame() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) startCompetitionButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
@@ -36,6 +39,9 @@ public class StartCompetitionScene implements Initializable {
     }
 
     public void toLeaderBoards(MouseEvent event) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) leaderBoardButton.getScene().getWindow();
         Button root;
         root = FXMLLoader.load(getClass().getResource("/FXML/leadboards.fxml"));
@@ -45,6 +51,9 @@ public class StartCompetitionScene implements Initializable {
     }
 
     public void toSubjectList(MouseEvent event) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/subjectlist.fxml"));

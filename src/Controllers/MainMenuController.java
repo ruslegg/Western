@@ -28,6 +28,12 @@ public class MainMenuController implements Initializable {
 
 
     public void toTypeOfGame() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) startButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
@@ -36,6 +42,12 @@ public class MainMenuController implements Initializable {
         stage.setScene(scene);
     }
     public void toSettings() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) settingsButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/settings.fxml"));
@@ -44,6 +56,9 @@ public class MainMenuController implements Initializable {
         stage.setScene(scene);
     }
     public void quit(){
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         System.exit(0);
     }
 

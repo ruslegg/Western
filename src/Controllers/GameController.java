@@ -68,6 +68,9 @@ public class GameController implements Initializable {
         stage.setScene(scene);
     }
     public void exit() throws  IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) exitButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
@@ -76,6 +79,9 @@ public class GameController implements Initializable {
         stage.setScene(scene);
     }
     public void checkAnswer(String answer) throws IOException, SQLException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         if (answer.equals(question.getCorrectAnswer())){
             questionNumber++;
             correctAnswers++;
@@ -89,6 +95,9 @@ public class GameController implements Initializable {
         }
     }
     public void results() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
             stage = (Stage) exitButton.getScene().getWindow();
             Pane root;
             root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
@@ -100,6 +109,7 @@ public class GameController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         questions = FXCollections.observableArrayList();
         questionNumber=0;
         correctAnswers=0;

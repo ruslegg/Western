@@ -47,6 +47,9 @@ public class SubjectListController implements Initializable{
 //    }
 
     public void toChooseTypeOfGame(MouseEvent event) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));

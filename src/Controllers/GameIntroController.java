@@ -26,6 +26,9 @@ public class GameIntroController{
 
 
     public void toBriefing(MouseEvent event) throws IOException, InterruptedException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) gameIntroButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/briefing.fxml"));

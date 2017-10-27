@@ -25,6 +25,9 @@ public class CompetitionIntroSceneController{
 
 
     public void toStart(MouseEvent event) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) competitionButton.getScene().getWindow();
         Button root;
         root = FXMLLoader.load(getClass().getResource("/FXML/gameIntro.fxml"));
@@ -33,6 +36,9 @@ public class CompetitionIntroSceneController{
         stage.setScene(scene);
     }
     public void toLeaderboard(MouseEvent event) throws  IOException{
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) leaderboardButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/leaderboards.fxml"));
@@ -42,6 +48,9 @@ public class CompetitionIntroSceneController{
 
     }
     public void toBack(MouseEvent event) throws IOException{
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/subjectList.fxml"));

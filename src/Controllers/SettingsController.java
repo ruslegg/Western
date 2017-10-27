@@ -8,9 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import sun.audio.AudioPlayer;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
@@ -19,9 +19,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-public class SettingsController implements Initializable {
-    private boolean prev = true;
 
+public class SettingsController implements Initializable {
     private Stage stage;
     @FXML
     public CheckBox soundButton;
@@ -29,23 +28,52 @@ public class SettingsController implements Initializable {
     public CheckBox musicButton;
     @FXML
     public Button backButton;
+
+    public static boolean effects = true;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+            if (effects){
+                soundButton.setSelected(true);
+            }
+            else{
+                soundButton.setSelected(false);
+            }
+            if (LoginController.musicPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)){
+                musicButton.setSelected(true);
+            }
+            else {
+                musicButton.setSelected(false);
+            }
     }
 
 
     public void soundTrigger(MouseEvent event) throws IOException {
 
+        if (effects){
+            LoginController.soundPlayer.play();
+            effects=false;
+        }
+        else{
+            effects=true;
+        }
     }
 
     public void musicTrigger(MouseEvent event) throws IOException, UnsupportedAudioFileException, SQLException, LineUnavailableException {
-        MusicController music = new MusicController();
-        prev = !prev;
-        music.playMusic(prev);
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
+        if (LoginController.musicPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)){
+            LoginController.musicPlayer.stop();
+        }
+        else{
+            LoginController.musicPlayer.play();
+        }
     }
 
     public void toMainMenu(MouseEvent event) throws IOException{
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
