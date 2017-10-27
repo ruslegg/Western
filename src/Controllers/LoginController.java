@@ -26,6 +26,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import includes.MYSQL;
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
 
 import javax.sound.sampled.*;
 
@@ -42,21 +46,6 @@ public class LoginController {
 
     private Stage stage;
 
-    public void music() throws IOException, SQLException, UnsupportedAudioFileException, LineUnavailableException {
-        AudioInputStream as1 = AudioSystem.getAudioInputStream(new java.io.FileInputStream("/assets/file.wav"));
-        AudioFormat af = as1.getFormat();
-        Clip clip1 = AudioSystem.getClip();
-        DataLine.Info info = new DataLine.Info(Clip.class, af);
-
-        Line line1 = AudioSystem.getLine(info);
-
-        if ( ! line1.isOpen() )
-        {
-            clip1.open(as1);
-            clip1.loop(Clip.LOOP_CONTINUOUSLY);
-            clip1.start();
-        }
-    }
 
     public void showRegisterDialog(MouseEvent event) throws IOException, SQLException {
         // Get the current stage.

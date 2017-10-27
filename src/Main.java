@@ -1,4 +1,5 @@
 import Controllers.LoginController;
+import Controllers.MusicController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,10 +15,11 @@ public class Main extends Application {
             scene.getStylesheets().add("/css/login.css");
             primaryStage.setScene(scene);
             primaryStage.show();
+            MusicController startMusic = new MusicController();
+            startMusic.playMusic(true); // change to true to start music
         } catch(Exception e) {
             e.printStackTrace();
         }
-
 
     }
 
