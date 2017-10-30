@@ -33,6 +33,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import includes.MYSQL;
+import org.mindrot.jbcrypt.BCrypt;
 import sun.audio.AudioData;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -68,6 +69,51 @@ public class LoginController implements Initializable {
         stage.setScene(scene);
     }
 
+    public void checkCredentials(MouseEvent event) throws IOException, SQLException {
+        Connection connHandle = MYSQL.getConnection();
+
+        PreparedStatement checkCredentialsQuery = connHandle.prepareStatement("SELECT `password` FROM `users` WHERE `username` = ? LIMIT 1");
+
+        checkCredentialsQuery.setString(1, username.getText());
+
+        ResultSet rs = checkCredentialsQuery.executeQuery();
+
+        if(rs.next()){
+            String userPassword = rs.getString("password");
+
+            if (BCrypt.checkpw(password.getText(), userPassword)){
+                stage = (Stage) loginButton.getScene().getWindow();
+                Pane root;
+                root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+                Scene scene = new Scene(root);
+                scene.getStylesheets().add("/css/mainMenu.css");
+                stage.setScene(scene);
+                if (SettingsController.effects){
+                    LoginController.soundPlayer.play();
+                }
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error #3");
+                alert.setHeaderText("Invalid credentials.");
+                alert.setContentText("Username and password doesn't match.");
+
+                alert.showAndWait();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error #2");
+            alert.setHeaderText("Invalid credentials.");
+            alert.setContentText("This username doesn't exist in our database.");
+
+            alert.showAndWait();
+        }
+
+
+
+    }
+
     public void registerAccount(MouseEvent event) throws IOException, SQLException {
         Connection connHandle = MYSQL.getConnection();
 
@@ -90,25 +136,15 @@ public class LoginController implements Initializable {
         }
         else{
             // Query(escaped) - insert the account into the database
+            String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
+
             PreparedStatement createAccountQuery = connHandle.prepareStatement("INSERT INTO `users` (`username`, `password`) VALUES (?,?)");
             createAccountQuery.setString(1, username.getText());
-            createAccountQuery.setString(2, password.getText());
-
-            //String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+            createAccountQuery.setString(2, hashedPassword);
 
             createAccountQuery.executeUpdate();
-        }
-    }
 
-    public void toMainMenu(MouseEvent event) throws IOException {
-        stage = (Stage) loginButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/mainMenu.css");
-        stage.setScene(scene);
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
+            //toMainMenu(event);
         }
     }
 
