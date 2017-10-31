@@ -51,6 +51,11 @@ public class LoginController implements Initializable {
     private CheckBox accountType;
     @FXML
     private Button loginButton;
+    @FXML
+    private Button signUpButton;
+    @FXML
+    private Button backButton;
+
     private Stage stage;
     private static File musicFile=new File("src/assets/musicTheme.mp3");
     private static final String musicSource=musicFile.toURI().toString();
@@ -65,6 +70,15 @@ public class LoginController implements Initializable {
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         // Change the current stage.
         GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    public void showLoginDialog(MouseEvent event) throws IOException, SQLException {
+        // Get the current stage.
+        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        // Change the current stage.
+        GridPane root = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
@@ -124,7 +138,7 @@ public class LoginController implements Initializable {
         // Store the result.
         ResultSet rs = checkUserQuery.executeQuery();
 
-        // If the query returns a row.
+        // If the account already exists in our database the query will return a row.
         if(rs.next()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error #1");
@@ -134,6 +148,7 @@ public class LoginController implements Initializable {
             alert.showAndWait();
 
         }
+        // Insert the account in the database.
         else{
             // Query(escaped) - insert the account into the database
             String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
@@ -144,7 +159,16 @@ public class LoginController implements Initializable {
 
             createAccountQuery.executeUpdate();
 
-            //toMainMenu(event);
+            // Move to the next stage.
+            stage = (Stage) signUpButton.getScene().getWindow();
+            Pane root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/css/mainMenu.css");
+            stage.setScene(scene);
+            if (SettingsController.effects){
+                LoginController.soundPlayer.play();
+            }
         }
     }
 
