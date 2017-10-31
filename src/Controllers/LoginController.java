@@ -92,7 +92,7 @@ public class LoginController implements Initializable {
 
         ResultSet rs = checkCredentialsQuery.executeQuery();
 
-        if(rs.next()){
+        if(rs.next() && username.getText().length() > 4 && password.getText().length() > 4){
             String userPassword = rs.getString("password");
 
             if (BCrypt.checkpw(password.getText(), userPassword)){
