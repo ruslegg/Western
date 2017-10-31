@@ -85,12 +85,12 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="70" column="36" lean-forward="true" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+            <state relative-caret-position="-1251">
+              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
-                <marker date="1509442601290" expanded="true" signature="2933:2992" ph="SELECT * FRO... users" />
-                <marker date="1509442601290" expanded="true" signature="4687:4737" ph="SELECT * FRO... users" />
-                <marker date="1509442601290" expanded="true" signature="5617:5674" ph="INSERT INTO `users`... " />
+                <marker date="1509444292748" expanded="true" signature="2933:2992" ph="SELECT * FRO... users" />
+                <marker date="1509444292748" expanded="true" signature="4622:4672" ph="SELECT * FRO... users" />
+                <marker date="1509444292748" expanded="true" signature="6370:6445" ph="INSERT INTO `users`... " />
               </folding>
             </state>
           </provider>
@@ -215,6 +215,7 @@
       <find>tom</find>
       <find>userPassword</find>
       <find>signUpButton</find>
+      <find>accountType</find>
     </findStrings>
     <replaceStrings>
       <replace>Stage</replace>
@@ -348,24 +349,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Western" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Western" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -875,7 +858,7 @@
       <workItem from="1509103188632" duration="123000" />
       <workItem from="1509104451044" duration="5315000" />
       <workItem from="1509368294703" duration="1214000" />
-      <workItem from="1509439492506" duration="2880000" />
+      <workItem from="1509439492506" duration="4241000" />
     </task>
     <task id="LOCAL-00001" summary="booom bitch">
       <created>1508149903736</created>
@@ -986,7 +969,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70124000" />
+    <option name="totallyTimeSpent" value="71485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1450,12 +1433,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="70" column="36" lean-forward="true" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+        <state relative-caret-position="-1251">
+          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <marker date="1509442601290" expanded="true" signature="2933:2992" ph="SELECT * FRO... users" />
-            <marker date="1509442601290" expanded="true" signature="4687:4737" ph="SELECT * FRO... users" />
-            <marker date="1509442601290" expanded="true" signature="5617:5674" ph="INSERT INTO `users`... " />
+            <marker date="1509444292748" expanded="true" signature="2933:2992" ph="SELECT * FRO... users" />
+            <marker date="1509444292748" expanded="true" signature="4622:4672" ph="SELECT * FRO... users" />
+            <marker date="1509444292748" expanded="true" signature="6370:6445" ph="INSERT INTO `users`... " />
           </folding>
         </state>
       </provider>

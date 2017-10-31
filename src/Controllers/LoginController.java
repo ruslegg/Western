@@ -100,7 +100,6 @@ public class LoginController implements Initializable {
                 Pane root;
                 root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
                 Scene scene = new Scene(root);
-                scene.getStylesheets().add("/css/mainMenu.css");
                 stage.setScene(scene);
                 if (SettingsController.effects){
                     LoginController.soundPlayer.play();
@@ -138,7 +137,7 @@ public class LoginController implements Initializable {
         // Store the result.
         ResultSet rs = checkUserQuery.executeQuery();
 
-        // If the account already exists in our database the query will return a row.
+        // If the username already exists in our database the query will return a row.
         if(rs.next()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Error #1");
@@ -149,26 +148,52 @@ public class LoginController implements Initializable {
 
         }
         // Insert the account in the database.
-        else{
-            // Query(escaped) - insert the account into the database
-            String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
+        else {
+            if(username.getText().length() < 5){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error #7");
+                alert.setHeaderText("Username too short.");
+                alert.setContentText("The username must have at least 5 characters.");
 
-            PreparedStatement createAccountQuery = connHandle.prepareStatement("INSERT INTO `users` (`username`, `password`) VALUES (?,?)");
-            createAccountQuery.setString(1, username.getText());
-            createAccountQuery.setString(2, hashedPassword);
-
-            createAccountQuery.executeUpdate();
-
-            // Move to the next stage.
-            stage = (Stage) signUpButton.getScene().getWindow();
-            Pane root;
-            root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add("/css/mainMenu.css");
-            stage.setScene(scene);
-            if (SettingsController.effects){
-                LoginController.soundPlayer.play();
+                alert.showAndWait();
             }
+            else{
+                if(password.getText().length() < 5){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Error #5");
+                    alert.setHeaderText("Password too short.");
+                    alert.setContentText("The password must have at least 5 characters.");
+
+                    alert.showAndWait();
+                }
+                else{
+                    // Query(escaped) - insert the account into the database
+                    String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
+
+                    PreparedStatement createAccountQuery = connHandle.prepareStatement("INSERT INTO `users` (`username`, `password`, `account_type`) VALUES (?,?,?)");
+                    createAccountQuery.setString(1, username.getText());
+                    createAccountQuery.setString(2, hashedPassword);
+                    createAccountQuery.setInt(3,(accountType.isSelected()) ? '1' : '0');
+                    /*
+                    * If the user is a teacher the account type will be 1.
+                    * If the user is not a teacher the account type will be 0.
+                    * */
+
+                    createAccountQuery.executeUpdate();
+
+                    // Move to the next stage.
+                    stage = (Stage) signUpButton.getScene().getWindow();
+                    Pane root;
+                    root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    if (SettingsController.effects){
+                        LoginController.soundPlayer.play();
+                    }
+                }
+            }
+
+
         }
     }
 

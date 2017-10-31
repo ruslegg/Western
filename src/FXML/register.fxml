@@ -17,7 +17,7 @@
   <children>
     <TextField id="user" fx:id="username" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
     <PasswordField fx:id="password" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-    <CheckBox alignment="CENTER" mnemonicParsing="false" text="Are you a teacher?" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+    <CheckBox fx:id="accountType" alignment="CENTER" mnemonicParsing="false" text="Are you a teacher?" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
     <Button fx:id="signUpButton" mnemonicParsing="false" onMouseClicked="#registerAccount" text="Sign Up" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
       <GridPane.margin>
         <Insets top="10.0" />
