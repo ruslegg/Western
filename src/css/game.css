@@ -1,0 +1,15 @@
+.scene-background{
+    -fx-background-image: url("/assets/house.png");
+    -fx-background-size: 1280px;
+    -fx-background-repeat: no-repeat;
+    }
+
+.window-button{
+   -fx-background-image: url("/assets/window.png");
+    -fx-background-size: 248px;
+    -fx-font-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-pref-width: 248px !important;
+    -fx-pref-height: 195px !important;
+
+}
