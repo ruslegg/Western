@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/LeaderboardsController.java" afterPath="$PROJECT_DIR$/src/Controllers/LeaderboardsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/Controllers/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/SettingsController.java" afterPath="$PROJECT_DIR$/src/Controllers/SettingsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/mainMenuTeacher.fxml" afterPath="$PROJECT_DIR$/src/FXML/mainMenuTeacher.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/login.fxml" afterPath="$PROJECT_DIR$/src/FXML/login.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/register.fxml" afterPath="$PROJECT_DIR$/src/FXML/register.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Person.java" afterPath="$PROJECT_DIR$/src/Model/Person.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,25 +73,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="186" column="30" lean-forward="true" selection-start-line="186" selection-start-column="30" selection-end-line="186" selection-end-column="30" />
+            <state relative-caret-position="245">
+              <caret line="179" column="22" lean-forward="true" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="22" />
               <folding>
-                <marker date="1509706971647" expanded="true" signature="2929:2988" ph="SELECT * FRO... users" />
-                <marker date="1509706971647" expanded="true" signature="4753:4803" ph="SELECT * FRO... users" />
-                <marker date="1509706971647" expanded="true" signature="6501:6586" ph="INSERT INTO `users`... " />
+                <marker date="1509709437801" expanded="true" signature="2975:3034" ph="SELECT * FRO... users" />
+                <marker date="1509709437801" expanded="true" signature="4799:4849" ph="SELECT * FRO... users" />
+                <marker date="1509709437801" expanded="true" signature="6547:6632" ph="INSERT INTO `users`... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LeaderboardsController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LeaderboardsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/LeaderboardsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="100" column="64" lean-forward="true" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
+            <state relative-caret-position="202">
+              <caret line="82" column="36" lean-forward="true" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
               <folding>
                 <marker date="1509708687039" expanded="true" signature="2860:2947" ph="SELECT * FRO... leaderboard" />
                 <marker date="1509708687039" expanded="true" signature="3196:3222" ph="SELECT first... js" />
@@ -232,6 +229,8 @@
       <find>css</find>
       <find>username</find>
       <find>fieldString</find>
+      <find>lastName</find>
+      <find>name.</find>
     </findStrings>
     <replaceStrings>
       <replace>Stage</replace>
@@ -302,9 +301,9 @@
         <option value="$PROJECT_DIR$/src/FXML/login.fxml" />
         <option value="$PROJECT_DIR$/src/Controllers/GameController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/SettingsController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/Model/Person.java" />
         <option value="$PROJECT_DIR$/src/Controllers/LeaderboardsController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/LoginController.java" />
       </list>
     </option>
   </component>
@@ -921,7 +920,7 @@
       <workItem from="1509552531786" duration="19000" />
       <workItem from="1509558744633" duration="10000" />
       <workItem from="1509624176539" duration="22000" />
-      <workItem from="1509703532181" duration="4565000" />
+      <workItem from="1509703532181" duration="5294000" />
     </task>
     <task id="LOCAL-00001" summary="booom bitch">
       <created>1508149903736</created>
@@ -1032,7 +1031,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78763000" />
+    <option name="totallyTimeSpent" value="79492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1048,7 +1047,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33766234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33766234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1481,18 +1480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="186" column="30" lean-forward="true" selection-start-line="186" selection-start-column="30" selection-end-line="186" selection-end-column="30" />
-          <folding>
-            <marker date="1509706971647" expanded="true" signature="2929:2988" ph="SELECT * FRO... users" />
-            <marker date="1509706971647" expanded="true" signature="4753:4803" ph="SELECT * FRO... users" />
-            <marker date="1509706971647" expanded="true" signature="6501:6586" ph="INSERT INTO `users`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1511,12 +1498,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/LeaderboardsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="100" column="64" lean-forward="true" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
+        <state relative-caret-position="202">
+          <caret line="82" column="36" lean-forward="true" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
           <folding>
             <marker date="1509708687039" expanded="true" signature="2860:2947" ph="SELECT * FRO... leaderboard" />
             <marker date="1509708687039" expanded="true" signature="3196:3222" ph="SELECT first... js" />
             <marker date="1509708687039" expanded="true" signature="3196:3249" ph="SELECT `name... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="179" column="22" lean-forward="true" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="22" />
+          <folding>
+            <marker date="1509709437801" expanded="true" signature="2975:3034" ph="SELECT * FRO... users" />
+            <marker date="1509709437801" expanded="true" signature="4799:4849" ph="SELECT * FRO... users" />
+            <marker date="1509709437801" expanded="true" signature="6547:6632" ph="INSERT INTO `users`... " />
           </folding>
         </state>
       </provider>

@@ -44,7 +44,9 @@ import javax.sound.sampled.*;
 public class LoginController implements Initializable {
 
     @FXML
-    public TextField name;
+    public TextField firstName;
+    @FXML
+    public TextField lastName;
     @FXML
     public TextField username;
     @FXML
@@ -174,7 +176,7 @@ public class LoginController implements Initializable {
                     createAccountQuery.setString(1, username.getText());
                     createAccountQuery.setString(2, hashedPassword);
                     createAccountQuery.setInt(3,(accountType.isSelected()) ? '1' : '0');
-                    createAccountQuery.setString(4, name.getText());
+                    createAccountQuery.setString(4, firstName.getText() + " " + lastName.getText());
                     /*
                     * If the user is a teacher the account type will be 1.
                     * If the user is not a teacher the account type will be 0.

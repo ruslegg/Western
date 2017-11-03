@@ -15,6 +15,16 @@
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LoginController">
   <children>
+    <TextField fx:id="firstName" prefWidth="200.0" promptText="First Name" GridPane.columnIndex="1" GridPane.rowIndex="0">
+      <GridPane.margin>
+        <Insets bottom="40.0" />
+      </GridPane.margin>
+    </TextField>
+    <TextField id="name" fx:id="lastName" prefWidth="200.0" promptText="Last Name" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
+      <GridPane.margin>
+        <Insets bottom="30.0" />
+      </GridPane.margin>
+    </TextField>
     <TextField id="user" fx:id="username" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
     <PasswordField fx:id="password" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     <CheckBox fx:id="accountType" alignment="CENTER" mnemonicParsing="false" text="Are you a teacher?" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
@@ -28,11 +38,6 @@
         <Insets top="45.0" />
       </GridPane.margin>
     </Button>
-    <TextField fx:id="name" prefWidth="200.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
-      <GridPane.margin>
-        <Insets bottom="30.0" />
-      </GridPane.margin>
-    </TextField>
   </children>
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
