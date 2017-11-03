@@ -34,6 +34,7 @@ public class ChooseTypeOfGameController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/subjectlist.fxml"));
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
         System.out.println("Competition");
@@ -48,6 +49,8 @@ public class ChooseTypeOfGameController implements Initializable {
         Button root;
         root = FXMLLoader.load(getClass().getResource("/FXML/gameIntro.fxml"));
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
         System.out.println("Normal");
     }
