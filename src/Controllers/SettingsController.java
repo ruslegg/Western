@@ -30,6 +30,8 @@ public class SettingsController implements Initializable {
     public Button backButton;
 
     public static boolean effects = true;
+    public static String username;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
             if (effects){

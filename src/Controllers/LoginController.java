@@ -44,6 +44,8 @@ import javax.sound.sampled.*;
 public class LoginController implements Initializable {
 
     @FXML
+    public TextField name;
+    @FXML
     public TextField username;
     @FXML
     public PasswordField password;
@@ -53,8 +55,6 @@ public class LoginController implements Initializable {
     private Button loginButton;
     @FXML
     private Button signUpButton;
-    @FXML
-    private Button backButton;
 
     private Stage stage;
     private static File musicFile=new File("src/assets/musicTheme.mp3");
@@ -87,7 +87,6 @@ public class LoginController implements Initializable {
         Connection connHandle = MYSQL.getConnection();
 
         PreparedStatement checkCredentialsQuery = connHandle.prepareStatement("SELECT `password` FROM `users` WHERE `username` = ? LIMIT 1");
-
         checkCredentialsQuery.setString(1, username.getText());
 
         ResultSet rs = checkCredentialsQuery.executeQuery();
@@ -104,6 +103,7 @@ public class LoginController implements Initializable {
                 if (SettingsController.effects){
                     LoginController.soundPlayer.play();
                 }
+                SettingsController.username = username.getText();
             }
             else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -170,10 +170,11 @@ public class LoginController implements Initializable {
                     // Query(escaped) - insert the account into the database
                     String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
 
-                    PreparedStatement createAccountQuery = connHandle.prepareStatement("INSERT INTO `users` (`username`, `password`, `account_type`) VALUES (?,?,?)");
+                    PreparedStatement createAccountQuery = connHandle.prepareStatement("INSERT INTO `users` (`username`, `password`, `account_type`, `name`) VALUES (?,?,?,?)");
                     createAccountQuery.setString(1, username.getText());
                     createAccountQuery.setString(2, hashedPassword);
                     createAccountQuery.setInt(3,(accountType.isSelected()) ? '1' : '0');
+                    createAccountQuery.setString(4, name.getText());
                     /*
                     * If the user is a teacher the account type will be 1.
                     * If the user is not a teacher the account type will be 0.

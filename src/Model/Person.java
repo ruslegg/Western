@@ -9,16 +9,13 @@ public class Person {
     public Person() {
 
     }
-    public Person(String firstName,String lastName){
-        this.name=firstName+lastName;
-    }
 
-    public Person(int rank,String firstName, String lastName, String score, String field, int time) {
+    public Person(int rank,String name, String score, String field, int time) {
         this.score = score;
         this.time = time;
         this.field = field;
         this.rank = rank;
-        this.name=firstName+" "+lastName;
+        this.name= name;
     }
 
     public String getName() {

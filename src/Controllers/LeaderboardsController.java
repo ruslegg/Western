@@ -85,20 +85,30 @@ public class LeaderboardsController implements Initializable{
 
     public void getPersons() throws SQLException {
         Connection connHandle = MYSQL.getConnection();
-        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `leaderboard` WHERE `field` = '"+fieldString+"'");
-        ResultSet rs = checkUserQuery.executeQuery();
+
+
+        PreparedStatement fetchUsers = connHandle.prepareStatement("SELECT * FROM `leaderboard` WHERE `field` = ? ORDER BY `score` DESC,`time` ASC LIMIT 20");
+        fetchUsers.setString(1, fieldString);
+
+        ResultSet rs = fetchUsers.executeQuery();
+        int j = 1;
         while (rs.next()){
-            int rank = rs.getInt("rank");
-            String firstName = rs.getString("firstName");
-            String lastName = rs.getString("lastName");
+            int rank = j;
+
+            PreparedStatement fetchUserName = connHandle.prepareStatement("SELECT `name` FROM `users` WHERE username = ? LIMIT 1");
+            fetchUserName.setString(1, rs.getString("username"));
+
+            ResultSet rsUsername = fetchUserName.executeQuery();
+            rsUsername.next();
+
+            String name = rsUsername.getString("name");
             String score = rs.getString("score");
             String field = rs.getString("field");
             int time = rs.getInt("time");
-            person= new Person(rank,firstName,lastName,score,field,time);
-            persons.add(person);
-            for (int i =0;i<persons.size();i++){
-                System.out.println(persons.get(i).toString());
-            }
+
+            persons.add(new Person(rank, name, score, field, time));
+
+            j++;
         }
     }
 }
