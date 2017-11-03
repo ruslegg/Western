@@ -57,7 +57,7 @@ public class StartCompetitionScene implements Initializable {
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/subjectlist.fxml"));
-        Scene scene = new Scene(root, 1280, 1080);
+        Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);

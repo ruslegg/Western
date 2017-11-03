@@ -23,7 +23,9 @@ public class MainMenuController implements Initializable {
     public Button quitButton;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         startButton.getStyleClass().add("quiz-id");
+
     }
 
 

@@ -60,7 +60,7 @@ public class ChooseTypeOfGameController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
         root.getStyleClass().add("scene-background");
-        Scene scene = new Scene(root, 1280, 1080);
+        Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
