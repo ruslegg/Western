@@ -36,6 +36,7 @@ public class BriefingController{
         stage = (Stage) gameButton.getScene().getWindow();
         Pane root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/game.css");
         stage.setScene(scene);
         if (SettingsController.effects){

@@ -39,7 +39,8 @@ public class LoseMenuController{
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/mainMenu.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
 

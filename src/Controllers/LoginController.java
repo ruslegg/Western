@@ -72,7 +72,9 @@ public class LoginController implements Initializable {
         stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         // Change the current stage.
         GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1280, 720);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
 
@@ -101,6 +103,8 @@ public class LoginController implements Initializable {
                 Pane root;
                 root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
                 Scene scene = new Scene(root);
+                root.getStyleClass().add("scene-background");
+                scene.getStylesheets().add("/css/menu.css");
                 stage.setScene(scene);
                 if (SettingsController.effects){
                     LoginController.soundPlayer.play();
@@ -189,6 +193,8 @@ public class LoginController implements Initializable {
                     Pane root;
                     root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
                     Scene scene = new Scene(root);
+                    root.getStyleClass().add("scene-background");
+                    scene.getStylesheets().add("/css/menu.css");
                     stage.setScene(scene);
                     if (SettingsController.effects){
                         LoginController.soundPlayer.play();

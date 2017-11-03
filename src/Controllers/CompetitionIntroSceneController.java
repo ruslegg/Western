@@ -32,7 +32,8 @@ public class CompetitionIntroSceneController{
         Button root;
         root = FXMLLoader.load(getClass().getResource("/FXML/gameIntro.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/gameIntro.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
     public void toLeaderboard(MouseEvent event) throws  IOException{
@@ -43,7 +44,8 @@ public class CompetitionIntroSceneController{
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/leaderboards.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/leaderboard.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
 
     }
@@ -55,7 +57,8 @@ public class CompetitionIntroSceneController{
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/subjectList.fxml"));
         Scene scene = new Scene(root,1280,1080);
-        scene.getStylesheets().add("/css/subjectList.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
 }
