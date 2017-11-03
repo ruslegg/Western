@@ -75,7 +75,8 @@ public class GameController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/mainMenu.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
     public void checkAnswer(String answer) throws IOException, SQLException {
@@ -102,7 +103,8 @@ public class GameController implements Initializable {
             Pane root;
             root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
             Scene scene = new Scene(root);
-            scene.getStylesheets().add("/css/quizfinished.css");
+        root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/css/menu.css");
             stage.setScene(scene);
         }
 

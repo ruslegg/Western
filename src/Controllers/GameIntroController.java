@@ -33,7 +33,8 @@ public class GameIntroController{
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/briefing.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/briefing.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
 
     }

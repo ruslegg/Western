@@ -64,7 +64,7 @@ public class LeaderboardsController implements Initializable{
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/competitionIntroScene.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/competitionIntroScene.css");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
 

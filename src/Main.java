@@ -9,8 +9,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         try {
             GridPane root = FXMLLoader.load(getClass().getResource("FXML/login.fxml"));
-            Scene scene = new Scene(root,1280, 1080);
-            scene.getStylesheets().add("/css/login.css");
+            Scene scene = new Scene(root,1280, 720);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/css/menu.css");
             primaryStage.setScene(scene);
             primaryStage.show();
 

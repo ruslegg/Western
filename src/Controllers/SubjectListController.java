@@ -86,7 +86,9 @@ public class SubjectListController implements Initializable{
                         e.printStackTrace();
                     }
                     Scene scene = new Scene(root);
-                    scene.getStylesheets().add("/css/competitionIntroScene.css");
+                    root.getStyleClass().add("scene-background");
+                    scene.getStylesheets().add("/css/menu.css");
+
                     stage.setScene(scene);
                 }
             });

@@ -38,7 +38,8 @@ public class MainMenuController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/chooseTypeOfGame.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
     public void toSettings() throws IOException {
@@ -52,7 +53,8 @@ public class MainMenuController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/settings.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/settings.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
     public void quit(){

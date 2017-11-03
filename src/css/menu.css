@@ -1,0 +1,5 @@
+.scene-background{
+    -fx-background-image: url("/assets/background.png");
+    -fx-background-size: 1280px;
+    -fx-background-repeat: no-repeat;
+    }
