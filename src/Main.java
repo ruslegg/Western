@@ -14,14 +14,10 @@ public class Main extends Application {
             scene.getStylesheets().add("/css/menu.css");
             primaryStage.setScene(scene);
             primaryStage.show();
-
         } catch(Exception e) {
             e.printStackTrace();
         }
-
     }
-
-
     public static void main(String[] args) {
         launch(args);
     }
