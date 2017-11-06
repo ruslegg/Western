@@ -112,6 +112,19 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        answerButton1.getStyleClass().add("window-button");
+        answerButton1.getStylesheets().add("/css/menu.css");
+
+        answerButton2.getStyleClass().add("window-button");
+        answerButton2.getStylesheets().add("/css/menu.css");
+
+        answerButton3.getStyleClass().add("window-button");
+        answerButton3.getStylesheets().add("/css/menu.css");
+
+        answerButton4.getStyleClass().add("window-button");
+        answerButton4.getStylesheets().add("/css/menu.css");
+
+
         questions = FXCollections.observableArrayList();
         questionNumber=0;
         correctAnswers=0;
@@ -126,6 +139,7 @@ public class GameController implements Initializable {
         }
         answerButton1.setOnMouseClicked(event -> {
             try {
+                ;
                 checkAnswer(answerButton1.getText());
             } catch (IOException e) {
                 e.printStackTrace();
