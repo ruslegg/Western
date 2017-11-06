@@ -23,6 +23,7 @@
             <Button fx:id="exitButton" mnemonicParsing="false" onMouseClicked="#exit" text="Exit" />
             <Label fx:id="questionNumberLabel" text="Question number" />
             <Label fx:id="clockLabel" text="Time:" />
+            <Label fx:id="timeButton" text="time" />
          </children>
       </HBox>
    </top>

@@ -15,11 +15,10 @@ public class Stopwatch
     }
 
     public void saveTime(double time) {
-        double savedTime = time;
+        savedTime = time;
     }
 
     public double showTime(){
         return savedTime;
     }
-
 }
