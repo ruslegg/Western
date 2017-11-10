@@ -1,3 +1,4 @@
+import Model.TeamLeader;
 import Model.User;
 import data.Serialize;
 import javafx.application.Application;
@@ -14,7 +15,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         try {
             User user = new User("Ruslan Negrei","group4","ITCCOM");
+            TeamLeader teamLeader = new TeamLeader("Catalina Barbulescu","group3","Medialogy",true);
             user.serialize();
+            teamLeader.serialize();
             Serialize.deserialize();
             Font.loadFont(getClass().getResourceAsStream("/assets/Western.otf"), 20);
             GridPane root = FXMLLoader.load(getClass().getResource("FXML/login.fxml"));

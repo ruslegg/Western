@@ -4,6 +4,8 @@ import Model.Question;
 import includes.MYSQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -24,6 +28,8 @@ import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
     Stage stage;
+    Pane root = new Pane();
+    Scene scene = new Scene(root);
     @FXML
     Button answerButton1,answerButton2,answerButton3,answerButton4,doorButton,exitButton;
     @FXML
@@ -38,6 +44,9 @@ public class GameController implements Initializable {
 
 
     public static String fieldString = "";
+
+    public GameController() throws IOException {
+    }
 
     public void newQuestion() throws SQLException, IOException {
         if(questionNumber==questions.size()){
@@ -71,8 +80,7 @@ public class GameController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
         Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/css/menu.css");
+        scene.getStylesheets().add("/css/mainMenu.css");
         stage.setScene(scene);
     }
     public void checkAnswer(String answer) throws IOException, SQLException {
@@ -99,14 +107,25 @@ public class GameController implements Initializable {
             Pane root;
             root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
             Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-            scene.getStylesheets().add("/css/menu.css");
+            scene.getStylesheets().add("/css/quizfinished.css");
             stage.setScene(scene);
         }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            root=FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        scene=new Scene(root);
+        scene.getStylesheets().add("/css/game.css");
+
+        answerButton1.getStyleClass().add("button1");
+        answerButton2.getStyleClass().add("button1");
+        answerButton3.getStyleClass().add("button1");
+        answerButton4.getStyleClass().add("button1");
 
         questions = FXCollections.observableArrayList();
         questionNumber=0;

@@ -26,13 +26,9 @@ public class BriefingController{
 
 
     public void toGame(MouseEvent event) throws IOException, InterruptedException {
-        System.out.println("Check");
         stage = (Stage) gameButton.getScene().getWindow();
-        Pane root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/css/game.css");
-        stage.setScene(scene);
+        GameController gameController = new GameController();
+        stage.setScene(gameController.scene);
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
