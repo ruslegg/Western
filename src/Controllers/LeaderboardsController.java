@@ -1,8 +1,6 @@
 package Controllers;
 
 import Model.Person;
-import Model.Question;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import includes.MYSQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
