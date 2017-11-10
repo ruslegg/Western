@@ -14,8 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         try {
             User user = new User("Ruslan Negrei","group4","ITCCOM");
-            Serialize.serialize(user);
-            Serialize.serialize(user);
+            user.serialize();
             Serialize.deserialize();
             Font.loadFont(getClass().getResourceAsStream("/assets/Western.otf"), 20);
             GridPane root = FXMLLoader.load(getClass().getResource("FXML/login.fxml"));

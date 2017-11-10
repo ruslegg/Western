@@ -13,15 +13,15 @@ public class Serialize {
 
     public static void serialize(Object o) throws IOException {
         if (o instanceof User){
-            Writer wr = new FileWriter("src/data/users/user.txt",true);
-            BufferedWriter bw = new BufferedWriter(wr);
-            bw.write(((User) o).getName());
-            bw.write(" ");
-            bw.write(((User) o).getClassNumber());
-            bw.write(" ");
-            bw.write(((User) o).getTeam());
-            bw.newLine();
-            bw.close();
+//            Writer wr = new FileWriter("src/data/users/user.txt",true);
+//            BufferedWriter bw = new BufferedWriter(wr);
+//            bw.write(((User) o).getName());
+//            bw.write(" ");
+//            bw.write(((User) o).getClassNumber());
+//            bw.write(" ");
+//            bw.write(((User) o).getTeam());
+//            bw.newLine();
+//            bw.close();
 
         }
     }

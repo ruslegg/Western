@@ -20,6 +20,18 @@ public class User implements Serializable {
     }
 
 
+    public void serialize() throws IOException {
+        Writer wr = new FileWriter("src/data/users/user.txt",true);
+        BufferedWriter bw = new BufferedWriter(wr);
+        bw.write(name);
+        bw.write(" ");
+        bw.write(classNumber);
+        bw.write(" ");
+        bw.write(team);
+        bw.newLine();
+        bw.close();
+    }
+
     public String getName() {
         return name;
     }

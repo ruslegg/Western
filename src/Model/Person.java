@@ -1,5 +1,9 @@
 package Model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.Writer;
+
 public class Person {
     public String name,score,field;
     public int rank,time;
@@ -13,4 +17,5 @@ public class Person {
         this.rank = rank;
         this.name= name;
     }
+
 }
