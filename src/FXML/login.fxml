@@ -13,10 +13,10 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
   <children>
-    <TextField fx:id="username" promptText="username" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-    <PasswordField fx:id="password" prefWidth="200.0" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <TextField fx:id="username" maxWidth="-Infinity" prefWidth="200.0" promptText="username" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+    <PasswordField fx:id="password" maxWidth="-Infinity" prefWidth="200.0" promptText="password" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
     <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#checkCredentials" text="Login" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
       <GridPane.margin>
         <Insets top="20.0" />
