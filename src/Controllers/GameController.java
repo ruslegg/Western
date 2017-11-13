@@ -1,7 +1,6 @@
 package Controllers;
 
 import Model.Question;
-import Model.Stopwatch;
 import includes.MYSQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.lang.System;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -26,33 +24,37 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 
 public class GameController implements Initializable {
     Stage stage;
+    Pane root = new Pane();
+    Scene scene = new Scene(root);
     @FXML
-    Button answerButton1, answerButton2, answerButton3, answerButton4, doorButton, exitButton;
+    Button answerButton1,answerButton2,answerButton3,answerButton4,doorButton,exitButton;
     @FXML
-    Label answerLabel1, answerLabel2, answerLabel3, answerLabel4, questionNumberLabel, clockLabel, questionLabel;
+    Label answerLabel1,answerLabel2,answerLabel3,answerLabel4,questionNumberLabel,clockLabel,questionLabel;
     @FXML
     ImageView questionPersonImage;
     ObservableList<Question> questions = FXCollections.observableArrayList();
     int questionNumber = 0;
     int correctAnswers = 0;
     Question question = new Question();
-    Stopwatch timer = new Stopwatch();
-    double timeToLeaderboards = 0;
-    boolean stopWatchStarted = false;
+
+
 
     public static String fieldString = "";
 
+    public GameController() throws IOException {
+    }
+
     public void newQuestion() throws SQLException, IOException {
-        if (questionNumber == questions.size()) {
-            QuizFinishedController.numberOfQuestions = questions.size();
-            QuizFinishedController.correctAnswers = correctAnswers;
+        if(questionNumber==questions.size()){
+            QuizFinishedController.numberOfQuestions=questions.size();
+            QuizFinishedController.correctAnswers=correctAnswers;
             results();
-        } else {
+        }
+        else {
             question = questions.get(questionNumber);
             questionNumberLabel.setText("Question number: " + String.valueOf(questionNumber + 1));
             questionLabel.setText("Question: " + question.getQuestion());
@@ -62,16 +64,6 @@ public class GameController implements Initializable {
             answerButton4.setText(question.getAnswer4());
         }
     }
-
-    public void time() throws IOException
-    {
-        if (stopWatchStarted)
-        {
-            clockLabel.setText(String.valueOf(timer.elapsedTime()));
-            timer.saveTime(timer.elapsedTime());
-        }
-    }
-
     public void dead() throws IOException {
         stage = (Stage) answerButton1.getScene().getWindow();
         Pane root;
@@ -80,81 +72,65 @@ public class GameController implements Initializable {
         scene.getStylesheets().add("/css/loseMenu.css");
         stage.setScene(scene);
     }
-
-    public void exit() throws IOException {
-        if (SettingsController.effects) {
+    public void exit() throws  IOException {
+        if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
         stage = (Stage) exitButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
         Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/css/menu.css");
+        scene.getStylesheets().add("/css/mainMenu.css");
         stage.setScene(scene);
     }
-
     public void checkAnswer(String answer) throws IOException, SQLException {
-        if (SettingsController.effects) {
+        if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
-        if (answer.equals(question.getCorrectAnswer())) {
+        if (answer.equals(question.getCorrectAnswer())){
             questionNumber++;
             correctAnswers++;
             newQuestion();
             System.out.println("correct");
-        } else {
+        }
+        else{
             questionNumber++;
             newQuestion();
             System.out.println("incorrect");
         }
     }
-
     public void results() throws IOException {
-        if (SettingsController.effects) {
+        if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
-
-        timeToLeaderboards = timer.showTime();
-        stage = (Stage) exitButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/css/menu.css");
-        stage.setScene(scene);
-    }
+            stage = (Stage) exitButton.getScene().getWindow();
+            Pane root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/css/quizfinished.css");
+            stage.setScene(scene);
+        }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (!stopWatchStarted) {
-            stopWatchStarted = true;
-
-            try {
-                time();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            root=FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        answerButton1.getStyleClass().add("window-button");
-        answerButton1.getStylesheets().add("/css/menu.css");
+        scene=new Scene(root);
+        scene.getStylesheets().add("/css/game.css");
 
-        answerButton2.getStyleClass().add("window-button");
-        answerButton2.getStylesheets().add("/css/menu.css");
-
-        answerButton3.getStyleClass().add("window-button");
-        answerButton3.getStylesheets().add("/css/menu.css");
-
-        answerButton4.getStyleClass().add("window-button");
-        answerButton4.getStylesheets().add("/css/menu.css");
-
+        answerButton1.getStyleClass().add("button1");
+        answerButton2.getStyleClass().add("button1");
+        answerButton3.getStyleClass().add("button1");
+        answerButton4.getStyleClass().add("button1");
 
         questions = FXCollections.observableArrayList();
-        questionNumber = 0;
-        correctAnswers = 0;
-        question = new Question();
-
+        questionNumber=0;
+        correctAnswers=0;
+        question=new Question();
         try {
             getQuestions();
             newQuestion();
@@ -165,7 +141,6 @@ public class GameController implements Initializable {
         }
         answerButton1.setOnMouseClicked(event -> {
             try {
-                ;
                 checkAnswer(answerButton1.getText());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -202,12 +177,11 @@ public class GameController implements Initializable {
         });
 
     }
-
     public void getQuestions() throws SQLException {
         Connection connHandle = MYSQL.getConnection();
-        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `questions` WHERE `field` = '" + fieldString + "'");
+        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `questions` WHERE `field` = '"+fieldString+"'");
         ResultSet rs = checkUserQuery.executeQuery();
-        while (rs.next()) {
+        while (rs.next()){
             String question = rs.getString("question");
             String answer1 = rs.getString("answer1");
             String answer2 = rs.getString("answer2");
@@ -215,8 +189,9 @@ public class GameController implements Initializable {
             String answer4 = rs.getString("answer4");
             String field = rs.getString("field");
             String correctAnswer = rs.getString("correctAnswer");
-            Question questionObject = new Question(question, answer1, answer2, answer3, answer4, field, correctAnswer);
+            Question questionObject = new Question(question,answer1,answer2,answer3,answer4,field,correctAnswer);
             questions.add(questionObject);
         }
     }
 }
+
