@@ -10,7 +10,7 @@ public class Admin extends User {
     Admin(){
 
     }
-    public Admin(String name,boolean isTeacher){
+    public Admin(String name,boolean isAdmin){
         this.name=name;
         this.isAdmin=isAdmin;
     }
@@ -30,8 +30,8 @@ public class Admin extends User {
         return isAdmin;
     }
 
-    public void setTeacher(boolean teacher) {
-        isAdmin = teacher;
+    public void setTeacher(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
 
