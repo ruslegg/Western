@@ -17,7 +17,7 @@ public class Admin extends User {
 
     @Override
     public void serialize() throws IOException {
-        Writer wr = new FileWriter("src/data/users/user.txt",true);
+        Writer wr = new FileWriter("src/data/users/admin.txt",true);
         BufferedWriter bw = new BufferedWriter(wr);
         bw.write(name);
         bw.write(" ");
