@@ -42,6 +42,7 @@ public class LeaderboardLocal implements Serializable {
 
             for(int i=0; i< leaderboard.size(); i++)
             {leaderboard.get(i).setRank(i+1);}
+
         }
         catch(IOException e){
             //do nothing
