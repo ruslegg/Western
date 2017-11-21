@@ -35,6 +35,10 @@ public class Results implements Serializable{
             BufferedWriter bw = new BufferedWriter(wr);
             bw.write(String.valueOf(userID));
             bw.write(" ");
+            bw.write(name);
+            bw.write(" ");
+            bw.write(teamAbreviation);
+            bw.write(" ");
             bw.write(String.valueOf(type));
             bw.write(" ");
             bw.write(String.valueOf(contestID));
