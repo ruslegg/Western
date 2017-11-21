@@ -5,17 +5,17 @@ public class LeaderboardLocalObject {
     private int rank;
     private String abreviation;
     private String name;
-    private int Score;
+    private int score;
 
-    public LeaderboardLocalObject(int rank, String abreviation, String name, int score) {
-        this.rank = rank;
+    public LeaderboardLocalObject(String abreviation, String name, int score) {
+
         this.abreviation = abreviation;
         this.name = name;
-        Score = score;
+        this.score = score;
     }
 
     public LeaderboardLocalObject() {
-        this(0, "", "", 0);
+        this("", "", 0);
     }
 
     public int getRank() {
@@ -43,10 +43,10 @@ public class LeaderboardLocalObject {
     }
 
     public int getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(int score) {
-        Score = score;
+        score = score;
     }
 }
