@@ -7,21 +7,19 @@ import java.io.*;
 public class Results implements Serializable{
 
     private int userID;
-    private String type;
-    private String subject;
+    private int type;
     private int contestID;
     private int score;
     private double correctAnswerPercent;
 
 
     public Results(){
-        this(0, "", "", 0, 0, 0.0);
+        this(0, 0, 0, 0, 0.0);
     }
 
-    public Results(int userID, String type, String subject, int contestID, int score, double correctAnswerPercent) {
+    public Results(int userID, int type, int contestID, int score, double correctAnswerPercent) {
         this.userID = userID;
         this.type = type;
-        this.subject = subject;
         this.contestID = contestID;
         this.score = score;
         this.correctAnswerPercent = correctAnswerPercent;
@@ -35,9 +33,7 @@ public class Results implements Serializable{
             BufferedWriter bw = new BufferedWriter(wr);
             bw.write(String.valueOf(userID));
             bw.write(" ");
-            bw.write(type);
-            bw.write(" ");
-            bw.write(subject);
+            bw.write(String.valueOf(type));
             bw.write(" ");
             bw.write(String.valueOf(contestID));
             bw.write(" ");
@@ -63,20 +59,12 @@ public class Results implements Serializable{
         this.userID = userID;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
     }
 
     public int getContestID() {
