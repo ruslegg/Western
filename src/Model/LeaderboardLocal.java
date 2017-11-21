@@ -15,7 +15,7 @@ public class LeaderboardLocal implements Serializable {
 
 
     //**Read Student objects and add them to list
-    public static ObservableList<LeaderboardLocalObject> readStudents() {
+    public static ObservableList<LeaderboardLocalObject> readStudents(int constestID) {
         ObservableList<LeaderboardLocalObject> leaderboard = new SortedList<LeaderboardLocalObject>(FXCollections.observableArrayList());
 
         try {
@@ -26,6 +26,8 @@ public class LeaderboardLocal implements Serializable {
 
             while( (s = rd.readLine()) != null) {
                 String[] parts = s.split(" ");
+
+                if()
 
             }
         }
