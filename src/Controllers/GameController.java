@@ -41,8 +41,6 @@ public class GameController implements Initializable {
     int correctAnswers = 0;
     Question question = new Question();
 
-
-
     public static String fieldString = "";
 
     public GameController() throws IOException {

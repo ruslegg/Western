@@ -1,7 +1,5 @@
 package Controllers;
 
-import Model.Stopwatch;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +10,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,7 +28,6 @@ public class QuizFinishedController implements Initializable  {
     public static double correctAnswers=0;
     public static double timePassed=0;
     public static double numberOfQuestions=0;
-    Stopwatch timer2 = new Stopwatch();
 
     public void toLeaderBoard(MouseEvent event) throws IOException{
         if (SettingsController.effects){
@@ -50,7 +46,7 @@ public class QuizFinishedController implements Initializable  {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         answerRateLabel.setText(String.valueOf((double) Math.round(((correctAnswers * 100) / numberOfQuestions) * 100d) / 100d) + "%");
-        timePassed = timer2.showTime();
+        //timePassed = timer2.showTime();
     }
 
     public void restart(MouseEvent event) throws IOException {

@@ -51,12 +51,6 @@ public class LeaderboardsController implements Initializable{
     ObservableList<Person> persons = FXCollections.observableArrayList();
     Person person = new Person();
 
-
-
-
-
-
-
     public void toCompetitionIntro(MouseEvent event) throws IOException{
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;

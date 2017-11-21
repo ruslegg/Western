@@ -1,7 +1,5 @@
 package Model;
 
-import data.Serialize;
-
 import java.io.*;
 
 public class User implements Serializable {

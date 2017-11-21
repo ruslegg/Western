@@ -81,17 +81,17 @@ public class LoginController implements Initializable {
     }
 
     public void checkCredentials(MouseEvent event) throws IOException, SQLException {
-        Connection connHandle = MYSQL.getConnection();
-
-        PreparedStatement checkCredentialsQuery = connHandle.prepareStatement("SELECT `password` FROM `users` WHERE `username` = ? LIMIT 1");
-        checkCredentialsQuery.setString(1, username.getText());
-
-        ResultSet rs = checkCredentialsQuery.executeQuery();
-
-        if(rs.next() && username.getText().length() > 4 && password.getText().length() > 4){
-            String userPassword = rs.getString("password");
-
-            if (BCrypt.checkpw(password.getText(), userPassword)){
+//        Connection connHandle = MYSQL.getConnection();
+//
+//        PreparedStatement checkCredentialsQuery = connHandle.prepareStatement("SELECT `password` FROM `users` WHERE `username` = ? LIMIT 1");
+//        checkCredentialsQuery.setString(1, username.getText());
+//
+//        ResultSet rs = checkCredentialsQuery.executeQuery();
+//
+//        if(rs.next() && username.getText().length() > 4 && password.getText().length() > 4){
+//            String userPassword = rs.getString("password");
+//
+//            if (BCrypt.checkpw(password.getText(), userPassword)){
                 stage = (Stage) loginButton.getScene().getWindow();
                 Pane root;
                 root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
@@ -99,28 +99,28 @@ public class LoginController implements Initializable {
                 root.getStyleClass().add("scene-background");
                 scene.getStylesheets().add("/css/menu.css");
                 stage.setScene(scene);
-                if (SettingsController.effects){
-                    LoginController.soundPlayer.play();
-                }
-                SettingsController.username = username.getText();
-            }
-            else{
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Error #3");
-                alert.setHeaderText("Invalid credentials.");
-                alert.setContentText("Username and password doesn't match.");
-
-                alert.showAndWait();
-            }
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Error #2");
-            alert.setHeaderText("Invalid credentials.");
-            alert.setContentText("This username doesn't exist in our database.");
-
-            alert.showAndWait();
-        }
+//                if (SettingsController.effects){
+//                    LoginController.soundPlayer.play();
+//                }
+//                SettingsController.username = username.getText();
+//            }
+//            else{
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Error #3");
+//                alert.setHeaderText("Invalid credentials.");
+//                alert.setContentText("Username and password doesn't match.");
+//
+//                alert.showAndWait();
+//            }
+//        }
+//        else {
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Error #2");
+//            alert.setHeaderText("Invalid credentials.");
+//            alert.setContentText("This username doesn't exist in our database.");
+//
+//            alert.showAndWait();
+//        }
 
 
 

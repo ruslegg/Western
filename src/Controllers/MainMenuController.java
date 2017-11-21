@@ -20,14 +20,16 @@ public class MainMenuController implements Initializable {
     @FXML
     public Button settingsButton;
     @FXML
+    public Button statisticsButton;
+    @FXML
     public Button quitButton;
     @Override
+
     public void initialize(URL location, ResourceBundle resources) {
 
         startButton.getStyleClass().add("quiz-id");
 
     }
-
 
     public void toTypeOfGame() throws IOException {
         if (SettingsController.effects){
@@ -44,6 +46,7 @@ public class MainMenuController implements Initializable {
         scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
+
     public void toSettings() throws IOException {
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
@@ -59,6 +62,23 @@ public class MainMenuController implements Initializable {
         scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
+
+    public void toStatistics() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
+        stage = (Stage) statisticsButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/statistics.fxml"));
+        Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
+        stage.setScene(scene);
+    }
+
     public void quit(){
         if (SettingsController.effects){
             LoginController.soundPlayer.play();

@@ -14,7 +14,6 @@ public class Results implements Serializable{
     private int score;
     private double correctAnswerPercent;
 
-
     public Results(){
         this(0, "", "", 0, 0, 0, 0.0);
     }
