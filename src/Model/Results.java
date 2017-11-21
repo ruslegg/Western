@@ -109,22 +109,6 @@ public class Results implements Serializable{
         this.correctAnswerPercent = correctAnswerPercent;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
