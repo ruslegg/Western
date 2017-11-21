@@ -7,6 +7,8 @@ import java.io.*;
 public class Results implements Serializable{
 
     private int userID;
+    private String name;
+    private String teamAbreviation;
     private int type;
     private int contestID;
     private int score;
@@ -14,18 +16,18 @@ public class Results implements Serializable{
 
 
     public Results(){
-        this(0, 0, 0, 0, 0.0);
+        this(0, "", "", 0, 0, 0, 0.0);
     }
 
-    public Results(int userID, int type, int contestID, int score, double correctAnswerPercent) {
+    public Results(int userID, String name, String teamAbreviation, int type, int contestID, int score, double correctAnswerPercent) {
         this.userID = userID;
+        this.name = name;
+        this.teamAbreviation = teamAbreviation;
         this.type = type;
         this.contestID = contestID;
         this.score = score;
         this.correctAnswerPercent = correctAnswerPercent;
     }
-
-
 
     public void addResult() throws IOException {
         try{
@@ -50,6 +52,22 @@ public class Results implements Serializable{
 
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTeamAbreviation() {
+        return teamAbreviation;
+    }
+
+    public void setTeamAbreviation(String teamAbreviation) {
+        this.teamAbreviation = teamAbreviation;
+    }
 
     public int getUserID() {
         return userID;

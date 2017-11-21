@@ -1,5 +1,9 @@
 package Model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
+
 import java.io.*;
 import java.util.*;
 import java.io.EOFException;
@@ -9,19 +13,26 @@ public class LeaderboardLocal implements Serializable {
 
 
 
-    //**Opens Students.txt
-    public static void openFile() {
-        try {
-            input = new ObjectInputStream(Files.newInputStream(Paths.get("src/data/users/student.txt")));
-        } catch (IOException ioException) {
-            // System.err.println("Error opening file.");
-        }
-    }
 
-    //**Read Student objects and add them to ArrayList
-    public static ArrayList<Student> readStudents() {
-        ArrayList<Student> leaderboard = new ArrayList<Student>();
-        openFile();
+    //**Read Student objects and add them to list
+    public static ObservableList<LeaderboardLocalObject> readStudents() {
+        ObservableList<LeaderboardLocalObject> leaderboard = new SortedList<LeaderboardLocalObject>(FXCollections.observableArrayList());
+
+        try {
+            FileReader reader = new FileReader("src/data/users/results.txt");
+            BufferedReader rd = new BufferedReader(reader);
+            String s;
+
+
+            while( (s = rd.readLine()) != null) {
+                String[] parts = s.split(" ");
+
+            }
+        }
+        catch(IOException e){
+            //do nothing
+        }
+
 
         try {
             while (true) {
