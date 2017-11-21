@@ -24,31 +24,29 @@ public class LeaderboardLocal implements Serializable {
             String s;
 
 
+
             while( (s = rd.readLine()) != null) {
                 String[] parts = s.split(" ");
 
-                if()
+                if(constestID == Integer.parseInt(parts[5])) {
 
+                    LeaderboardLocalObject local = new LeaderboardLocalObject(parts[3], parts[1] + " " + parts[2], Integer.parseInt(parts[6]));
+                    leaderboard.add(local);
+
+                }
             }
+
+
+            leaderboardSorting(leaderboard);
+
+
+            for(int i=0; i< leaderboard.size(); i++)
+            {leaderboard.get(i).setRank(i+1);}
         }
         catch(IOException e){
             //do nothing
         }
 
-
-        try {
-            while (true) {
-                Student student = (Student) input.readObject();
-                leaderboard.add(student);
-            }
-        } catch (EOFException endOfFileException) {
-            //System.out.printf("No more records%n");
-        } catch (ClassNotFoundException classNotFoundException) {
-            //System.err.println("Invalid object type. Terminating.");
-        } catch (IOException ioException) {
-            //System.err.println("Error reading from file. Terminating.");
-        }
-        closeFile();
 
         return leaderboard;
     }
@@ -59,12 +57,11 @@ public class LeaderboardLocal implements Serializable {
 
 
 
-    public static ArrayList<Student> leaderboardSorting(ArrayList<Student> leadeboard) {
+    public static void leaderboardSorting(ObservableList<LeaderboardLocalObject> leadeboard) {
         Collections.sort(leadeboard, (o1, o2) -> o1.getScore() - o2.getScore());
         Collections.reverse(leadeboard);
 
 
-        return leadeboard;
     }
 
 
