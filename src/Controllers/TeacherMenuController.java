@@ -23,7 +23,7 @@ public class TeacherMenuController implements Initializable {
     @FXML
     public Button settingsButton;
     @FXML
-    public Button exitButton;
+    private Button exitButton;
     @FXML
     public Button competitionButton;
     @FXML
