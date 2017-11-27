@@ -43,7 +43,7 @@ public class StatisticsController implements Initializable{
         result.addResult();
         result1.addResult();
 
-        Scanner scan = new Scanner(new File ("src/data/users/results.txt"));
+        Scanner scan = new Scanner(new File ("src/data/attributes/results.txt"));
 
         while (scan.hasNextLine())
         {
