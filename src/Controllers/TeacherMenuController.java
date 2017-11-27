@@ -23,13 +23,15 @@ public class TeacherMenuController implements Initializable {
     @FXML
     public Button settingsButton;
     @FXML
-    private Button exitButton;
+    public Button exitButton;
     @FXML
     public Button competitionButton;
     @FXML
     public Button contestButton;
     @FXML
     public Button classButton;
+    @FXML
+    public Button backButton;
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -37,7 +39,6 @@ public class TeacherMenuController implements Initializable {
 
 
     public void toCreateMenu() throws IOException{
-
 
         stage = (Stage) createButton.getScene().getWindow();
         Pane root;
@@ -65,9 +66,6 @@ public class TeacherMenuController implements Initializable {
         if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
-        if (SettingsController.effects) {
-            LoginController.soundPlayer.play();
-        }
         stage = (Stage) settingsButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/settings.fxml"));
@@ -83,7 +81,7 @@ public class TeacherMenuController implements Initializable {
         }
         stage = (Stage) exitButton.getScene().getWindow();
         Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/teacherMenu.fxml"));
         root.getStyleClass().add("scene-background");
         Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
@@ -91,6 +89,9 @@ public class TeacherMenuController implements Initializable {
         stage.setScene(scene);
         System.out.println("Back");
 
+    }
+    public void quit(){
+        System.exit(0);
     }
 }
 

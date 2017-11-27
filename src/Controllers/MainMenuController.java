@@ -80,9 +80,6 @@ public class MainMenuController implements Initializable {
     }
 
     public void quit(){
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
         System.exit(0);
     }
 
