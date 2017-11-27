@@ -2,32 +2,30 @@ package Model;
 
 import java.io.*;
 
-public class User implements Serializable {
+abstract public class User implements Serializable {
+    String id;
     String name;
-    String team;
-    String classNumber;
+    String username;
+    String password;
 
     public User() {
 
     }
+    public abstract void serialize() throws IOException;
 
-    public User(String name, String team, String classNumber) {
+    public User(String id, String name, String username, String password) {
+        this.id = id;
         this.name = name;
-        this.team = team;
-        this.classNumber = classNumber;
+        this.username = username;
+        this.password = password;
     }
 
+    public String getId() {
+        return id;
+    }
 
-    public void serialize() throws IOException {
-        Writer wr = new FileWriter("src/data/users/user.txt",true);
-        BufferedWriter bw = new BufferedWriter(wr);
-        bw.write(name);
-        bw.write(" ");
-        bw.write(classNumber);
-        bw.write(" ");
-        bw.write(team);
-        bw.newLine();
-        bw.close();
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -38,19 +36,19 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getTeam() {
-        return team;
+    public String getUsername() {
+        return username;
     }
 
-    public void setTeam(String team) {
-        this.team = team;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getClassNumber() {
-        return classNumber;
+    public String getPassword() {
+        return password;
     }
 
-    public void setClassNumber(String classNumber) {
-        this.classNumber = classNumber;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

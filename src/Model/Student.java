@@ -3,60 +3,41 @@ package Model;
 import java.io.*;
 
 public class Student extends User {
-    String name;
     String team;
-    String classNumber;
-    String score;
+    String schoolClass;
 
 
     public Student() {
 
+
     }
 
-    public Student(String name, String team, String classNumber, String score) {
-        this.name = name;
+    public Student(String id, String name, String username, String password, String schoolClass,String team) {
+        super(id, name, username, password);
         this.team = team;
-        this.classNumber = classNumber;
-        this.score = score;
+        this.schoolClass = schoolClass;
     }
 
     @Override
     public void serialize() throws IOException {
-        Writer wr = new FileWriter("src/data/users/student.txt", true);
+        Writer wr = new FileWriter("src/data/users/students.txt",true);
         BufferedWriter bw = new BufferedWriter(wr);
+        bw.write(id);
+        bw.write(" ");
         bw.write(name);
         bw.write(" ");
-        bw.write(classNumber);
+        bw.write(username);
+        bw.write(" ");
+        bw.write(password);
+        bw.write(" ");
+        bw.write(schoolClass);
         bw.write(" ");
         bw.write(team);
+        bw.write(" ");
         bw.newLine();
         bw.close();
     }
 
-    public String getScore() {
-        return score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-
-    public String getTeam() {
-        return team;
-    }
-
-    public void setTeam(String team){
-        this.team = team;
-    }
-
-    public String getClassNumber() {
-        return classNumber;
-    }
-
-    public void setClassNumber(String classNumber) {
-        this.classNumber = classNumber;
-    }
 
 
 }

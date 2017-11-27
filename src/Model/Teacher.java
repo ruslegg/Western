@@ -6,33 +6,30 @@ import java.io.IOException;
 import java.io.Writer;
 
 public class Teacher extends User {
-    boolean isTeacher;
-    Teacher(){
+
+    public Teacher() {
 
     }
-    public Teacher(String name,boolean isTeacher){
-        this.name=name;
-        this.isTeacher=isTeacher;
+
+    public Teacher(String id, String name, String username, String password) {
+        super(id, name, username, password);
     }
 
     @Override
     public void serialize() throws IOException {
-        Writer wr = new FileWriter("src/data/users/teacher.txt",true);
+        Writer wr = new FileWriter("src/data/requests/teachers.txt",true);
         BufferedWriter bw = new BufferedWriter(wr);
+        bw.write(id);
+        bw.write(" ");
         bw.write(name);
         bw.write(" ");
-        bw.write(String.valueOf(isTeacher));
+        bw.write(username);
+        bw.write(" ");
+        bw.write(password);
+        bw.write(" ");
+
         bw.newLine();
         bw.close();
     }
-
-    public boolean isTeacher() {
-        return isTeacher;
-    }
-
-    public void setTeacher(boolean teacher) {
-        isTeacher = teacher;
-    }
-
 
 }

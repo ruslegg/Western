@@ -19,7 +19,7 @@ public class LeaderboardLocal implements Serializable {
         ObservableList<LeaderboardLocalObject> leaderboard = new SortedList<LeaderboardLocalObject>(FXCollections.observableArrayList());
 
         try {
-            FileReader reader = new FileReader("src/data/users/results.txt");
+            FileReader reader = new FileReader("src/data/attributes/results.txt");
             BufferedReader rd = new BufferedReader(reader);
             String s;
 

@@ -30,7 +30,7 @@ public class Results implements Serializable{
 
     public void addResult() throws IOException {
         try{
-            FileWriter wr = new FileWriter("src/data/users/results.txt",true);
+            FileWriter wr = new FileWriter("src/data/attributes/results.txt",true);
             BufferedWriter bw = new BufferedWriter(wr);
             bw.write(String.valueOf(userID));
             bw.write(" ");
