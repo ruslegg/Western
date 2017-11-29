@@ -13,10 +13,16 @@ public class Results implements Serializable{
     private int contestID;
     private int score;
     private double correctAnswerPercent;
+    private int numberOfUsers;
 
     public Results(){
 
     }
+    public Results(String name, int numberOfUsers){
+        this.name=name;
+        this.numberOfUsers=numberOfUsers;
+    }
+
 
     public Results(int userID, String name, String teamAbreviation, int type, int contestID, int score, double correctAnswerPercent) {
         this.userID = userID;

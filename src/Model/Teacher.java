@@ -27,7 +27,6 @@ public class Teacher extends User {
         bw.write(" ");
         bw.write(password);
         bw.write(" ");
-
         bw.newLine();
         bw.close();
     }

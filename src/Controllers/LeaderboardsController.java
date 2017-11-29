@@ -61,6 +61,7 @@ public class LeaderboardsController implements Initializable{
         stage.setScene(scene);
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {

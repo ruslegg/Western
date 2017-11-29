@@ -27,6 +27,7 @@ public class GenerateQuestionsController implements Initializable {
     private static String subject;
     private static int quizType;
     private static DatePicker fromDatePicker,toDatePicker;
+    private static String teacherID;
     int questionNumber=1;
     String correctAnswer;
     int competitionId=0;
@@ -52,13 +53,13 @@ public class GenerateQuestionsController implements Initializable {
         questionNumberLabel.setText("Question #" + questionNumber);
 
         if (quizType == 0) {
-            Question question = new Question(String.valueOf(quizType),String.valueOf(competitionId+1),questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),getClassList().toString());
+            Question question = new Question(String.valueOf(quizType),String.valueOf(competitionId+1),teacherID,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),getClassList().toString());
             question.serialize();
         }
         else{
             String fromDateString=fromDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             String toDateString = toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            Question question = new Question(String.valueOf(quizType),String.valueOf(contestId+1),questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer,getSubject(),getClassList().toString(),fromDateString,toDateString);
+            Question question = new Question(String.valueOf(quizType),String.valueOf(contestId+1),teacherID,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer,getSubject(),getClassList().toString(),fromDateString,toDateString);
             question.serialize();
         }
         correct1.setSelected(false);
@@ -78,13 +79,13 @@ public class GenerateQuestionsController implements Initializable {
         }
         else {
             if (quizType == 0) {
-                Question question = new Question(String.valueOf(quizType),String.valueOf(competitionId+1),questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),getClassList().toString());
+                Question question = new Question(String.valueOf(quizType),String.valueOf(competitionId+1),teacherID,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),getClassList().toString());
                 question.serialize();
             }
             else{
                 String fromDateString=fromDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
                 String toDateString = toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                Question question = new Question(String.valueOf(quizType),String.valueOf(contestId+1),questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer,getSubject(),getClassList().toString(),fromDateString,toDateString);
+                Question question = new Question(String.valueOf(quizType),String.valueOf(contestId+1),teacherID,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer,getSubject(),getClassList().toString(),fromDateString,toDateString);
                 question.serialize();
             }
         }
@@ -253,6 +254,11 @@ public class GenerateQuestionsController implements Initializable {
         GenerateQuestionsController.toDatePicker = toDatePicker;
     }
 
+    public static String getTeacherID() {
+        return teacherID;
+    }
 
-
+    public static void setTeacherID(String teacherID) {
+        GenerateQuestionsController.teacherID = teacherID;
+    }
 }

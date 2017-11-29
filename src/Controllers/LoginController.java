@@ -57,6 +57,8 @@ public class LoginController implements Initializable {
     static Media musicMedia = new Media(musicSource);
     static MediaPlayer musicPlayer = new MediaPlayer(musicMedia);
     public static final AudioClip soundPlayer = new AudioClip(AudioPlayer.class.getResource("/assets/press.mp3").toString());
+    public int userID;
+    public int menuID;
 
 
 
@@ -100,6 +102,7 @@ public class LoginController implements Initializable {
             if (usernameCheck.equals(username.getText())) {
                 userPassword = line.split("\\s")[4];
                 foundUser = true;
+                menuID=0;
                 break;
             }
 
@@ -110,6 +113,8 @@ public class LoginController implements Initializable {
                 usernameCheck = line.split("\\s")[3];
                 if (usernameCheck.equals(username.getText())) {
                     userPassword = line.split("\\s")[4];
+                    userID=Integer.valueOf(line.split("\\s")[0]);
+                    menuID=1;
                     foundUser = true;
                     break;
                 }
@@ -122,15 +127,19 @@ public class LoginController implements Initializable {
                 if (usernameCheck.equals(username.getText())) {
                     userPassword = line.split("\\s")[4];
                     foundUser = true;
+                    menuID=2;
                     break;
                 }
             }
         }
         if(foundUser) {
             if (BCrypt.checkpw(password.getText(), userPassword)) {
+                Pane root=new Pane();
+                if (menuID==0){root = FXMLLoader.load(getClass().getResource("/FXML/studentMainMenu.fxml"));}
+                else if(menuID==1){root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
+                }else if(menuID==2){root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));}
+                GenerateQuestionsController.setTeacherID(String.valueOf(userID));
                 stage = (Stage) loginButton.getScene().getWindow();
-                Pane root;
-                root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
                 Scene scene = new Scene(root);
                 root.getStyleClass().add("scene-background");
                 scene.getStylesheets().add("/css/menu.css");
