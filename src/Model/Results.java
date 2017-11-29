@@ -15,7 +15,7 @@ public class Results implements Serializable{
     private double correctAnswerPercent;
 
     public Results(){
-        this(0, "", "", 0, 0, 0, 0.0);
+
     }
 
     public Results(int userID, String name, String teamAbreviation, int type, int contestID, int score, double correctAnswerPercent) {
@@ -27,7 +27,6 @@ public class Results implements Serializable{
         this.score = score;
         this.correctAnswerPercent = correctAnswerPercent;
     }
-
     public void addResult() throws IOException {
         try{
             FileWriter wr = new FileWriter("src/data/attributes/results.txt",true);
@@ -62,54 +61,6 @@ public class Results implements Serializable{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getTeamAbreviation() {
-        return teamAbreviation;
-    }
-
-    public void setTeamAbreviation(String teamAbreviation) {
-        this.teamAbreviation = teamAbreviation;
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    public int getContestID() {
-        return contestID;
-    }
-
-    public void setContestID(int contestID) {
-        this.contestID = contestID;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public double getCorrectAnswerPercent() {
-        return correctAnswerPercent;
-    }
-
-    public void setCorrectAnswerPercent(double correctAnswerPercent) {
-        this.correctAnswerPercent = correctAnswerPercent;
     }
 
 }

@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -10,7 +11,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         try {
             Font.loadFont(getClass().getResourceAsStream("/assets/Western.otf"), 20);
-            GridPane root = FXMLLoader.load(getClass().getResource("FXML/login.fxml"));
+            VBox root = FXMLLoader.load(getClass().getResource("FXML/generateQuiz.fxml"));
             Scene scene = new Scene(root,1280, 720);
             root.getStyleClass().add("scene-background");
             scene.getStylesheets().add("/css/menu.css");
