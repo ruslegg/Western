@@ -1,2 +1,5 @@
 1 Ruslan Negrei admin $2a$10$wMStki5IEdJluOkyXhYj0eNnmGpjvymnNp7frxcZ.R3BRUdGZq9Ki 
 1 Ruslan Negrei admin $2a$10$YA.Rtg59RBGx3zswVtgUVe6sL6ZOFKxJqpw1E8d/MzikELM9fp5Ya 
+1 Catalina Barbulescu catalinabarbulescu $2a$10$TeNMX0wYruV6/l39wq7HPOB4oPtBlbM/zpAgCUBGvreR0ZJFG/2ba 
+1 Catalina Barbulescu catalinabarbulescu $2a$10$U4aYNtPASJnkequnVlCB2eijqTO5W6.Y7n.nXcY6tjU6iuz8aB6kK 
+1 catalina barbulescu catalinabarbulescu $2a$10$h5uedyLKtxD7n0g3.FJIr.1s7mHPi6GdNeqmv9DF7hsArq5fYy9.i 

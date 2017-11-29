@@ -1,1 +1,2 @@
 1 Ruslan Negrei ruslegg $2a$10$Ncj60KFoP.8KgSr84WIbmeOT9vP0PNmHYsCcmlshutIyrEzEzeHKm 7A
+2 catalina barbulescu catalina $2a$10$kE8nmVEEiXpuSTCF9O4/y.FGNCv9BJDIBhKTur54YdgLJP.TrOfYK 6D  

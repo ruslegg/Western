@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<fx:root maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticsController">
+    <children>
+        <TableView fx:id="competitionTableView" layoutX="30.0" layoutY="70.0" prefHeight="350.0" prefWidth="600.0">
+         <columns>
+            <TableColumn fx:id="naameCompetitionSubject" prefWidth="290.0" text="Name" />
+            <TableColumn fx:id="nrOfStudents" prefWidth="309.0" text="Number" />
+         </columns></TableView>
+        <TableView fx:id="contestantsTableView" layoutX="650.0" layoutY="70.0" prefHeight="350.0" prefWidth="600.0">
+         <columns>
+            <TableColumn fx:id="nameOfContests" prefWidth="271.0" text="Name" />
+            <TableColumn prefWidth="328.0" text="Number" />
+         </columns></TableView>
+        <Label fx:id="competitionButton" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="30.0" prefHeight="30.0" prefWidth="100.0" text="Competition" />
+        <Label fx:id="contestsButton" alignment="CENTER" layoutX="880.0" layoutY="30.0" prefHeight="30.0" prefWidth="100.0" text="Contests" />
+        <Button fx:id="backButton" layoutX="584.0" layoutY="637.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="Back" />
+        <LineChart fx:id="lineChart" layoutX="9.0" layoutY="420.0" prefHeight="197.0" prefWidth="1241.0" title="ClassChart">
+            <xAxis>
+                <CategoryAxis endMargin="0.0" gapStartAndEnd="false" side="LEFT" startMargin="0.0" tickLabelsVisible="false" tickMarkVisible="false" fx:id="x" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="y" side="LEFT" upperBound="90.0" />
+            </yAxis>
+        </LineChart>
+    </children>
+</fx:root>
