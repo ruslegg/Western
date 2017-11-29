@@ -176,20 +176,20 @@ public class GameController implements Initializable {
 
     }
     public void getQuestions() throws SQLException {
-        Connection connHandle = MYSQL.getConnection();
-        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `questions` WHERE `field` = '"+fieldString+"'");
-        ResultSet rs = checkUserQuery.executeQuery();
-        while (rs.next()){
-            String question = rs.getString("question");
-            String answer1 = rs.getString("answer1");
-            String answer2 = rs.getString("answer2");
-            String answer3 = rs.getString("answer3");
-            String answer4 = rs.getString("answer4");
-            String field = rs.getString("field");
-            String correctAnswer = rs.getString("correctAnswer");
-            Question questionObject = new Question(question,answer1,answer2,answer3,answer4,field,correctAnswer);
-            questions.add(questionObject);
-        }
+//        Connection connHandle = MYSQL.getConnection();
+//        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `questions` WHERE `field` = '"+fieldString+"'");
+//        ResultSet rs = checkUserQuery.executeQuery();
+//        while (rs.next()){
+//            String question = rs.getString("question");
+//            String answer1 = rs.getString("answer1");
+//            String answer2 = rs.getString("answer2");
+//            String answer3 = rs.getString("answer3");
+//            String answer4 = rs.getString("answer4");
+//            String field = rs.getString("field");
+//            String correctAnswer = rs.getString("correctAnswer");
+//            Question questionObject = new Question(question,answer1,answer2,answer3,answer4,field,correctAnswer);
+//            questions.add(questionObject);
+//        }
     }
 }
 
