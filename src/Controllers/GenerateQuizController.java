@@ -57,6 +57,7 @@ public class GenerateQuizController implements Initializable{
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        //Displaying all the available classes
         while (classScanner.hasNextLine()) {
             String temp = classScanner.next();
             if (classList.isEmpty()) {

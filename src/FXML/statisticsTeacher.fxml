@@ -26,7 +26,7 @@
          </columns></TableView>
         <Label fx:id="competitionButton" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="30.0" prefHeight="30.0" prefWidth="100.0" text="Competition" />
         <Label fx:id="contestsButton" alignment="CENTER" layoutX="880.0" layoutY="30.0" prefHeight="30.0" prefWidth="100.0" text="Contests" />
-        <Button fx:id="backButton" layoutX="584.0" layoutY="637.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="Back" />
+        <Button fx:id="backButton" layoutX="584.0" layoutY="630.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="Back" />
         <LineChart fx:id="lineChart" layoutX="9.0" layoutY="420.0" prefHeight="197.0" prefWidth="1241.0" title="ClassChart">
             <xAxis>
                 <CategoryAxis endMargin="0.0" gapStartAndEnd="false" side="LEFT" startMargin="0.0" tickLabelsVisible="false" tickMarkVisible="false" fx:id="x" />
