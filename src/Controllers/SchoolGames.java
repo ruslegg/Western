@@ -24,7 +24,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class SubjectListController implements Initializable{
+public class SchoolGames implements Initializable{
 
     Stage stage;
     @FXML

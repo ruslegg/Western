@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,12 +43,13 @@ public class StatisticsTeachersController implements Initializable {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) backButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        VBox root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
         Scene scene = new Scene(root,1280,720);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
+
     }
 
 }

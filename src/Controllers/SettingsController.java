@@ -75,14 +75,32 @@ public class SettingsController implements Initializable {
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
-        stage = (Stage) backButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        Scene scene = new Scene(root,1280,720);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/css/menu.css");
-        stage.setScene(scene);
-
+        if (LoginController.menuID==0) {
+            stage = (Stage) backButton.getScene().getWindow();
+            Pane root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+            Scene scene = new Scene(root, 1280, 720);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/css/menu.css");
+            stage.setScene(scene);
+        }
+        else if(LoginController.menuID==1){
+            stage = (Stage) backButton.getScene().getWindow();
+            Pane root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
+            Scene scene = new Scene(root, 1280, 720);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/css/menu.css");
+            stage.setScene(scene);
+        } else if (LoginController.menuID==2){
+            stage = (Stage) backButton.getScene().getWindow();
+            Pane root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));
+            Scene scene = new Scene(root, 1280, 720);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/css/menu.css");
+            stage.setScene(scene);
+        }
     }
 
 

@@ -58,7 +58,7 @@ public class LoginController implements Initializable {
     static MediaPlayer musicPlayer = new MediaPlayer(musicMedia);
     public static final AudioClip soundPlayer = new AudioClip(AudioPlayer.class.getResource("/assets/press.mp3").toString());
     public int userID;
-    public int menuID;
+    public static int menuID;
 
 
 
@@ -135,7 +135,7 @@ public class LoginController implements Initializable {
         if(foundUser) {
             if (BCrypt.checkpw(password.getText(), userPassword)) {
                 Pane root=new Pane();
-                if (menuID==0){root = FXMLLoader.load(getClass().getResource("/FXML/studentMainMenu.fxml"));}
+                if (menuID==0){root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));}
                 else if(menuID==1){root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
                 }else if(menuID==2){root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));}
                 GenerateQuestionsController.setTeacherID(String.valueOf(userID));

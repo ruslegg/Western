@@ -9,30 +9,31 @@ public class Results implements Serializable{
     private int userID;
     private String name;
     private String teamAbreviation;
+    private int teacherID;
     private int type;
     private int contestID;
     private int score;
     private double correctAnswerPercent;
-    private int numberOfUsers;
 
     public Results(){
 
     }
-    public Results(String name, int numberOfUsers){
+    public Results(String name){
         this.name=name;
-        this.numberOfUsers=numberOfUsers;
     }
 
 
-    public Results(int userID, String name, String teamAbreviation, int type, int contestID, int score, double correctAnswerPercent) {
+    public Results(int userID, String name, String teamAbreviation, int teacherID, int type, int contestID, int score, double correctAnswerPercent) {
         this.userID = userID;
         this.name = name;
         this.teamAbreviation = teamAbreviation;
+        this.teacherID = teacherID;
         this.type = type;
         this.contestID = contestID;
         this.score = score;
         this.correctAnswerPercent = correctAnswerPercent;
     }
+
     public void addResult() throws IOException {
         try{
             FileWriter wr = new FileWriter("src/data/attributes/results.txt",true);
@@ -42,6 +43,8 @@ public class Results implements Serializable{
             bw.write(name);
             bw.write(" ");
             bw.write(teamAbreviation);
+            bw.write(" ");
+            bw.write(String.valueOf(teacherID));
             bw.write(" ");
             bw.write(String.valueOf(type));
             bw.write(" ");

@@ -36,11 +36,11 @@ public class StatisticsController implements Initializable{
     ArrayList<Double> list = new ArrayList();
 
     public void addResult() throws IOException {
-        Results result = new Results(1, "name", "bla", 2, 3, 4, 5);
-        Results result1 = new Results(1, "name", "bla", 2, 3, 4, 6);
-
-        result.addResult();
-        result1.addResult();
+//        Results result = new Results(1, "name", "bla", 2, 3, 4, 5);
+//        Results result1 = new Results(1, "name", "bla", 2, 3, 4, 6);
+//
+//        result.addResult();
+//        result1.addResult();
 
         Scanner scan = new Scanner(new File ("src/data/attributes/results.txt"));
 

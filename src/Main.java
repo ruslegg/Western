@@ -11,7 +11,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         try {
             Font.loadFont(getClass().getResourceAsStream("/assets/Western.otf"), 20);
-            VBox root = FXMLLoader.load(getClass().getResource("FXML/teacherMenu.fxml"));
+            GridPane root = FXMLLoader.load(getClass().getResource("FXML/login.fxml"));
             Scene scene = new Scene(root,1280, 720);
             root.getStyleClass().add("scene-background");
             scene.getStylesheets().add("/css/menu.css");

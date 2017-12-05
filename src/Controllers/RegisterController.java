@@ -1,5 +1,4 @@
 package Controllers;
-
 import Model.Student;
 import Model.Teacher;
 import javafx.beans.value.ChangeListener;
@@ -17,20 +16,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
-
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-
 public class RegisterController implements Initializable {
-
-
-
-
     private Stage stage;
     public static boolean isTeacher = false;
+    public boolean inRequest=false;
     ObservableList<String> classList = FXCollections.observableArrayList();
     ObservableList<String> classLetterList = FXCollections.observableArrayList();
 
@@ -44,21 +38,6 @@ public class RegisterController implements Initializable {
     private ComboBox classLetterComboBox;
     @FXML
     private Button signUpButton;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         classLetterComboBox.setDisable(true);
@@ -117,12 +96,16 @@ public class RegisterController implements Initializable {
     }
 
     public void registerAccount(MouseEvent event) throws IOException, SQLException {
-
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
         boolean usernameExist = false;
         boolean passwordShort = true;
         boolean usernameShort = true;
         Scanner scanner = new Scanner(new File("src/data/users/teachers.txt"));
         Scanner scanner1 = new Scanner(new File("src/data/users/students.txt"));
+        Scanner scanner2 = new Scanner(new File("src/data/users/admins.txt"));
+        Scanner scanner3 = new Scanner(new File("src/data/requests/teachers.txt"));
         String usernameTemp;
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
@@ -142,9 +125,37 @@ public class RegisterController implements Initializable {
                 }
 
             }
+
+        }
+        if(!usernameExist){
+            while(scanner2.hasNextLine()){
+                String line = scanner2.nextLine();
+                usernameTemp = line.split("\\s")[3];
+                if (usernameTemp.equals(username.getText())){
+                    usernameExist=true;
+                    break;
+                }
+            }
         }
 
-            if (usernameExist) {
+        if (!usernameExist){
+            while(scanner3.hasNextLine()){
+                String line = scanner3.nextLine();
+                usernameTemp = line.split("\\s")[3];
+                if (usernameTemp.equals(username.getText())){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Error #6");
+                    alert.setHeaderText("Request pending");
+                    alert.setContentText("Your account request is still pending.");
+                    alert.showAndWait();
+                    usernameExist=true;
+                    inRequest=true;
+                    break;
+
+                }
+            }
+        }
+            if (usernameExist && !inRequest) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error #1");
                 alert.setHeaderText("Username is already used.");
@@ -180,16 +191,17 @@ public class RegisterController implements Initializable {
             }
         }
         if(!passwordShort){
-                // Query(escaped) - insert the account into the database
+
                 String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
-                Scanner scanner2 = new Scanner(new File("src/data/users/students.txt"));
+
+                Scanner scanner4 = new Scanner(new File("src/data/users/students.txt"));
                 if (isTeacher) {
-                    scanner2 = new Scanner(new File("src/data/users/teachers.txt"));
+                    scanner4 = new Scanner(new File("src/data/users/teachers.txt"));
                 }
                 int count = 0;
-                while(scanner2.hasNextLine()) {
+                while(scanner4.hasNextLine()) {
                     count++;
-                    scanner2.nextLine();
+                    scanner4.nextLine();
                 }
                 if (isTeacher){
                     Teacher teacher = new Teacher(Integer.toString(count+1),firstName.getText()+" "+lastName.getText(),username.getText(),hashedPassword);
@@ -199,6 +211,7 @@ public class RegisterController implements Initializable {
                     student.serialize();
                 }
                 if (!isTeacher) {
+
                     stage = (Stage) signUpButton.getScene().getWindow();
                     Pane root;
                     root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));

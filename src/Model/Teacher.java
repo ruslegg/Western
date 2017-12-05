@@ -31,4 +31,20 @@ public class Teacher extends User {
         bw.close();
     }
 
+    public void serializeTeacher() throws IOException {
+        Writer wr = new FileWriter("src/data/users/teachers.txt",true);
+        BufferedWriter bw = new BufferedWriter(wr);
+        bw.write(id);
+        bw.write(" ");
+        bw.write(name);
+        bw.write(" ");
+        bw.write(username);
+        bw.write(" ");
+        bw.write(password);
+        bw.write(" ");
+        bw.newLine();
+        bw.close();
+    }
+
+
 }

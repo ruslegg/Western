@@ -32,7 +32,7 @@ public class ChooseTypeOfGameController implements Initializable {
         }
         stage = (Stage) competitionButton.getScene().getWindow();
         Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/subjectlist.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/school-games.fxml"));
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
@@ -41,13 +41,13 @@ public class ChooseTypeOfGameController implements Initializable {
 
     }
 
-    public void toNormal(MouseEvent event) throws IOException {
+    public void toRandom(MouseEvent event) throws IOException {
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
         stage = (Stage) normalGameButton.getScene().getWindow();
         Button root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/gameIntro.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/random.fxml"));
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
