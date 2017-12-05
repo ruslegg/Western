@@ -1,5 +1,6 @@
 package Controllers;
-import Model.TableViewObjects;
+import Model.TableView.AdminRequest;
+import Model.TableView.AdminStatistics;
 import Model.Teacher;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,14 +22,18 @@ import java.util.Scanner;
 
 public class AdminTeacherSettings implements Initializable {
     @FXML
-    private TableView<TableViewObjects> teacherTableView,teacherRequestsTableView;
+    private TableView<AdminRequest> teacherRequestsTableView;
     @FXML
-    private TableColumn<TableViewObjects,String> name,teacherName,teacherCompetitions,teacherContests;
+    private TableView<AdminStatistics> teacherTableView;
+    @FXML
+    private TableColumn<AdminRequest,String> name;
+    @FXML
+    private TableColumn<AdminStatistics,String> teacherName,teacherCompetitions,teacherContests;
     @FXML
     private Button approveButton,backButton;
 
-    ObservableList<TableViewObjects> requests = FXCollections.observableArrayList();
-    ObservableList<TableViewObjects> teachers = FXCollections.observableArrayList();
+    ObservableList<AdminRequest> requests = FXCollections.observableArrayList();
+    ObservableList<AdminStatistics> teachers = FXCollections.observableArrayList();
 
 
 
@@ -108,7 +113,7 @@ public class AdminTeacherSettings implements Initializable {
         while(requestScanner.hasNextLine()){
             String line = requestScanner.nextLine();
             if (requests.isEmpty() || requests==null){
-                requests.add(new TableViewObjects((line.split("\\s")[1]+" "+line.split("\\s")[2])));
+                requests.add(new AdminRequest((line.split("\\s")[1]+" "+line.split("\\s")[2])));
             }
             else{
                 String firstName = line.split("\\s")[1];
@@ -118,7 +123,7 @@ public class AdminTeacherSettings implements Initializable {
                     if (requests.get(i).getTeacherRequestName().equals(name)){
                     }
                     else{
-                        requests.add(new TableViewObjects((line.split("\\s")[1])+" "+line.split("\\s")[2]));
+                        requests.add(new AdminRequest((line.split("\\s")[1])+" "+line.split("\\s")[2]));
                         break;
                     }
                 }
@@ -127,13 +132,13 @@ public class AdminTeacherSettings implements Initializable {
         while(teacherScanner.hasNextLine()){
             String line = teacherScanner.nextLine();
             if (teachers.isEmpty() || teachers!=null){
-                teachers.add(new TableViewObjects(line.split("\\s")[0],(line.split("\\s")[1]+" "+line.split("\\s")[2]),
+                teachers.add(new AdminStatistics(line.split("\\s")[0],(line.split("\\s")[1]+" "+line.split("\\s")[2]),
                         0,0));
             }
             else{
                 for (int i=0;i<teachers.size();i++){
                     if (!teachers.get(i).getTeacherTableViewId().equals((line.split("\\s")[0]))){
-                        teachers.add(new TableViewObjects(line.split("\\s")[0],(line.split("\\s")[1]+" "+line.split("\\s")[2]),0,0));
+                        teachers.add(new AdminStatistics(line.split("\\s")[0],(line.split("\\s")[1]+" "+line.split("\\s")[2]),0,0));
                     }
                     else{
                     }
