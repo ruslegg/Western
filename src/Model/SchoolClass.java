@@ -15,6 +15,9 @@ public class SchoolClass implements Serializable {
         serialize();
     }
 
+    public SchoolClass() {
+    }
+
     public int getNumber() {
         return number;
     }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Student extends User implements Serializable {
     Team team;
     SchoolClass schoolClass;
+    boolean isTeamLeader;
 
     public Student(Integer id, String name, String username, String password, Team team, SchoolClass schoolClass) {
         super(id, name, username, password);
@@ -52,5 +53,13 @@ public class Student extends User implements Serializable {
 
     public void setSchoolClass(SchoolClass schoolClass) {
         this.schoolClass = schoolClass;
+    }
+
+    public boolean isTeamLeader() {
+        return isTeamLeader;
+    }
+
+    public void setTeamLeader(boolean teamLeader) {
+        isTeamLeader = teamLeader;
     }
 }

@@ -67,6 +67,8 @@ public class LoginController implements Initializable {
     public static ArrayList<Results> resultsList = new ArrayList();
     public static ArrayList<SchoolClass> classList = new ArrayList();
     public static ArrayList<Question> questionsList = new ArrayList();
+    public static ArrayList<Team> teamList = new ArrayList<>();
+    public static ArrayList<Student> teamRequests = new ArrayList<>();
 
 
 
@@ -181,6 +183,8 @@ public class LoginController implements Initializable {
         File results = new File("src/data/attributes/results.ser");
         File classes = new File("src/data/attributes/classes.ser");
         File questions = new File("src/data/attributes/questions.ser");
+        File teams = new File("src/data/attributes/teams.ser");
+        File teamRequest = new File("sr/data/requests/students.ser");
 
         FileInputStream fileIn = null;
         ObjectInputStream in = null;
@@ -245,6 +249,26 @@ public class LoginController implements Initializable {
             fileIn = new FileInputStream(questions);
             in=new ObjectInputStream(fileIn);
             questionsList = (ArrayList) in.readObject();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileIn = new FileInputStream(teams);
+            in=new ObjectInputStream(fileIn);
+            teamList = (ArrayList) in.readObject();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileIn = new FileInputStream(teamRequest);
+            in=new ObjectInputStream(fileIn);
+            teamRequests = (ArrayList) in.readObject();
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -20,6 +20,9 @@ public class Team implements Serializable {
         }
     }
 
+    public Team() {
+    }
+
     public void serialize() throws IOException, ClassNotFoundException {
         LoginController.teamList.add(this);
         File file = new File("src/data/attributes/teams.ser");

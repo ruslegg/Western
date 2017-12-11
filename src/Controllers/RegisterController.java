@@ -1,8 +1,5 @@
 package Controllers;
-import Model.Admin;
-import Model.SchoolClass;
-import Model.Student;
-import Model.Teacher;
+import Model.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -189,7 +186,14 @@ public class RegisterController implements Initializable {
                     Teacher teacher = new Teacher(0,firstName.getText()+" "+lastName.getText(),username.getText(),hashedPassword);
                     teacher.serializeRequest();
                 } else{
-                    Student student = new Student(LoginController.studentList.size(),firstName.getText()+" "+lastName.getText(),username.getText(),hashedPassword,classComboBox.getSelectionModel().getSelectedItem().toString()+classLetterComboBox.getSelectionModel().getSelectedItem().toString(),"");
+                    SchoolClass tempSchoolClass = new SchoolClass();
+                    for (SchoolClass schoolClass : LoginController.classList) {
+                        if (schoolClass.getNumber() == Integer.valueOf((String) classComboBox.getSelectionModel().getSelectedItem())
+                        && schoolClass.getLetter().equals(classLetterComboBox.getSelectionModel().getSelectedItem())){
+                            tempSchoolClass = schoolClass;
+                        }
+                    }
+                    Student student = new Student(LoginController.studentList.size(),firstName.getText()+" "+lastName.getText(),username.getText(),hashedPassword,new Team(),tempSchoolClass);
                     student.serialize();
                 }
                 if (!isTeacher) {
