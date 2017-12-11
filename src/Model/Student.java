@@ -6,10 +6,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Student extends User implements Serializable {
-    String team;
-    String schoolClass;
+    Team team;
+    SchoolClass schoolClass;
 
-    public Student(Integer id, String name, String username, String password, String schoolClass,String team) {
+    public Student(Integer id, String name, String username, String password, Team team, SchoolClass schoolClass) {
         super(id, name, username, password);
         this.team = team;
         this.schoolClass = schoolClass;
@@ -38,11 +38,19 @@ public class Student extends User implements Serializable {
         fileIn.close();
     }
 
-    public String getTeam() {
+    public Team getTeam() {
         return team;
     }
 
-    public void setTeam(String team) {
+    public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public SchoolClass getSchoolClass() {
+        return schoolClass;
+    }
+
+    public void setSchoolClass(SchoolClass schoolClass) {
+        this.schoolClass = schoolClass;
     }
 }
