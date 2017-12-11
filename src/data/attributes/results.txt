@@ -1,8 +1,1 @@
-2 Ruslan Negrei [MATA] 1 0 5 31 50
-2 Ruslan Negrei [MATA] 1 1 5 31 50
-2 Ruslan Negrei [MATA] 1 1 5 31 50
-2 Ruslan Negrei [MATA] 1 1 5 31 50
-2 Ruslan Negrei [MATA] 1 0 5 31 50
-2 Ruslan Negrei [MATA] 1 0 5 31 50
-2 Ruslan Negrei [MATA] 1 0 5 31 50
-2 Ruslan Negrei [MATA] 1 1 5 31 50
+

@@ -26,7 +26,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-public class GameController implements Initializable {
+public class GameController {
     Stage stage;
     Pane root = new Pane();
     Scene scene = new Scene(root);
@@ -39,142 +39,142 @@ public class GameController implements Initializable {
     ObservableList<Question> questions = FXCollections.observableArrayList();
     int questionNumber = 0;
     int correctAnswers = 0;
-    Question question = new Question();
+//    Question question = new Question();
 
     public static String fieldString = "";
 
-    public GameController() throws IOException {
-    }
+//    public GameController() throws IOException {
+//    }
+//
+//    public void newQuestion() throws SQLException, IOException {
+//        if(questionNumber==questions.size()){
+//            QuizFinishedController.numberOfQuestions=questions.size();
+//            QuizFinishedController.correctAnswers=correctAnswers;
+//            results();
+//        }
+//        else {
+//            question = questions.get(questionNumber);
+//            questionNumberLabel.setText("Question number: " + String.valueOf(questionNumber + 1));
+//            questionLabel.setText("Question: " + question.getQuestion());
+//            answerButton1.setText(question.getAnswer1());
+//            answerButton2.setText(question.getAnswer2());
+//            answerButton3.setText(question.getAnswer3());
+//            answerButton4.setText(question.getAnswer4());
+//        }
+//    }
+//    public void dead() throws IOException {
+//        stage = (Stage) answerButton1.getScene().getWindow();
+//        Pane root;
+//        root = FXMLLoader.load(getClass().getResource("/FXML/loseMenu.fxml"));
+//        Scene scene = new Scene(root);
+//        scene.getStylesheets().add("/css/loseMenu.css");
+//        stage.setScene(scene);
+//    }
+//    public void exit() throws  IOException {
+//        if (SettingsController.effects){
+//            LoginController.soundPlayer.play();
+//        }
+//        stage = (Stage) exitButton.getScene().getWindow();
+//        Pane root;
+//        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+//        Scene scene = new Scene(root);
+//        scene.getStylesheets().add("/css/mainMenu.css");
+//        stage.setScene(scene);
+//    }
+//    public void checkAnswer(String answer) throws IOException, SQLException {
+//        if (SettingsController.effects){
+//            LoginController.soundPlayer.play();
+//        }
+//        if (answer.equals(question.getCorrectAnswer())){
+//            questionNumber++;
+//            correctAnswers++;
+//            newQuestion();
+//            System.out.println("correct");
+//        }
+//        else{
+//            questionNumber++;
+//            newQuestion();
+//            System.out.println("incorrect");
+//        }
+//    }
+//    public void results() throws IOException {
+//        if (SettingsController.effects){
+//            LoginController.soundPlayer.play();
+//        }
+//            stage = (Stage) exitButton.getScene().getWindow();
+//            Pane root;
+//            root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
+//            Scene scene = new Scene(root);
+//            scene.getStylesheets().add("/css/quizfinished.css");
+//            stage.setScene(scene);
+//        }
+//
+//
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        try {
+//            root=FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        scene=new Scene(root);
+//        scene.getStylesheets().add("/css/game.css");
+//
+//        answerButton1.getStyleClass().add("button1");
+//        answerButton2.getStyleClass().add("button1");
+//        answerButton3.getStyleClass().add("button1");
+//        answerButton4.getStyleClass().add("button1");
+//
+//        questions = FXCollections.observableArrayList();
+//        questionNumber=0;
+//        correctAnswers=0;
+//        question=new Question();
+//        try {
+//            getQuestions();
+//            newQuestion();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        answerButton1.setOnMouseClicked(event -> {
+//            try {
+//                checkAnswer(answerButton1.getText());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//        answerButton2.setOnMouseClicked(event -> {
+//            try {
+//                checkAnswer(answerButton2.getText());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//        answerButton3.setOnMouseClicked(event -> {
+//            try {
+//                checkAnswer(answerButton3.getText());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//        answerButton4.setOnMouseClicked(event -> {
+//            try {
+//                checkAnswer(answerButton4.getText());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        });
 
-    public void newQuestion() throws SQLException, IOException {
-        if(questionNumber==questions.size()){
-            QuizFinishedController.numberOfQuestions=questions.size();
-            QuizFinishedController.correctAnswers=correctAnswers;
-            results();
-        }
-        else {
-            question = questions.get(questionNumber);
-            questionNumberLabel.setText("Question number: " + String.valueOf(questionNumber + 1));
-            questionLabel.setText("Question: " + question.getQuestion());
-            answerButton1.setText(question.getAnswer1());
-            answerButton2.setText(question.getAnswer2());
-            answerButton3.setText(question.getAnswer3());
-            answerButton4.setText(question.getAnswer4());
-        }
-    }
-    public void dead() throws IOException {
-        stage = (Stage) answerButton1.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/loseMenu.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/loseMenu.css");
-        stage.setScene(scene);
-    }
-    public void exit() throws  IOException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        stage = (Stage) exitButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/mainMenu.css");
-        stage.setScene(scene);
-    }
-    public void checkAnswer(String answer) throws IOException, SQLException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        if (answer.equals(question.getCorrectAnswer())){
-            questionNumber++;
-            correctAnswers++;
-            newQuestion();
-            System.out.println("correct");
-        }
-        else{
-            questionNumber++;
-            newQuestion();
-            System.out.println("incorrect");
-        }
-    }
-    public void results() throws IOException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-            stage = (Stage) exitButton.getScene().getWindow();
-            Pane root;
-            root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add("/css/quizfinished.css");
-            stage.setScene(scene);
-        }
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        try {
-            root=FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        scene=new Scene(root);
-        scene.getStylesheets().add("/css/game.css");
-
-        answerButton1.getStyleClass().add("button1");
-        answerButton2.getStyleClass().add("button1");
-        answerButton3.getStyleClass().add("button1");
-        answerButton4.getStyleClass().add("button1");
-
-        questions = FXCollections.observableArrayList();
-        questionNumber=0;
-        correctAnswers=0;
-        question=new Question();
-        try {
-            getQuestions();
-            newQuestion();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        answerButton1.setOnMouseClicked(event -> {
-            try {
-                checkAnswer(answerButton1.getText());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
-        answerButton2.setOnMouseClicked(event -> {
-            try {
-                checkAnswer(answerButton2.getText());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
-        answerButton3.setOnMouseClicked(event -> {
-            try {
-                checkAnswer(answerButton3.getText());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
-        answerButton4.setOnMouseClicked(event -> {
-            try {
-                checkAnswer(answerButton4.getText());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
-
-    }
+//    }
     public void getQuestions() throws SQLException {
 //        Connection connHandle = MYSQL.getConnection();
 //        PreparedStatement checkUserQuery = connHandle.prepareStatement("SELECT * FROM `questions` WHERE `field` = '"+fieldString+"'");

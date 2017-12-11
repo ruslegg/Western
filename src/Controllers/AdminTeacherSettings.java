@@ -9,16 +9,25 @@ import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import sun.rmi.runtime.Log;
 
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import Model.Teacher;
 
 public class AdminTeacherSettings implements Initializable {
     @FXML
@@ -26,49 +35,48 @@ public class AdminTeacherSettings implements Initializable {
     @FXML
     private TableView<AdminStatistics> teacherTableView;
     @FXML
-    private TableColumn<AdminRequest,String> name;
+    private TableColumn<AdminRequest, String> name;
     @FXML
-    private TableColumn<AdminStatistics,String> teacherName,teacherCompetitions,teacherContests;
+    private TableColumn<AdminStatistics, String> teacherName, teacherCompetitions, teacherContests;
     @FXML
-    private Button approveButton,backButton;
+    private Button approveButton, backButton, deleteButton;
 
     ObservableList<AdminRequest> requests = FXCollections.observableArrayList();
     ObservableList<AdminStatistics> teachers = FXCollections.observableArrayList();
 
+    private Stage stage;
 
 
-    public void approveRequest(MouseEvent mouseEvent) throws IOException {
-//        teacherRequestsTableView.getSelectionModel().getSele
-//            Teacher teacher = new Teacher(teachers.size() + 1,tea,username.getText(),hashedPassword);
-//            teacher.serialize();
-        Scanner scanner = new Scanner(new File("src/data/requests/teachers.txt"));
-        Scanner idScanner = new Scanner(new File("src/data/users/teachers.txt"));
-        int id=1;
-        while(idScanner.hasNextLine()){
-            id++;
-            idScanner.nextLine();
-        }
-        int lineCount = 0;
-        String lineToDelete;
-        while (scanner.hasNextLine()){
-            if (lineCount == teacherRequestsTableView.getSelectionModel().getSelectedCells().get(0).getRow()){
-                String line = scanner.nextLine();
-                lineToDelete=line;
-                Teacher teacher = new Teacher(String.valueOf(id),line.split("\\s")[1],line.split("\\s")[2]+ " " +line.split("\\s")[3],line.split("\\s")[4]);
-                teacher.serializeTeacher();
-                deleteRequest(lineToDelete);
-
-                break;
-
+    public void approveRequest(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
+        for (int i = 0; i < LoginController.requestsList.size(); i++) {
+            if (teacherRequestsTableView.getSelectionModel().getSelectedItem().getTeacherRequestName().equals(LoginController.requestsList.get(i).getName())) {
+                Teacher teacher = new Teacher(LoginController.teacherList.size(), LoginController.requestsList.get(i).getName(), LoginController.requestsList.get(i).getUsername(), LoginController.requestsList.get(i).getPassword());
+                teacher.serialize();
+                teacher.deleteRequest();
             }
-            scanner.nextLine();
-            lineCount++;
         }
         refresh();
-
     }
 
-    public void toAdminMainMenu(MouseEvent mouseEvent) {
+    public void deleteRequest(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
+        for (int i = 0; i < LoginController.requestsList.size(); i++) {
+            if (teacherRequestsTableView.getSelectionModel().getSelectedItem().getTeacherRequestName().equals(LoginController.requestsList.get(i).getName())) {
+                Teacher teacher = new Teacher(LoginController.teacherList.size(), LoginController.requestsList.get(i).getName(), LoginController.requestsList.get(i).getUsername(), LoginController.requestsList.get(i).getPassword());
+                teacher.deleteRequest();
+            }
+        }
+        refresh();
+    }
+
+
+    public void toAdminMainMenu(MouseEvent mouseEvent) throws IOException {
+        VBox root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));
+        stage = (Stage) backButton.getScene().getWindow();
+        Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
+        stage.setScene(scene);
     }
 
     @Override
@@ -82,13 +90,16 @@ public class AdminTeacherSettings implements Initializable {
         teacherTableView.setItems(teachers);
         if (teacherRequestsTableView.getSelectionModel().isEmpty()){
             approveButton.setDisable(true);
+            deleteButton.setDisable(true);
         }
         teacherRequestsTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null){
                 approveButton.setDisable(false);
+                deleteButton.setDisable(false);
             }
             else{
                 approveButton.setDisable(true);
+                deleteButton.setDisable(true);
             }
         });
     }
@@ -97,102 +108,31 @@ public class AdminTeacherSettings implements Initializable {
 
 
 
-    public void getData(){
-        Scanner requestScanner=null;
-        Scanner teacherScanner=null;
-        Scanner resultsScanner = null;
-
-        try {
-            requestScanner = new Scanner(new File("src/data/requests/teachers.txt"));
-            teacherScanner = new Scanner(new File("src/data/users/teachers.txt"));
-            resultsScanner = new Scanner(new File("src/data/attributes/results.txt"));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    public void getData() {
+        for (int i = 0; i < LoginController.requestsList.size(); i++) {
+            requests.add(new AdminRequest(LoginController.requestsList.get(i).getName()));
         }
-        while(requestScanner.hasNextLine()){
-            String line = requestScanner.nextLine();
-            if (requests.isEmpty() || requests==null){
-                requests.add(new AdminRequest((line.split("\\s")[1]+" "+line.split("\\s")[2])));
-            }
-            else{
-                String firstName = line.split("\\s")[1];
-                String lastName = line.split("\\s")[2];
-                String name = firstName+" "+lastName;
-                for (int i=0;i<requests.size();i++){
-                    if (requests.get(i).getTeacherRequestName().equals(name)){
-                    }
-                    else{
-                        requests.add(new AdminRequest((line.split("\\s")[1])+" "+line.split("\\s")[2]));
-                        break;
+        for (int i = 0; i < LoginController.teacherList.size(); i++) {
+            teachers.add(new AdminStatistics(LoginController.teacherList.get(i).getId(), LoginController.teacherList.get(i).getName(), 0, 0));
+        }
+        for (int i = 0; i < LoginController.resultsList.size(); i++) {
+            for (int x = 0; x < teachers.size(); x++) {
+                if (teachers.get(x).getTeacherTableViewId() == LoginController.resultsList.get(i).getTeacherID()) {
+                    if (LoginController.resultsList.get(i).getType() == 0) {
+                        teachers.get(x).incrementCompetition();
+                    } else if (LoginController.resultsList.get(i).getType() == 1) {
+                        teachers.get(x).incrementContest();
                     }
                 }
             }
         }
-        while(teacherScanner.hasNextLine()){
-            String line = teacherScanner.nextLine();
-            if (teachers.isEmpty() || teachers!=null){
-                teachers.add(new AdminStatistics(line.split("\\s")[0],(line.split("\\s")[1]+" "+line.split("\\s")[2]),
-                        0,0));
-            }
-            else{
-                for (int i=0;i<teachers.size();i++){
-                    if (!teachers.get(i).getTeacherTableViewId().equals((line.split("\\s")[0]))){
-                        teachers.add(new AdminStatistics(line.split("\\s")[0],(line.split("\\s")[1]+" "+line.split("\\s")[2]),0,0));
-                    }
-                    else{
-                    }
-                }
-            }
-        }
-        while(resultsScanner.hasNextLine()){
-            String line = resultsScanner.nextLine();
-            for (int i=0;i<teachers.size();i++){
-                String tempTeacherID = line.split("\\s")[4];
-                if (teachers.get(i).getTeacherTableViewId().equals(tempTeacherID)){
-                    String typeTemp = line.split("\\s")[5];
-                    if (Integer.valueOf(typeTemp)==0){
-                        teachers.get(i).incrementCompetition();
-                    }
-                    else if(Integer.valueOf(typeTemp)==1){
-                        teachers.get(i).incrementContest();
-                    }
-                }
-            }
-        }
-
     }
     public void refresh(){
         teachers.clear();
         requests.clear();
-
         getData();
         teacherRequestsTableView.setItems(requests);
         teacherTableView.setItems(teachers);
     }
-    public void deleteRequest(String lineToDelete) throws IOException {
-        File file = new File("src/data/requests/teachers.txt");
-        File tempFile = new File(file.getAbsolutePath() + ".tmp");
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
-        String line;
-        while ((line = br.readLine()) != null){
-            if (!line.equals(lineToDelete)){
-                pw.println(line);
-                pw.flush();
-            }
-        }
-        pw.close();
-        br.close();
 
-        if (!file.delete()){
-            System.out.println("Could not delete file");
-        }
-        if(!tempFile.renameTo(file)){
-            System.out.println("Could not rename file");
-        }
-
-
-
-    }
 }

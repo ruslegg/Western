@@ -1,18 +1,18 @@
 package Model;
 
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import Controllers.LoginController;
+import javafx.scene.control.DatePicker;
 
-public class Question {
-    String quizType,quizID,question,answer1,answer2,answer3,answer4,correctAnswer,subject,classList,fromDate,toDate,teacherID;
+import java.io.*;
+import java.util.ArrayList;
 
-    public Question(String quizType, String quizID, String teacherID, String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer, String subject, String classList) {
-        this.quizType = quizType;
-        this.quizID = quizID;
-        this.teacherID = teacherID;
+public class Question implements Serializable {
+    String question,answer1,answer2,answer3,answer4,correctAnswer,subject,fromDate,toDate;
+    int quizID,teacherID,quizType;
+    ArrayList<SchoolClass> classList = new ArrayList();
+
+    public Question(int quizID, int teacherID, int quizType, ArrayList<SchoolClass> classList, String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer, String subject, String fromDate, String toDate) {
         this.question = question;
         this.answer1 = answer1;
         this.answer2 = answer2;
@@ -20,60 +20,53 @@ public class Question {
         this.answer4 = answer4;
         this.correctAnswer = correctAnswer;
         this.subject = subject;
-        this.classList = classList;
-    }
-
-    public Question(String quizType, String quizID, String teacherID, String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer, String subject, String classList, String fromDate, String toDate) {
-        this.quizType = quizType;
-        this.quizID = quizID;
-        this.teacherID=teacherID;
-        this.question = question;
-        this.answer1 = answer1;
-        this.answer2 = answer2;
-        this.answer3 = answer3;
-        this.answer4 = answer4;
-        this.correctAnswer = correctAnswer;
-        this.subject = subject;
-        this.classList = classList;
         this.fromDate = fromDate;
         this.toDate = toDate;
-    }
-
-    public Question(){
-
-    }
-    public void serialize() throws IOException {
-        Writer wr = new FileWriter("src/data/attributes/questions.txt",true);
-        BufferedWriter bw = new BufferedWriter(wr);
-        bw.write(quizType);
-        bw.write(" ");
-        bw.write(quizID);
-        bw.write(" ");
-        bw.write(teacherID);
-        bw.write(" ");
-        bw.write(question);
-        bw.write(" ");
-        bw.write(answer1);
-        bw.write(" ");
-        bw.write(answer2);
-        bw.write(" ");
-        bw.write(answer3);
-        bw.write(" ");
-        bw.write(answer4);
-        bw.write(" ");
-        bw.write(correctAnswer);
-        bw.write(" ");
-        bw.write(subject);
-        bw.write(" ");
-        bw.write(classList);
-        if (fromDate!=null){
-            bw.write(" ");
-            bw.write(fromDate);
-            bw.write(" ");
-            bw.write(toDate);
+        this.quizID = quizID;
+        this.teacherID = teacherID;
+        this.quizType = quizType;
+        this.classList = classList;
+        try {
+            serialize();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        bw.newLine();
-        bw.close();
+    }
+
+    public Question(int quizID, int teacherID, int quizType, ArrayList<SchoolClass> classList,String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer, String subject) {
+        this.question = question;
+        this.answer1 = answer1;
+        this.answer2 = answer2;
+        this.answer3 = answer3;
+        this.answer4 = answer4;
+        this.correctAnswer = correctAnswer;
+        this.subject = subject;
+        this.quizID = quizID;
+        this.teacherID = teacherID;
+        this.quizType = quizType;
+        this.classList = classList;
+        try {
+            serialize();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void serialize() throws IOException, ClassNotFoundException {
+        LoginController.questionsList.add(this);
+        File file = new File("src/data/attributes/questions.ser");
+        FileOutputStream fileOut = new FileOutputStream(file);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(LoginController.questionsList);
+        out.close();
+        fileOut.close();
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        LoginController.questionsList=(ArrayList) in.readObject();
     }
 
 
@@ -94,5 +87,12 @@ public class Question {
     }
     public String getCorrectAnswer() {
         return correctAnswer;
+    }
+    public Integer getQuizType() {
+        return quizType;
+    }
+
+    public int getQuizID() {
+        return quizID;
     }
 }

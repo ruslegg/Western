@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.SchoolClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 import java.awt.*;
 import java.io.IOException;
@@ -16,9 +18,9 @@ import java.util.ResourceBundle;
 
 public class CreateClassController implements Initializable {
     @FXML
-    public TextField numberTextField;
+    public TextField classNumber;
     @FXML
-    public TextField letterTextField;
+    public TextField classLetter;
     @FXML
     public Button submitButton;
     @FXML
@@ -32,16 +34,6 @@ public class CreateClassController implements Initializable {
     }
 
 
-    public void toMainMenu(MouseEvent mouseEvent) {
-    }
-
-    public void nrOfClassTextfield()throws IOException{
-
-    }
-    public void letterOfClassTextfield() throws IOException{
-
-    }
-
     public void toCreateMenu() throws IOException{
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
@@ -50,5 +42,9 @@ public class CreateClassController implements Initializable {
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
+    }
+    public void createClass(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
+        SchoolClass schoolClass = new SchoolClass(Integer.valueOf(classNumber.getText()),classLetter.getText());
+        toCreateMenu();
     }
 }

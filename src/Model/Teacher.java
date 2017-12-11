@@ -1,49 +1,73 @@
 package Model;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import Controllers.LoginController;
+import sun.rmi.runtime.Log;
 
-public class Teacher extends User {
+import java.io.*;
+import java.util.ArrayList;
+
+public class Teacher extends User implements Serializable {
 
     public Teacher() {
 
     }
 
-    public Teacher(String id, String name, String username, String password) {
+    public Teacher(Integer id, String name, String username, String password) {
         super(id, name, username, password);
     }
 
-    @Override
-    public void serialize() throws IOException {
-        Writer wr = new FileWriter("src/data/requests/teachers.txt",true);
-        BufferedWriter bw = new BufferedWriter(wr);
-        bw.write(id);
-        bw.write(" ");
-        bw.write(name);
-        bw.write(" ");
-        bw.write(username);
-        bw.write(" ");
-        bw.write(password);
-        bw.write(" ");
-        bw.newLine();
-        bw.close();
+    public void serializeRequest() throws IOException, ClassNotFoundException {
+        LoginController.requestsList.add(this);
+        File file = new File("src/data/requests/teachers.ser");
+        FileOutputStream fileOut = new FileOutputStream(file,false);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(LoginController.requestsList);
+        out.close();
+        fileOut.close();
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        LoginController.requestsList = (ArrayList) in.readObject();
+        in.close();
+        fileIn.close();
     }
 
-    public void serializeTeacher() throws IOException {
-        Writer wr = new FileWriter("src/data/users/teachers.txt",true);
-        BufferedWriter bw = new BufferedWriter(wr);
-        bw.write(id);
-        bw.write(" ");
-        bw.write(name);
-        bw.write(" ");
-        bw.write(username);
-        bw.write(" ");
-        bw.write(password);
-        bw.write(" ");
-        bw.newLine();
-        bw.close();
+    public void serialize() throws IOException {
+        LoginController.teacherList.add(this);
+
+        File file = new File("src/data/users/teachers.ser");
+        FileOutputStream fileOut = new FileOutputStream(file,false);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(LoginController.teacherList);
+        out.close();
+        fileOut.close();
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        try {
+            LoginController.teacherList = (ArrayList) in.readObject();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        in.close();
+        fileIn.close();
+    }
+
+    public void deleteRequest() throws IOException, ClassNotFoundException {
+        for (int i=0;i< LoginController.requestsList.size();i++){
+            if (LoginController.requestsList.get(i).getName().equals(this.name)){
+                LoginController.requestsList.remove(i);
+            }
+        }
+        File file = new File("src/data/requests/teachers.ser");
+        FileOutputStream fileOut = new FileOutputStream(file,false);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(LoginController.requestsList);
+        out.close();
+        fileOut.close();
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        LoginController.requestsList = (ArrayList) in.readObject();
+        in.close();
+        fileIn.close();
     }
 
 

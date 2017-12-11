@@ -1,13 +1,13 @@
 package Model.TableView;
 
 public class AdminStatistics {
-    String teacherTableViewId;
+    Integer teacherTableViewId;
     String teacherTableViewName;
     Integer teacherTableViewCompetitionNumber;
     Integer teacherTableViewContestNumber;
 
 
-    public AdminStatistics(String teacherTableViewId, String teacherTableViewName, Integer teacherTableViewCompetitionNumber, Integer teacherTableViewContestNumber) {
+    public AdminStatistics(Integer teacherTableViewId, String teacherTableViewName, Integer teacherTableViewCompetitionNumber, Integer teacherTableViewContestNumber) {
         this.teacherTableViewId = teacherTableViewId;
         this.teacherTableViewName = teacherTableViewName;
         this.teacherTableViewCompetitionNumber = teacherTableViewCompetitionNumber;
@@ -21,11 +21,11 @@ public class AdminStatistics {
         this.teacherTableViewContestNumber++;
     }
 
-    public String getTeacherTableViewId() {
+    public Integer getTeacherTableViewId() {
         return teacherTableViewId;
     }
 
-    public void setTeacherTableViewId(String teacherTableViewId) {
+    public void setTeacherTableViewId(Integer teacherTableViewId) {
         this.teacherTableViewId = teacherTableViewId;
     }
 

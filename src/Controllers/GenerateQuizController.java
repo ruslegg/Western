@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.SchoolClass;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -34,7 +35,7 @@ public class GenerateQuizController implements Initializable{
     private DatePicker fromDatePicker,toDatePicker;
     @FXML
     private Button backButton,nextButton;
-    ObservableList<String> classList = FXCollections.observableArrayList();
+    ObservableList<Integer> classList = FXCollections.observableArrayList();
     int quizType;
     public Stage stage;
 
@@ -51,28 +52,24 @@ public class GenerateQuizController implements Initializable{
         cCheck.setDisable(true);
         dCheck.setDisable(true);
         eCheck.setDisable(true);
-        Scanner classScanner = null;
-        try {
-            classScanner = new Scanner(new File("src/data/attributes/classes.txt"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        //Displaying all the available classes
-        while (classScanner.hasNextLine()) {
-            String temp = classScanner.next();
-            if (classList.isEmpty()) {
-                classList.add(temp);
-            } else {
-                for (int i = 0; i < classList.size(); i++) {
-                    if (classList.get(i).equals(temp)) {
+        for(int i=0;i<LoginController.classList.size();i++){
+                if (classList.isEmpty()){
+                    classList.add(LoginController.classList.get(i).getNumber());
+                }
+                else{
+                    int checkNumber = 0;
+                    for (int j = 0; j < classList.size() ; j++) {
+                        if (classList.get(j) == LoginController.classList.get(i).getNumber()) {
+                            checkNumber++;
+                        }
 
-                    } else {
-                        classList.add(temp);
+                        if (j == classList.size() - 1 && checkNumber == 0) {
+                            classList.add(LoginController.classList.get(i).getNumber());
+                        }
                     }
                 }
             }
-            classScanner.nextLine();
-        }
+
         classComboBox.setItems(classList);
         classComboBox.valueProperty().addListener(new ChangeListener() {
             @Override
@@ -83,23 +80,17 @@ public class GenerateQuizController implements Initializable{
                 dCheck.setDisable(true);
                 eCheck.setDisable(true);
                 if (!classComboBox.getSelectionModel().isEmpty()) {
-                    try {
-                        Scanner letterScanner = new Scanner(new File("src/data/attributes/classes.txt"));
-                        while (letterScanner.hasNextLine()){
-                            String temp = letterScanner.next();
-                            if (temp.equals(classComboBox.getSelectionModel().getSelectedItem())){
-                                String choice = letterScanner.next();
-                                switch (choice){
-                                    case "A" : aCheck.setDisable(false);break;
-                                    case "B" : bCheck.setDisable(false);break;
-                                    case "C" : cCheck.setDisable(false);break;
-                                    case "D" : dCheck.setDisable(false);break;
-                                    case "E" : eCheck.setDisable(false);break;
-                                }
+                    for (int i=0;i<LoginController.classList.size();i++){
+                        if ((Integer) classComboBox.getSelectionModel().getSelectedItem() == LoginController.classList.get(i).getNumber()){
+                            String choice = LoginController.classList.get(i).getLetter();
+                            switch(choice){
+                                case "A" :aCheck.setDisable(false);break;
+                                case "B" :bCheck.setDisable(false);break;
+                                case "C" :cCheck.setDisable(false);break;
+                                case "D" :dCheck.setDisable(false);break;
+                                case "E" :eCheck.setDisable(false);break;
                             }
                         }
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
                     }
                 }
             }
@@ -124,6 +115,10 @@ public class GenerateQuizController implements Initializable{
                     fromDatePicker.setDisable(false);
                     toDatePicker.setDisable(false);
                 }
+                else{
+                    fromDatePicker.setDisable(true);
+                    toDatePicker.setDisable(true);
+                }
             }
         });
         fromDatePicker.setValue(LocalDate.now());
@@ -131,7 +126,7 @@ public class GenerateQuizController implements Initializable{
 
     }
 
-    public void toQuestions(MouseEvent mouseEvent) throws IOException {
+    public void toQuestions(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
@@ -145,15 +140,24 @@ public class GenerateQuizController implements Initializable{
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
-        if (aCheck.isSelected()) GenerateQuestionsController.getClassList().add(classComboBox.getSelectionModel().getSelectedItem().toString()+"A");
-        if (bCheck.isSelected()) GenerateQuestionsController.getClassList().add(classComboBox.getSelectionModel().getSelectedItem().toString()+"B");
-        if (cCheck.isSelected()) GenerateQuestionsController.getClassList().add(classComboBox.getSelectionModel().getSelectedItem().toString()+"C");
-        if (dCheck.isSelected()) GenerateQuestionsController.getClassList().add(classComboBox.getSelectionModel().getSelectedItem().toString()+"D");
-        if (eCheck.isSelected()) GenerateQuestionsController.getClassList().add(classComboBox.getSelectionModel().getSelectedItem().toString()+"E");
+        if (aCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"A"));
+        if (bCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"B"));
+        if (cCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"C"));
+        if (dCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"D"));
+        if (eCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"E"));
         GenerateQuestionsController.setSubject(subjectTextField.getText());
         GenerateQuestionsController.setQuizType(quizType);
         GenerateQuestionsController.setFromDatePicker(fromDatePicker);
         GenerateQuestionsController.setToDatePicker(toDatePicker);
+    }
 
+    public void toCreateOptions(MouseEvent mouseEvent) throws IOException {
+        stage = (Stage) nextButton.getScene().getWindow();
+        VBox root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/createOptionsTeacher.fxml"));
+        Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
+        stage.setScene(scene);
     }
 }

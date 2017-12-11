@@ -1,39 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticsController">
-    <children>
-        <TableView fx:id="competitionTableView" layoutX="30.0" layoutY="70.0" prefHeight="350.0" prefWidth="600.0">
-         <columns>
-            <TableColumn fx:id="naameCompetitionSubject" prefWidth="290.0" text="Name" />
-            <TableColumn fx:id="nrOfStudents" prefWidth="309.0" text="Number" />
-         </columns></TableView>
-        <TableView fx:id="contestantsTableView" layoutX="650.0" layoutY="70.0" prefHeight="350.0" prefWidth="600.0">
-         <columns>
-            <TableColumn fx:id="nameOfContests" prefWidth="271.0" text="Name" />
-            <TableColumn prefWidth="328.0" text="Number" />
-         </columns></TableView>
-        <Label fx:id="competitionButton" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="30.0" prefHeight="30.0" prefWidth="100.0" text="Competition" />
-        <Label fx:id="contestsButton" alignment="CENTER" layoutX="880.0" layoutY="30.0" prefHeight="30.0" prefWidth="100.0" text="Contests" />
-        <Button fx:id="backButton" layoutX="584.0" layoutY="630.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="Back" />
-        <LineChart fx:id="lineChart" layoutX="9.0" layoutY="420.0" prefHeight="197.0" prefWidth="1241.0" title="ClassChart">
-            <xAxis>
-                <CategoryAxis endMargin="0.0" gapStartAndEnd="false" side="LEFT" startMargin="0.0" tickLabelsVisible="false" tickMarkVisible="false" fx:id="x" />
-            </xAxis>
-            <yAxis>
-                <NumberAxis fx:id="y" side="LEFT" upperBound="90.0" />
-            </yAxis>
-        </LineChart>
-    </children>
-</fx:root>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticsTeachersController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="500.0">
+         <children>
+              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="143.0" text="Competition">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              <Label alignment="CENTER" prefHeight="30.0" prefWidth="100.0" text="Contests">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="600.0" prefWidth="200.0">
+         <children>
+              <TableView fx:id="competitionTableView" prefHeight="350.0" prefWidth="600.0">
+               <columns>
+                  <TableColumn fx:id="competitionId" prefWidth="100.0" text="Competition ID" />
+                  <TableColumn fx:id="competitionName" prefWidth="100.0" text="Competition Subject" />
+                  <TableColumn fx:id="competitionNumber" prefWidth="100.0" text="Number of students" />
+               </columns>
+            </TableView>
+              <TableView fx:id="contestsTableView" prefHeight="350.0" prefWidth="600.0">
+               <columns>
+                  <TableColumn fx:id="contestId" prefWidth="100.0" text="Contest ID" />
+                  <TableColumn fx:id="contestName" prefWidth="100.0" text="Contest Subject" />
+                  <TableColumn fx:id="contestNumber" prefWidth="100.0" text="Number" />
+               </columns>
+            </TableView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <BarChart fx:id="barChart">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+        <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#toMainMenu" prefHeight="27.0" prefWidth="113.0" text="Back" />
+   </children>
+</VBox>

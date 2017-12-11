@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -22,13 +23,33 @@ public class MainMenuController implements Initializable {
     @FXML
     public Button statisticsButton;
     @FXML
-    public Button quitButton;
+    public Button quitButton,teamButton;
     @Override
 
     public void initialize(URL location, ResourceBundle resources) {
 
-        startButton.getStyleClass().add("quiz-id");
 
+    }
+
+    public void toTeam() throws IOException {
+        if (LoginController.student.getTeam().length() < 1){
+            stage = (Stage) teamButton.getScene().getWindow();
+            VBox root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/userTeamLessOptions.fxml"));
+            Scene scene = new Scene(root);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/css/menu.css");
+            stage.setScene(scene);
+        }
+        else{
+            stage = (Stage) teamButton.getScene().getWindow();
+            VBox root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/userTeamOptions.fxml"));
+            Scene scene = new Scene(root);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/css/menu.css");
+            stage.setScene(scene);
+        }
     }
 
     public void toTypeOfGame() throws IOException {

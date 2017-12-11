@@ -1,6 +1,7 @@
 package Controllers;
 
 import Model.Question;
+import Model.SchoolClass;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.Initializable;
@@ -23,7 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class GenerateQuestionsController implements Initializable {
-    private static ArrayList<String> classList = new ArrayList<>();
+    private static ArrayList<SchoolClass> classList = new ArrayList();
     private static String subject;
     private static int quizType;
     private static DatePicker fromDatePicker,toDatePicker;
@@ -51,16 +52,13 @@ public class GenerateQuestionsController implements Initializable {
     public void nextQuestion(MouseEvent mouseEvent) throws IOException {
         questionNumber++;
         questionNumberLabel.setText("Question #" + questionNumber);
-
         if (quizType == 0) {
-            Question question = new Question(String.valueOf(quizType),String.valueOf(competitionId+1),teacherID,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),getClassList().toString());
-            question.serialize();
+            Question question = new Question(competitionId+1,LoginController.teacher.getId(),0,classList,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject());
         }
         else{
             String fromDateString=fromDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            String toDateString = toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            Question question = new Question(String.valueOf(quizType),String.valueOf(contestId+1),teacherID,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer,getSubject(),getClassList().toString(),fromDateString,toDateString);
-            question.serialize();
+            String toDateString=toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            Question question = new Question(contestId+1,LoginController.teacher.getId(),0,classList,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),fromDateString,toDateString);
         }
         correct1.setSelected(false);
         correct2.setSelected(false);
@@ -79,14 +77,14 @@ public class GenerateQuestionsController implements Initializable {
         }
         else {
             if (quizType == 0) {
-                Question question = new Question(String.valueOf(quizType),String.valueOf(competitionId+1),teacherID,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),getClassList().toString());
-                question.serialize();
+                Question question = new Question(competitionId+1,LoginController.teacher.getId(),0,classList,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject());
+                competitionId++;
             }
             else{
                 String fromDateString=fromDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                String toDateString = toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                Question question = new Question(String.valueOf(quizType),String.valueOf(contestId+1),teacherID,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer,getSubject(),getClassList().toString(),fromDateString,toDateString);
-                question.serialize();
+                String toDateString=toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                Question question = new Question(contestId+1,LoginController.teacher.getId(),0,classList,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),fromDateString,toDateString);
+                contestId++;
             }
         }
         classList.clear();
@@ -106,7 +104,7 @@ public class GenerateQuestionsController implements Initializable {
         correct4.setSelected(false);
         stage = (Stage) nextQuestionButton.getScene().getWindow();
         VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/createOptionsTeacher.fxml"));
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
@@ -115,55 +113,40 @@ public class GenerateQuestionsController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Scanner idScanner=null;
-        try {
-            idScanner = new Scanner(new File("src/data/attributes/questions.txt"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ArrayList<Integer> competitionList = new ArrayList<>();
-        ArrayList<Integer> contestList = new ArrayList<>();
-
-
-        while (idScanner.hasNextLine()){
-            String fileQuizType = idScanner.next();
-            if (Integer.valueOf(fileQuizType)==0){
-                int competitionTempId = idScanner.nextInt();
-                if (competitionList.isEmpty()) {
-                    competitionList.add(competitionTempId);
-                }
-                else{
-                    for (int i=0;i<competitionList.size();i++){
-                        if (competitionList.get(i).equals(competitionTempId)){
-
+        questionNumberLabel.setText("Question #" + questionNumber);
+        for (Question question: LoginController.questionsList
+             ) {
+            int competitionTemp=0;
+            int contestTemp = 0;
+            switch (question.getQuizType()){
+                case 0: {
+                    if (competitionTemp==0){
+                        competitionId++;
+                    }
+                    else{
+                        if (question.getQuizID()!=competitionTemp){
+                            competitionId++;
                         }
                         else{
-                            competitionList.add(competitionTempId);
+                            competitionTemp=question.getQuizID();
                         }
                     }
-                }
-                competitionId=competitionList.get(competitionList.size()-1);
-            }
-            else if(Integer.valueOf(fileQuizType)==1){
-                int contestTempId = idScanner.nextInt();
-                if (contestList.isEmpty()) {
-                    contestList.add(contestTempId);
-                }
-                else{
-                    for (int i=0;i<contestList.size();i++){
-                        if (contestList.get(i).equals(contestTempId)){
-
+                }break;
+                case 1: {
+                    if (contestTemp==0){
+                        contestId++;
+                    }
+                    else{
+                        if (question.getQuizID()!=contestTemp){
+                            contestId++;
                         }
                         else{
-                            contestList.add(contestTempId);
+                            contestTemp=question.getQuizID();
                         }
                     }
-                }
-                contestId=contestList.get(contestList.size()-1);
+                }break;
             }
-            idScanner.nextLine();
         }
-
         correct1.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
@@ -205,20 +188,11 @@ public class GenerateQuestionsController implements Initializable {
 
     }
 
-
-
-
-
-
-
-
-
-
-    public static ArrayList<String> getClassList() {
+    public static ArrayList<SchoolClass> getClassList() {
         return classList;
     }
 
-    public static void setClassList(ArrayList<String> classList) {
+    public static void setClassList(ArrayList<SchoolClass> classList) {
         GenerateQuestionsController.classList = classList;
     }
 

@@ -1,38 +1,33 @@
 package Model;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import Controllers.LoginController;
 
-public class Admin extends User {
-    boolean isAdmin;
-    Admin(){
+import java.io.*;
+import java.util.ArrayList;
 
-    }
-    public Admin(String name,boolean isAdmin){
-        this.name=name;
-        this.isAdmin=isAdmin;
+public class Admin extends User implements Serializable {
+
+        public Admin(Integer id, String name, String username, String password) {
+        super(id, name, username, password);
     }
 
     @Override
     public void serialize() throws IOException {
-        Writer wr = new FileWriter("src/data/users/admins.txt",true);
-        BufferedWriter bw = new BufferedWriter(wr);
-        bw.write(name);
-        bw.write(" ");
-        bw.write(String.valueOf(isAdmin));
-        bw.newLine();
-        bw.close();
+        LoginController.adminList.add(this);
+        File file = new File("src/data/users/admins.ser");
+        FileOutputStream fileOut = new FileOutputStream(file,false);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(LoginController.adminList);
+        out.close();
+        fileOut.close();
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        try {
+            LoginController.adminList = (ArrayList) in.readObject();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        in.close();
+        fileIn.close();
     }
-
-    public boolean isTeacher() {
-        return isAdmin;
-    }
-
-    public void setTeacher(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-
-
 }

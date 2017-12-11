@@ -1,4 +1,6 @@
 package Controllers;
+import Model.Admin;
+import Model.SchoolClass;
 import Model.Student;
 import Model.Teacher;
 import javafx.beans.value.ChangeListener;
@@ -14,18 +16,21 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 public class RegisterController implements Initializable {
     private Stage stage;
     public static boolean isTeacher = false;
     public boolean inRequest=false;
-    ObservableList<String> classList = FXCollections.observableArrayList();
+    ArrayList<SchoolClass> classList = new ArrayList();
+    ObservableList<Integer> classNumberList = FXCollections.observableArrayList();
     ObservableList<String> classLetterList = FXCollections.observableArrayList();
 
     @FXML
@@ -45,116 +50,104 @@ public class RegisterController implements Initializable {
             classComboBox.setDisable(true);
         }
         else {
-            Scanner classScanner = null;
-            try {
-                classScanner = new Scanner(new File("src/data/attributes/classes.txt"));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            while (classScanner.hasNextLine()) {
-                String temp = classScanner.next();
-                if (classList.isEmpty()) {
-                    classList.add(temp);
-                } else {
-                    for (int i = 0; i < classList.size(); i++) {
-                        if (classList.get(i).equals(temp)) {
-
-                        } else {
-                            classList.add(temp);
+            for (SchoolClass schoolClass: LoginController.classList
+                 ) {
+                if (classNumberList.isEmpty()){
+                    classNumberList.add(schoolClass.getNumber());
+                }
+                else{
+                    int checkNumber = 0;
+                    for(int i=0;i<classNumberList.size();i++){
+                        if (classNumberList.get(i) == schoolClass.getNumber()){
+                            checkNumber++;
                         }
+                        else{
+
+                        }
+                        if (i==classNumberList.size()-1 && checkNumber == 0 ){
+                            classNumberList.add(schoolClass.getNumber());
+                        }
+
                     }
                 }
-                classScanner.nextLine();
             }
-            classComboBox.setItems(classList);
-            classComboBox.valueProperty().addListener(new ChangeListener<String>() {
-                @Override public void changed(ObservableValue ov, String t, String t1) {
+            }
+            classComboBox.setItems(classNumberList);
+            classComboBox.valueProperty().addListener(new ChangeListener<Integer>() {
+                @Override public void changed(ObservableValue ov, Integer t, Integer t1) {
                     classLetterComboBox.setDisable(true);
                     classLetterComboBox.getItems().clear();
                     if (classComboBox.getSelectionModel().isEmpty()) {
 
                     } else {
                         classLetterComboBox.setDisable(false);
-                        Scanner scanner = null;
-                        try {
-                            scanner = new Scanner(new File("src/data/attributes/classes.txt"));
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                        while (scanner.hasNextLine()) {
-                            String classNumber = scanner.next();
-                            if (classNumber.equals(classComboBox.getSelectionModel().getSelectedItem())) {
-                                String letter = scanner.next();
-                                classLetterList.add(letter);
+                        for (SchoolClass schoolClass : LoginController.classList
+                                ) {
+                            if (schoolClass.getNumber() == (Integer) classComboBox.getSelectionModel().getSelectedItem()) {
+                                classLetterList.add(schoolClass.getLetter());
                             }
                         }
-                        classLetterComboBox.setItems(classLetterList);
+
                     }
+                    classLetterComboBox.setItems(classLetterList);
                 }
+
             });
         }
-    }
 
-    public void registerAccount(MouseEvent event) throws IOException, SQLException {
+
+    public void registerAccount(MouseEvent event) throws IOException, SQLException, ClassNotFoundException {
         if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         boolean usernameExist = false;
         boolean passwordShort = true;
         boolean usernameShort = true;
-        Scanner scanner = new Scanner(new File("src/data/users/teachers.txt"));
-        Scanner scanner1 = new Scanner(new File("src/data/users/students.txt"));
-        Scanner scanner2 = new Scanner(new File("src/data/users/admins.txt"));
-        Scanner scanner3 = new Scanner(new File("src/data/requests/teachers.txt"));
-        String usernameTemp;
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            usernameTemp = line.split("\\s+")[3];
-            if (usernameTemp.equals(username.getText())) {
+        for (Teacher teacher : LoginController.teacherList
+                ) {
+            if (teacher.getUsername().equals(username.getText())) {
                 usernameExist = true;
                 break;
             }
         }
+
         if (!usernameExist) {
-            while (scanner1.hasNextLine()) {
-                String line = scanner1.nextLine();
-                usernameTemp = line.split("\\s")[3];
-                if (usernameTemp.equals(username.getText())) {
+            for (Student student : LoginController.studentList
+                    ) {
+                if (student.getUsername().equals(username.getText())) {
+                    usernameExist = true;
+                    break;
+                }
+            }
+        }
+        if (!usernameExist) {
+            for (Admin admin : LoginController.adminList
+                    ) {
+                if (admin.getUsername().equals(username.getText())) {
                     usernameExist = true;
                     break;
                 }
 
             }
-
-        }
-        if(!usernameExist){
-            while(scanner2.hasNextLine()){
-                String line = scanner2.nextLine();
-                usernameTemp = line.split("\\s")[3];
-                if (usernameTemp.equals(username.getText())){
-                    usernameExist=true;
-                    break;
-                }
-            }
         }
 
-        if (!usernameExist){
-            while(scanner3.hasNextLine()){
-                String line = scanner3.nextLine();
-                usernameTemp = line.split("\\s")[3];
-                if (usernameTemp.equals(username.getText())){
+        if (!usernameExist) {
+            for (Teacher teacher : LoginController.requestsList
+                    ) {
+                if (teacher.getUsername().equals(username.getText())) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Error #6");
                     alert.setHeaderText("Request pending");
                     alert.setContentText("Your account request is still pending.");
                     alert.showAndWait();
-                    usernameExist=true;
-                    inRequest=true;
+                    usernameExist = true;
+                    inRequest = true;
                     break;
-
                 }
             }
         }
+
+
             if (usernameExist && !inRequest) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error #1");
@@ -191,23 +184,12 @@ public class RegisterController implements Initializable {
             }
         }
         if(!passwordShort){
-
                 String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
-
-                Scanner scanner4 = new Scanner(new File("src/data/users/students.txt"));
-                if (isTeacher) {
-                    scanner4 = new Scanner(new File("src/data/users/teachers.txt"));
-                }
-                int count = 0;
-                while(scanner4.hasNextLine()) {
-                    count++;
-                    scanner4.nextLine();
-                }
                 if (isTeacher){
-                    Teacher teacher = new Teacher(Integer.toString(count+1),firstName.getText()+" "+lastName.getText(),username.getText(),hashedPassword);
-                    teacher.serialize();
+                    Teacher teacher = new Teacher(0,firstName.getText()+" "+lastName.getText(),username.getText(),hashedPassword);
+                    teacher.serializeRequest();
                 } else{
-                    Student student = new Student(Integer.toString(count+1),firstName.getText()+" "+lastName.getText(),username.getText(),hashedPassword,classComboBox.getSelectionModel().getSelectedItem().toString()+classLetterComboBox.getSelectionModel().getSelectedItem().toString(),"");
+                    Student student = new Student(LoginController.studentList.size(),firstName.getText()+" "+lastName.getText(),username.getText(),hashedPassword,classComboBox.getSelectionModel().getSelectedItem().toString()+classLetterComboBox.getSelectionModel().getSelectedItem().toString(),"");
                     student.serialize();
                 }
                 if (!isTeacher) {
@@ -225,7 +207,7 @@ public class RegisterController implements Initializable {
                 }
                 else{
                     stage = (Stage) signUpButton.getScene().getWindow();
-                    Pane root;
+                    GridPane root;
                     root = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
                     Scene scene = new Scene(root);
                     root.getStyleClass().add("scene-background");
@@ -239,11 +221,14 @@ public class RegisterController implements Initializable {
     }
 
     public void showLoginDialog(MouseEvent event) throws IOException, SQLException {
-        // Get the current stage.
-        stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        // Change the current stage.
-        GridPane root = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
+        GridPane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
+        stage = (Stage) signUpButton.getScene().getWindow();
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/css/menu.css");
         stage.setScene(scene);
     }
+
 }
+

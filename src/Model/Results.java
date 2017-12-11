@@ -1,7 +1,9 @@
 package Model;
 
-import java.io.*;
+import Controllers.LoginController;
 
+import java.io.*;
+import java.util.ArrayList;
 
 
 public class Results implements Serializable{
@@ -14,7 +16,9 @@ public class Results implements Serializable{
     private int contestID;
     private int score;
     private double correctAnswerPercent;
-
+    private String contestName;
+    private SchoolClass schoolClass;
+    private int rank;
     public Results(){
 
     }
@@ -23,7 +27,7 @@ public class Results implements Serializable{
     }
 
 
-    public Results(int userID, String name, String teamAbreviation, int teacherID, int type, int contestID, int score, double correctAnswerPercent) {
+    public Results(int userID, String name, String teamAbreviation, int teacherID, int type, int contestID, String contestName, int score, double correctAnswerPercent, SchoolClass schoolClass) {
         this.userID = userID;
         this.name = name;
         this.teamAbreviation = teamAbreviation;
@@ -32,37 +36,25 @@ public class Results implements Serializable{
         this.contestID = contestID;
         this.score = score;
         this.correctAnswerPercent = correctAnswerPercent;
-    }
-
-    public void addResult() throws IOException {
-        try{
-            FileWriter wr = new FileWriter("src/data/attributes/results.txt",true);
-            BufferedWriter bw = new BufferedWriter(wr);
-            bw.write(String.valueOf(userID));
-            bw.write(" ");
-            bw.write(name);
-            bw.write(" ");
-            bw.write(teamAbreviation);
-            bw.write(" ");
-            bw.write(String.valueOf(teacherID));
-            bw.write(" ");
-            bw.write(String.valueOf(type));
-            bw.write(" ");
-            bw.write(String.valueOf(contestID));
-            bw.write(" ");
-            bw.write(String.valueOf(score));
-            bw.write(" ");
-            bw.write(String.valueOf(correctAnswerPercent));
-            bw.newLine();
-
-            if(bw != null)
-                bw.close();
+        this.contestName = contestName;
+        this.schoolClass = schoolClass;
+        try {
+            serialize();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        catch (IOException e) {
-            System.err.println("Error opening file. Terminating.");}
 
     }
 
+    public Results(int contestID, String contestName, String name, int score, int rank) {
+        this.name = name;
+        this.contestID = contestID;
+        this.contestName = contestName;
+        this.score = score;
+        this.rank = rank;
+    }
 
     public String getName() {
         return name;
@@ -72,6 +64,100 @@ public class Results implements Serializable{
         this.name = name;
     }
 
+    public void serialize() throws IOException, ClassNotFoundException {
+        LoginController.resultsList.add(this);
+        File file = new File("src/data/attributes/results.ser");
+        FileOutputStream fileOut = new FileOutputStream(file,false);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(LoginController.resultsList);
+        out.close();
+        fileOut.close();
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        LoginController.resultsList = (ArrayList) in.readObject();
+        in.close();
+        fileIn.close();
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getTeamAbreviation() {
+        return teamAbreviation;
+    }
+
+    public void setTeamAbreviation(String teamAbreviation) {
+        this.teamAbreviation = teamAbreviation;
+    }
+
+    public int getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(int teacherID) {
+        this.teacherID = teacherID;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getContestID() {
+        return contestID;
+    }
+
+    public void setContestID(int contestID) {
+        this.contestID = contestID;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public double getCorrectAnswerPercent() {
+        return correctAnswerPercent;
+    }
+
+    public void setCorrectAnswerPercent(double correctAnswerPercent) {
+        this.correctAnswerPercent = correctAnswerPercent;
+    }
+
+    public  String getContestName() {
+        return contestName;
+    }
+
+    public void setContestName(String contestName) {
+        this.contestName = contestName;
+    }
+
+    public SchoolClass getSchoolClass() {
+        return schoolClass;
+    }
+
+    public void setSchoolClass(SchoolClass schoolClass) {
+        this.schoolClass = schoolClass;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
 }
 
 

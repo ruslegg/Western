@@ -2,8 +2,7 @@ package Controllers;/**
  * Created by Constantine on 10/23/2017.
  */
 
-import Model.Student;
-import Model.Teacher;
+import Model.*;
 import com.mysql.jdbc.StringUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,6 +58,17 @@ public class LoginController implements Initializable {
     public static final AudioClip soundPlayer = new AudioClip(AudioPlayer.class.getResource("/assets/press.mp3").toString());
     public int userID;
     public static int menuID;
+    public static Teacher teacher = new Teacher();
+    public static Student student = new Student();
+    public static ArrayList<Admin> adminList = new ArrayList();
+    public static ArrayList<Student> studentList = new ArrayList();
+    public static ArrayList<Teacher> teacherList = new ArrayList();
+    public static ArrayList<Teacher> requestsList = new ArrayList();
+    public static ArrayList<Results> resultsList = new ArrayList();
+    public static ArrayList<SchoolClass> classList = new ArrayList();
+    public static ArrayList<Question> questionsList = new ArrayList();
+
+
 
 
 
@@ -92,42 +102,37 @@ public class LoginController implements Initializable {
     public void checkCredentials(MouseEvent event) throws IOException, SQLException {
         boolean foundUser = false;
         String userPassword = "";
-        String line, usernameCheck;
-        Scanner studentScanner = new Scanner(new File("src/data/users/students.txt"));
-        Scanner teacherScanner = new Scanner(new File("src/data/users/teachers.txt"));
-        Scanner adminScanner = new Scanner(new File("src/data/users/admins.txt"));
-        while (studentScanner.hasNextLine()) {
-            line = studentScanner.nextLine();
-            usernameCheck = line.split("\\s")[3];
-            if (usernameCheck.equals(username.getText())) {
-                userPassword = line.split("\\s")[4];
-                foundUser = true;
-                menuID=0;
-                break;
+        for (Student student: studentList
+             ) {
+                if(student.getUsername().equals(username.getText())){
+                    userPassword = student.getPassword();
+                    foundUser=true;
+                    menuID=0;
+                    this.student = student;
+                    break;
+                }
+        }
+
+        if (!foundUser) {
+            for (Teacher teacher: teacherList
+                 ) {
+                if (teacher.getUsername().equals(username.getText())){
+                    userPassword = teacher.getPassword();
+                    foundUser=true;
+                    menuID=1;
+                    this.teacher=teacher;
+                    break;
+                }
             }
 
         }
         if (!foundUser) {
-            while (teacherScanner.hasNextLine()) {
-                line = teacherScanner.nextLine();
-                usernameCheck = line.split("\\s")[3];
-                if (usernameCheck.equals(username.getText())) {
-                    userPassword = line.split("\\s")[4];
-                    userID=Integer.valueOf(line.split("\\s")[0]);
-                    menuID=1;
+            for (Admin admin: adminList
+                 ) {
+                if (admin.getUsername().equals(username.getText())) {
+                    userPassword = admin.getPassword();
                     foundUser = true;
-                    break;
-                }
-            }
-        }
-        if (!foundUser) {
-            while (adminScanner.hasNextLine()) {
-                line = adminScanner.nextLine();
-                usernameCheck = line.split("\\s")[3];
-                if (usernameCheck.equals(username.getText())) {
-                    userPassword = line.split("\\s")[4];
-                    foundUser = true;
-                    menuID=2;
+                    menuID = 2;
                     break;
                 }
             }
@@ -138,7 +143,6 @@ public class LoginController implements Initializable {
                 if (menuID==0){root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));}
                 else if(menuID==1){root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
                 }else if(menuID==2){root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));}
-                GenerateQuestionsController.setTeacherID(String.valueOf(userID));
                 stage = (Stage) loginButton.getScene().getWindow();
                 Scene scene = new Scene(root);
                 root.getStyleClass().add("scene-background");
@@ -169,13 +173,100 @@ public class LoginController implements Initializable {
 
     }
 
+    public void getData(){
+        File students = new File("src/data/users/students.ser");
+        File teachers = new File("src/data/users/teachers.ser");
+        File admins = new File("src/data/users/admins.ser");
+        File requests = new File("src/data/requests/teachers.ser");
+        File results = new File("src/data/attributes/results.ser");
+        File classes = new File("src/data/attributes/classes.ser");
+        File questions = new File("src/data/attributes/questions.ser");
 
+        FileInputStream fileIn = null;
+        ObjectInputStream in = null;
+        try {
+            fileIn = new FileInputStream(students);
+            in = new ObjectInputStream(fileIn);
+            studentList = (ArrayList) in.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileIn = new FileInputStream(requests);
+            in=new ObjectInputStream(fileIn);
+            requestsList = (ArrayList) in.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            fileIn = new FileInputStream(admins);
+            in=new ObjectInputStream(fileIn);
+            adminList = (ArrayList) in.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileIn = new FileInputStream(teachers);
+            in=new ObjectInputStream(fileIn);
+            teacherList = (ArrayList) in.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileIn = new FileInputStream(results);
+            in=new ObjectInputStream(fileIn);
+            resultsList = (ArrayList) in.readObject();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileIn = new FileInputStream(classes);
+            in=new ObjectInputStream(fileIn);
+            classList = (ArrayList) in.readObject();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileIn = new FileInputStream(questions);
+            in=new ObjectInputStream(fileIn);
+            questionsList = (ArrayList) in.readObject();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            in.close();
+            fileIn.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        getData();
         musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        musicPlayer.play();
     }
 
     }

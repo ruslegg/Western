@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminTeacherSettings">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="200.0">
@@ -30,6 +29,7 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
             <Button fx:id="approveButton" mnemonicParsing="false" onMouseClicked="#approveRequest" text="Approve" />
+            <Button fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#deleteRequest" text="Delete" />
           <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toAdminMainMenu" text="Back" />
         </buttons>
          <padding>

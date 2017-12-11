@@ -47,7 +47,7 @@ public class CreateOptionsTeachersController implements Initializable{
     public void toMainMenu() throws IOException{
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/teacherMenu.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
         Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/css/menu.css");
