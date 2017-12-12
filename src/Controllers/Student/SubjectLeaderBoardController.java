@@ -36,6 +36,7 @@ public class SubjectLeaderBoardController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         getData();
+        subjectLabel.setText(ChosenGameMenuController.getQuizName());
         studentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         studentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
         studentScore.setCellValueFactory(new PropertyValueFactory<>("studentScore"));

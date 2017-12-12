@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,13 +49,12 @@ public class ChooseTypeOfGameController implements Initializable {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) normalGameButton.getScene().getWindow();
-        Button root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/random.fxml"));
+        VBox root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/randomQuestionsOptions.fxml"));
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
-        System.out.println("Normal");
     }
 
     public void toMainMenu(MouseEvent event) throws IOException, InterruptedException {
