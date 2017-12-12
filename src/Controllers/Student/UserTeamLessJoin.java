@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
+import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 import java.net.URL;
@@ -60,9 +61,10 @@ public class UserTeamLessJoin implements Initializable {
             alert.setHeaderText("Team Join successful");
             alert.setContentText("You have successfully requested to join a team. You now need to wait for the team-leader for approval");
             alert.showAndWait();
-            Student student;
-            student = LoginController.student;
-            student.setTeam(new Team(joinTeamTableView.getSelectionModel().getSelectedItem().getTeamName(),joinTeamTableView.getSelectionModel().getSelectedItem().getTeamAbbreviation()));
+            Student student = new Student(LoginController.student.getId(),LoginController.student.getName(),
+                    LoginController.student.getUsername(),LoginController.student.getPassword(),
+                    new Team(joinTeamTableView.getSelectionModel().getSelectedItem().getTeamName(),
+                            joinTeamTableView.getSelectionModel().getSelectedItem().getTeamAbbreviation()),LoginController.student.getSchoolClass());
             student.serializeTeamRequest();
             stage = (Stage) backButton.getScene().getWindow();
             VBox root;
