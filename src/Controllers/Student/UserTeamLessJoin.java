@@ -51,10 +51,23 @@ public class UserTeamLessJoin implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Team Join Error");
             alert.setHeaderText("Selection is empty");
-            alert.setContentText("You have not selected any team from the list. Please try again");
+            alert.setContentText("You have not selected any team from the list. Please try again.");
             alert.showAndWait();
-            selected=false;
+            selected = false;
         }
+
+        for (Student student : LoginController.teamRequests) {
+            if (student.getTeam().getName().equals(joinTeamTableView.getSelectionModel().getSelectedItem().getTeamName()) && student.getName().equals(LoginController.student.getName())) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Team Join Failed");
+                alert.setHeaderText("Team Join Has Failed");
+                alert.setContentText("You have already sent a request to this team.");
+                alert.showAndWait();
+                selected = false;
+                break;
+            }
+        }
+
         if (selected){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Team Join Successful");
