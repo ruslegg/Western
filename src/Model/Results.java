@@ -10,7 +10,8 @@ public class Results implements Serializable{
 
     private int userID;
     private String name;
-    private String teamAbreviation;
+    private String teamAbbreviation;
+    private String teamName;
     private int teacherID;
     private int type;
     private int contestID;
@@ -27,10 +28,11 @@ public class Results implements Serializable{
     }
 
 
-    public Results(int userID, String name, String teamAbreviation, int teacherID, int type, int contestID, String contestName, int score, double correctAnswerPercent, SchoolClass schoolClass) {
+    public Results(int userID, String name, String teamAbbreviation, String teamName, int teacherID, int type, int contestID, String contestName, int score, double correctAnswerPercent, SchoolClass schoolClass) {
         this.userID = userID;
         this.name = name;
-        this.teamAbreviation = teamAbreviation;
+        this.teamAbbreviation = teamAbbreviation;
+        this.teamName = teamName;
         this.teacherID = teacherID;
         this.type = type;
         this.contestID = contestID;
@@ -79,6 +81,8 @@ public class Results implements Serializable{
         fileIn.close();
     }
 
+
+
     public int getUserID() {
         return userID;
     }
@@ -87,12 +91,12 @@ public class Results implements Serializable{
         this.userID = userID;
     }
 
-    public String getTeamAbreviation() {
-        return teamAbreviation;
+    public String getTeamAbbreviation() {
+        return teamAbbreviation;
     }
 
-    public void setTeamAbreviation(String teamAbreviation) {
-        this.teamAbreviation = teamAbreviation;
+    public void setTeamAbbreviation(String teamAbbreviation) {
+        this.teamAbbreviation = teamAbbreviation;
     }
 
     public int getTeacherID() {
@@ -157,6 +161,14 @@ public class Results implements Serializable{
 
     public void setRank(int rank) {
         this.rank = rank;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 }
 

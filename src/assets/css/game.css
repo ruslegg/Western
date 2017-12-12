@@ -1,0 +1,6 @@
+#pane{
+    -fx-background-image: url("/assets/img/House.png");
+}
+.button{
+    -fx-background-image: url("/assets/img/Windowfull.png");
+}

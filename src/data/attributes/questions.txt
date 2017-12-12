@@ -1,8 +1,0 @@
-0 1 1 1 2 3 4 2 Math [6A, 6B]
-0 1 2 1 2 3 4 4 Math [6A, 6B]
-0 1 What is the capital of Great Britain? Alaska Denmark England Mata England Math [6A, 6B]
-0 2 That is another question no no no yes yes Math1 [6A, 6C]
-0 3 Other question yes yes yes no no Math 2 [7A]
-1 1 Contest test 1 2 3 4 3 Math [6A, 6C] 30-11-2017 01-12-2017
-1 1 test Contest 4 3 2 1 2 Math [6A, 6C] 30-11-2017 01-12-2017
-0 4 assasd dasd asdasd asdasd asdasd dasd Adiasdas [6B]

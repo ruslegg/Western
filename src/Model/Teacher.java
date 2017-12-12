@@ -1,7 +1,6 @@
 package Model;
 
 import Controllers.LoginController;
-import sun.rmi.runtime.Log;
 
 import java.io.*;
 import java.util.ArrayList;

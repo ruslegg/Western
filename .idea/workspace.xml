@@ -1,18 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added team functionality">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/UserTeamLessJoin.java" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added game functionality&#10;&#10;Cleaned unused filed">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/Student/ChosenGameMenuController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/Student/GameController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/Student/SchoolGames.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/Student/SubjectLeaderBoardController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/Student/UserTeamInformation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controllers/Student/UserTeamLessJoin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/chosenGameMenu.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FXML/subjectLeaderBoard.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data/requests/students.ser" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/BriefingController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/GameController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/GameIntroController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/LeaderboardsController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/LoseMenuController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/SchoolGames.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/StartCompetitionScene.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controllers/UserTeamLessJoin.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FXML/briefing.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FXML/competitionIntroScene.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FXML/gameIntro.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FXML/generate.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FXML/leaderboards.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FXML/loseMenu.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FXML/main.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FXML/startCompetitionScene.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/LeaderboardLocal.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/LeaderboardLocalObject.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Person.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/house.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/competition.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/generate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/lesson.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/quiz.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/settings.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/startCompetitionScene.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/subjectList.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data/attributes/classes.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data/attributes/questions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/data/attributes/results.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/file/musicTheme.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/for_interview/Stopwatch.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/includes/MYSQL.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/includes/mysql-connector-java-5.1.44-bin.jar" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/AdminMainMenuController.java" afterPath="$PROJECT_DIR$/src/Controllers/Admin/AdminMainMenuController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/AdminTeacherSettings.java" afterPath="$PROJECT_DIR$/src/Controllers/Admin/AdminTeacherSettings.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/ChooseTypeOfGameController.java" afterPath="$PROJECT_DIR$/src/Controllers/Student/ChooseTypeOfGameController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/CreateClassController.java" afterPath="$PROJECT_DIR$/src/Controllers/Teacher/CreateClassController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/CreateOptionsTeachersController.java" afterPath="$PROJECT_DIR$/src/Controllers/Teacher/CreateOptionsTeachersController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/GenerateQuestionsController.java" afterPath="$PROJECT_DIR$/src/Controllers/Teacher/GenerateQuestionsController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/GenerateQuizController.java" afterPath="$PROJECT_DIR$/src/Controllers/Teacher/GenerateQuizController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/MainMenuController.java" afterPath="$PROJECT_DIR$/src/Controllers/Student/MainMenuController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/QuizFinishedController.java" afterPath="$PROJECT_DIR$/src/Controllers/Student/QuizFinishedController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/RegisterController.java" afterPath="$PROJECT_DIR$/src/Controllers/Student/RegisterController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/StatisticsController.java" afterPath="$PROJECT_DIR$/src/Controllers/Student/StatisticsController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/StatisticsTeachersController.java" afterPath="$PROJECT_DIR$/src/Controllers/Teacher/StatisticsTeachersController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/TeacherMenuController.java" afterPath="$PROJECT_DIR$/src/Controllers/Teacher/TeacherMenuController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/UserTeamLessCreate.java" afterPath="$PROJECT_DIR$/src/Controllers/Student/UserTeamLessCreate.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controllers/UserTeamLessOptions.java" afterPath="$PROJECT_DIR$/src/Controllers/Student/UserTeamLessOptions.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Windows4.png" afterPath="$PROJECT_DIR$/src/assets/img/Windows4.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/House.png" afterPath="$PROJECT_DIR$/src/assets/img/House.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/Windowfull.png" afterPath="$PROJECT_DIR$/src/assets/img/Windowfull.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/Windows1.png" afterPath="$PROJECT_DIR$/src/assets/img/Windows1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/Windows2.png" afterPath="$PROJECT_DIR$/src/assets/img/Windows2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/Windows3.png" afterPath="$PROJECT_DIR$/src/assets/img/Windows3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/Windows4.png" afterPath="$PROJECT_DIR$/src/assets/img/Windows4.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/background.png" afterPath="$PROJECT_DIR$/src/assets/img/background.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/buttons.png" afterPath="$PROJECT_DIR$/src/assets/img/buttons.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/westernButtons.jpg" afterPath="$PROJECT_DIR$/src/assets/img/westernButtons.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/assets/window.png" afterPath="$PROJECT_DIR$/src/assets/img/window.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/css/game.css" afterPath="$PROJECT_DIR$/src/assets/css/game.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/css/menu.css" afterPath="$PROJECT_DIR$/src/assets/css/menu.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/Controllers/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/RegisterController.java" afterPath="$PROJECT_DIR$/src/Controllers/RegisterController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/UserTeamLessCreate.java" afterPath="$PROJECT_DIR$/src/Controllers/UserTeamLessCreate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/UserTeamLessOptions.java" afterPath="$PROJECT_DIR$/src/Controllers/UserTeamLessOptions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/SettingsController.java" afterPath="$PROJECT_DIR$/src/Controllers/SettingsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/adminMainMenu.fxml" afterPath="$PROJECT_DIR$/src/FXML/adminMainMenu.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/adminTeacherSettings.fxml" afterPath="$PROJECT_DIR$/src/FXML/adminTeacherSettings.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/chooseTypeOfGame.fxml" afterPath="$PROJECT_DIR$/src/FXML/chooseTypeOfGame.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/createClass.fxml" afterPath="$PROJECT_DIR$/src/FXML/createClass.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/createOptionsTeacher.fxml" afterPath="$PROJECT_DIR$/src/FXML/createOptionsTeacher.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/game.fxml" afterPath="$PROJECT_DIR$/src/FXML/game.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/generateQuestions.fxml" afterPath="$PROJECT_DIR$/src/FXML/generateQuestions.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/generateQuiz.fxml" afterPath="$PROJECT_DIR$/src/FXML/generateQuiz.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/mainMenu.fxml" afterPath="$PROJECT_DIR$/src/FXML/mainMenu.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/mainMenuTeacher.fxml" afterPath="$PROJECT_DIR$/src/FXML/mainMenuTeacher.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/quizFinished.fxml" afterPath="$PROJECT_DIR$/src/FXML/quizFinished.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/register.fxml" afterPath="$PROJECT_DIR$/src/FXML/register.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/school-games.fxml" afterPath="$PROJECT_DIR$/src/FXML/school-games.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/statistics.fxml" afterPath="$PROJECT_DIR$/src/FXML/statistics.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/statisticsTeacher.fxml" afterPath="$PROJECT_DIR$/src/FXML/statisticsTeacher.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/subjectlist.fxml" afterPath="$PROJECT_DIR$/src/FXML/subjectlist.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/teacherMainMenu.fxml" afterPath="$PROJECT_DIR$/src/FXML/teacherMainMenu.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/userTeamInformation.fxml" afterPath="$PROJECT_DIR$/src/FXML/userTeamInformation.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/userTeamLessCreate.fxml" afterPath="$PROJECT_DIR$/src/FXML/userTeamLessCreate.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/userTeamLessJoin.fxml" afterPath="$PROJECT_DIR$/src/FXML/userTeamLessJoin.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/SchoolClass.java" afterPath="$PROJECT_DIR$/src/Model/SchoolClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FXML/userTeamLessOptions.fxml" afterPath="$PROJECT_DIR$/src/FXML/userTeamLessOptions.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Question.java" afterPath="$PROJECT_DIR$/src/Model/Question.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Results.java" afterPath="$PROJECT_DIR$/src/Model/Results.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Student.java" afterPath="$PROJECT_DIR$/src/Model/Student.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TableView/TeamRequest.java" afterPath="$PROJECT_DIR$/src/Model/TableView/TeamRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TableView/TeamLeaderBoard.java" afterPath="$PROJECT_DIR$/src/Model/TableView/TeamLeaderBoard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TableView/TeamMembers.java" afterPath="$PROJECT_DIR$/src/Model/TableView/TeamMembers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TableView/TeamMembersRequest.java" afterPath="$PROJECT_DIR$/src/Model/TableView/TeamMembersRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TableView/UserGameCompetition.java" afterPath="$PROJECT_DIR$/src/Model/TableView/UserGameCompetition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TableView/UserGameContest.java" afterPath="$PROJECT_DIR$/src/Model/TableView/UserGameContest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TableView/UserGameSubjectLeaderBoard.java" afterPath="$PROJECT_DIR$/src/Model/TableView/UserGameSubjectLeaderBoard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Teacher.java" afterPath="$PROJECT_DIR$/src/Model/Teacher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Team.java" afterPath="$PROJECT_DIR$/src/Model/Team.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data/attributes/classes.ser" afterPath="$PROJECT_DIR$/src/data/attributes/classes.ser" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data/attributes/questions.ser" afterPath="$PROJECT_DIR$/src/data/attributes/questions.ser" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data/attributes/results.ser" afterPath="$PROJECT_DIR$/src/data/attributes/results.ser" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data/attributes/teams.ser" afterPath="$PROJECT_DIR$/src/data/attributes/teams.ser" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data/users/admins.ser" afterPath="$PROJECT_DIR$/src/data/users/admins.ser" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data/users/students.ser" afterPath="$PROJECT_DIR$/src/data/users/students.ser" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data/users/teachers.ser" afterPath="$PROJECT_DIR$/src/data/users/teachers.ser" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,77 +185,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserTeamLessOptions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/UserTeamLessOptions.java">
+      <file leaf-file-name="chooseTypeOfGame.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FXML/chooseTypeOfGame.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="30" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="22" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#toJoinTeam#0;class#UserTeamLessOptions#0" expanded="false" />
-                <element signature="method#toMainMenu#0;class#UserTeamLessOptions#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserTeamLessCreate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/UserTeamLessCreate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="43" column="34" lean-forward="true" selection-start-line="38" selection-start-column="11" selection-end-line="43" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserTeamLessJoin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/UserTeamLessJoin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3480">
-              <caret line="270" column="24" lean-forward="false" selection-start-line="270" selection-start-column="24" selection-end-line="270" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeamRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/TableView/TeamRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-              <folding>
-                <element signature="e#313#314#0" expanded="true" />
-                <element signature="e#361#362#0" expanded="true" />
-                <element signature="e#401#402#0" expanded="true" />
-                <element signature="e#444#445#0" expanded="true" />
-                <element signature="e#483#484#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#603#604#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userTeamLessJoin.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/FXML/userTeamLessJoin.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="20" column="80" lean-forward="false" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,68 +198,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/RegisterController.java">
+      <file leaf-file-name="chosenGameMenu.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FXML/chosenGameMenu.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1555">
-              <caret line="191" column="58" lean-forward="false" selection-start-line="191" selection-start-column="58" selection-end-line="191" selection-end-column="58" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="SchoolClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/SchoolClass.java">
+      <file leaf-file-name="SchoolGames.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Student/SchoolGames.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+            <state relative-caret-position="117">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#toChooseTypeOfGame#0;class#SchoolGames#0" expanded="false" />
+                <element signature="method#available#0;class#SchoolGames#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Student.java">
+      <file leaf-file-name="game.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FXML/game.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="57" column="35" lean-forward="false" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1273#1274#0" expanded="true" />
-                <element signature="e#1300#1301#0" expanded="true" />
-                <element signature="e#1338#1339#0" expanded="true" />
-                <element signature="e#1370#1371#0" expanded="true" />
-                <element signature="e#1413#1414#0" expanded="true" />
-                <element signature="e#1447#1448#0" expanded="true" />
-                <element signature="e#1506#1507#0" expanded="true" />
-                <element signature="e#1552#1553#0" expanded="true" />
-                <element signature="e#1624#1625#0" expanded="true" />
-                <element signature="e#1677#1678#0" expanded="true" />
-                <element signature="e#1718#1719#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Team.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Team.java">
+      <file leaf-file-name="subjectlist.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FXML/subjectlist.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-65">
-              <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1149#1150#0" expanded="true" />
-                <element signature="e#1176#1177#0" expanded="true" />
-                <element signature="e#1216#1217#0" expanded="true" />
-                <element signature="e#1248#1249#0" expanded="true" />
-                <element signature="e#1287#1288#0" expanded="true" />
-                <element signature="e#1322#1323#0" expanded="true" />
-                <element signature="e#1378#1379#0" expanded="true" />
-                <element signature="e#1426#1427#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FXML/login.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="77" lean-forward="true" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -265,6 +305,9 @@
       <find>Bar</find>
       <find>Alert</find>
       <find>classComboBox</find>
+      <find>int</find>
+      <find>name</find>
+      <find>getData</find>
     </findStrings>
     <replaceStrings>
       <replace>Stage</replace>
@@ -288,57 +331,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/data/users/teachers.txt" />
-        <option value="$PROJECT_DIR$/src/Controllers/ChooseTypeOfGameController.java" />
-        <option value="$PROJECT_DIR$/src/Model/TableViewObjects.java" />
-        <option value="$PROJECT_DIR$/src/Model/TableView/AdminRequest.java" />
-        <option value="$PROJECT_DIR$/src/Model/TableView/UserGameContest.java" />
-        <option value="$PROJECT_DIR$/src/Model/TableView/UserGameCompetition.java" />
-        <option value="$PROJECT_DIR$/src/FXML/chooseTypeOfGame.fxml" />
-        <option value="$PROJECT_DIR$/src/FXML/school-games.fxml" />
-        <option value="$PROJECT_DIR$/src/Controllers/SchoolGames.java" />
-        <option value="$PROJECT_DIR$/src/data/test/teacher.ser" />
-        <option value="$PROJECT_DIR$/src/Model/Class.java" />
-        <option value="$PROJECT_DIR$/src/Model/User.java" />
-        <option value="$PROJECT_DIR$/src/Model/Admin.java" />
-        <option value="$PROJECT_DIR$/src/Model/TableView/AdminStatistics.java" />
-        <option value="$PROJECT_DIR$/src/data/users/students.ser" />
-        <option value="$PROJECT_DIR$/src/data/users/admins.ser" />
-        <option value="$PROJECT_DIR$/src/Model/Teacher.java" />
-        <option value="$PROJECT_DIR$/src/data/users/teachers.ser" />
-        <option value="$PROJECT_DIR$/src/data/requests/teachers.ser" />
-        <option value="$PROJECT_DIR$/src/Controllers/AdminTeacherSettings.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/CreateClassController.java" />
-        <option value="$PROJECT_DIR$/src/data/attributes/classes.ser" />
-        <option value="$PROJECT_DIR$/src/FXML/generateQuiz.fxml" />
-        <option value="$PROJECT_DIR$/src/Controllers/GenerateQuizController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/GameController.java" />
-        <option value="$PROJECT_DIR$/src/Model/Question.java" />
-        <option value="$PROJECT_DIR$/src/data/attributes/questions.ser" />
-        <option value="$PROJECT_DIR$/src/Controllers/CreateOptionsTeachersController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/GenerateQuestionsController.java" />
-        <option value="$PROJECT_DIR$/src/FXML/statisticsTeacher.fxml" />
         <option value="$PROJECT_DIR$/src/Model/TableView/TeacherCompetition.java" />
         <option value="$PROJECT_DIR$/src/Model/TableView/TeacherContest.java" />
         <option value="$PROJECT_DIR$/src/data/attributes/results.txt" />
         <option value="$PROJECT_DIR$/src/Model/TableView/TeacherLineChart.java" />
         <option value="$PROJECT_DIR$/src/Controllers/StatisticsTeachersController.java" />
-        <option value="$PROJECT_DIR$/src/Model/Results.java" />
         <option value="$PROJECT_DIR$/src/Model/TableView/UserStatisticsLeaderBoard.java" />
         <option value="$PROJECT_DIR$/src/Model/TableView/UserStatisticsContestRank.java" />
         <option value="$PROJECT_DIR$/src/Controllers/StatisticsController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/MainMenuController.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Controllers/UserTeamLessOptions.java" />
         <option value="$PROJECT_DIR$/src/data/attributes/teams.ser" />
         <option value="$PROJECT_DIR$/src/Model/SchoolClass.java" />
-        <option value="$PROJECT_DIR$/src/Model/Team.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/RegisterController.java" />
-        <option value="$PROJECT_DIR$/src/Model/Student.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/UserTeamLessCreate.java" />
         <option value="$PROJECT_DIR$/src/Model/TableView/TeamRequest.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/data/users/students.ser" />
+        <option value="$PROJECT_DIR$/src/Controllers/RegisterController.java" />
+        <option value="$PROJECT_DIR$/src/data/requests/students.ser" />
+        <option value="$PROJECT_DIR$/src/Model/Team.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/UserTeamLessCreate.java" />
         <option value="$PROJECT_DIR$/src/Controllers/UserTeamLessJoin.java" />
+        <option value="$PROJECT_DIR$/src/Model/TableView/TeamMembers.java" />
+        <option value="$PROJECT_DIR$/src/Model/TableView/TeamMembersRequest.java" />
+        <option value="$PROJECT_DIR$/src/Model/TableView/TeamLeaderBoard.java" />
+        <option value="$PROJECT_DIR$/src/Model/Student.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/MainMenuController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/UserTeamInformation.java" />
+        <option value="$PROJECT_DIR$/src/Model/Question.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/GenerateQuestionsController.java" />
+        <option value="$PROJECT_DIR$/src/data/attributes/questions.ser" />
+        <option value="$PROJECT_DIR$/src/FXML/chosenGameMenu.fxml" />
+        <option value="$PROJECT_DIR$/src/Model/TableView/UserGameSubjectLeaderBoard.java" />
+        <option value="$PROJECT_DIR$/src/Model/Results.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/SubjectLeaderBoardController.java" />
+        <option value="$PROJECT_DIR$/src/Model/TableView/UserGameCompetition.java" />
+        <option value="$PROJECT_DIR$/src/Model/TableView/UserGameContest.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/SchoolGames.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/ChosenGameMenuController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/QuizFinishedController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/GameController.java" />
+        <option value="$PROJECT_DIR$/src/FXML/quizFinished.fxml" />
+        <option value="$PROJECT_DIR$/src/data/attributes/results.ser" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Admin/AdminTeacherSettings.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Teacher/CreateOptionsTeachersController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Student/SettingsController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Student/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/SettingsController.java" />
+        <option value="$PROJECT_DIR$/src/css/lesson.css" />
+        <option value="$PROJECT_DIR$/src/css/menu.css" />
+        <option value="$PROJECT_DIR$/src/css/main.css" />
+        <option value="$PROJECT_DIR$/src/Controllers/Student/SchoolGames.java" />
       </list>
     </option>
   </component>
@@ -389,46 +432,14 @@
               <item name="Western" type="b2602c69:ProjectViewProjectNode" />
               <item name="Western" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Western" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Western" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Western" type="b2602c69:ProjectViewProjectNode" />
               <item name="Western" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Western" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Western" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="attributes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Western" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Western" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="requests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Western" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Western" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Western" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Western" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="FXML" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Student" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Western" type="b2602c69:ProjectViewProjectNode" />
@@ -474,17 +485,18 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/admin/Documents/IdeaProjects/Western/src/FXML/statisticsTeacher.fxml" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/img" />
       <recent name="$PROJECT_DIR$/src/data/attributes" />
       <recent name="$PROJECT_DIR$/src/file" />
       <recent name="$PROJECT_DIR$/src/file.mp3" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/data/requests" />
       <recent name="$PROJECT_DIR$/src/assets" />
     </key>
   </component>
@@ -1080,7 +1092,7 @@
       <workItem from="1511435246968" duration="9219000" />
       <workItem from="1511964564790" duration="12165000" />
       <workItem from="1511983425312" duration="11225000" />
-      <workItem from="1512469463672" duration="72993000" />
+      <workItem from="1512469463672" duration="98998000" />
     </task>
     <task id="LOCAL-00001" summary="booom bitch">
       <created>1508149903736</created>
@@ -1250,11 +1262,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512996356413</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added team functionality">
+      <created>1512998297220</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1512998297220</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198870000" />
+    <option name="totallyTimeSpent" value="224875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="179" y="1" width="1224" height="900" extended-state="0" />
@@ -1321,13 +1340,13 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4299517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4299517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32705098" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20996732" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -1388,55 +1407,80 @@
     <MESSAGE value="Admin-&gt; Teacher Requests and Statistics" />
     <MESSAGE value="Added functionality" />
     <MESSAGE value="Added team functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added team functionality" />
+    <MESSAGE value="Added game functionality&#10;&#10;Cleaned unused filed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added game functionality&#10;&#10;Cleaned unused filed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controllers/SchoolGames.java</url>
-          <line>88</line>
-          <properties />
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controllers/AdminTeacherSettings.java</url>
-          <line>50</line>
+          <url>file://$PROJECT_DIR$/src/Controllers/Admin/AdminTeacherSettings.java</url>
+          <line>42</line>
           <properties />
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Model/Teacher.java</url>
-          <line>59</line>
+          <line>58</line>
           <properties />
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Model/Teacher.java</url>
-          <line>54</line>
+          <line>53</line>
           <properties />
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controllers/AdminTeacherSettings.java</url>
-          <line>112</line>
+          <url>file://$PROJECT_DIR$/src/Controllers/Admin/AdminTeacherSettings.java</url>
+          <line>104</line>
           <properties />
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Model/Question.java</url>
-          <line>68</line>
+          <line>67</line>
           <properties />
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controllers/StatisticsTeachersController.java</url>
-          <line>144</line>
+          <url>file://$PROJECT_DIR$/src/Controllers/Teacher/StatisticsTeachersController.java</url>
+          <line>143</line>
           <properties />
           <option name="timeStamp" value="103" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/Student/UserTeamInformation.java</url>
+          <line>163</line>
+          <properties />
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Model/Student.java</url>
+          <line>66</line>
+          <properties />
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/Teacher/GenerateQuizController.java</url>
+          <line>146</line>
+          <properties />
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/Student/SubjectLeaderBoardController.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/LoginController.java</url>
+          <line>276</line>
+          <properties />
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="116" />
+      <option name="time" value="147" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1445,218 +1489,76 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Model/TableView/AdminStatistics.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Teacher/StatisticsTeachersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
-          <folding>
-            <element signature="e#930#931#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/AdminMainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="-7">
+          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/javafx-src.zip!/javafx/event/Event.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Teacher/GenerateQuestionsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/javafx-src.zip!/javafx/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="2494" column="0" lean-forward="false" selection-start-line="2494" selection-start-column="0" selection-end-line="2494" selection-end-column="0" />
-          <folding>
-            <element signature="e#66617#66618#0" expanded="false" />
-            <element signature="e#66663#66664#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Teacher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="55" column="79" lean-forward="false" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
+        <state relative-caret-position="-7">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/users/teachers.ser">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Teacher/GenerateQuizController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-7">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/requests/teachers.ser">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Teacher/CreateClassController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="47" lean-forward="false" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
+        <state relative-caret-position="-7">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/createClass.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Teacher/CreateOptionsTeachersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/CreateClassController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="46" column="34" lean-forward="false" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/attributes/classes.ser">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="43" lean-forward="true" selection-start-line="0" selection-start-column="43" selection-end-line="0" selection-end-column="43" />
+        <state relative-caret-position="15">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/generateQuiz.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/CompetitionIntroSceneController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="55" column="100" lean-forward="false" selection-start-line="55" selection-start-column="100" selection-end-line="55" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/Scanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="303" column="19" lean-forward="false" selection-start-line="303" selection-start-column="19" selection-end-line="303" selection-end-column="19" />
+        <state relative-caret-position="60">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/SchoolGames.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/LoseMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
-          <caret line="95" column="13" lean-forward="false" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/GameIntroController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/StartCompetitionScene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/LeaderboardsController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Admin/AdminTeacherSettings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <marker date="1511983288661" expanded="true" signature="2806:2893" ph="SELECT * FRO... leaderboard" />
-            <marker date="1511983288661" expanded="true" signature="3142:3195" ph="SELECT `name... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="177" column="7" lean-forward="false" selection-start-line="177" selection-start-column="7" selection-end-line="177" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/attributes/questions.ser">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/createOptionsTeacher.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Question.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="e#3152#3153#0" expanded="true" />
-            <element signature="e#3181#3182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/CreateOptionsTeachersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/GenerateQuizController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="54" column="11" lean-forward="false" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/GenerateQuestionsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2080">
-          <caret line="219" column="68" lean-forward="true" selection-start-line="219" selection-start-column="68" selection-end-line="219" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7953#7954#0" expanded="true" />
-            <element signature="e#7985#7986#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/AdminTeacherSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#toAdminMainMenu#0;class#AdminTeacherSettings#0" expanded="false" />
@@ -1664,380 +1566,355 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/attributes/results.txt">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Student/ChooseTypeOfGameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-7">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/TableView/TeacherCompetition.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Student/ChosenGameMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding>
-            <element signature="e#341#342#0" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#456#457#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#750#751#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/statisticsTeacher.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/TeacherMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/TableView/TeacherContest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#653#654#0" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#781#782#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/TableView/TeacherLineChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#261#262#0" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#361#362#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-            <element signature="e#525#526#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Results.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="51" column="25" lean-forward="true" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
+        <state relative-caret-position="-7">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2393#2394#0" expanded="true" />
-            <element signature="e#2422#2423#0" expanded="true" />
-            <element signature="e#2463#2464#0" expanded="true" />
-            <element signature="e#2499#2500#0" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2579#2580#0" expanded="true" />
-            <element signature="e#2641#2642#0" expanded="true" />
-            <element signature="e#2695#2696#0" expanded="true" />
-            <element signature="e#2728#2729#0" expanded="true" />
-            <element signature="e#2760#2761#0" expanded="true" />
-            <element signature="e#2807#2808#0" expanded="true" />
-            <element signature="e#2849#2850#0" expanded="true" />
-            <element signature="e#2877#2878#0" expanded="true" />
-            <element signature="e#2904#2905#0" expanded="true" />
-            <element signature="e#2941#2942#0" expanded="true" />
-            <element signature="e#2973#2974#0" expanded="true" />
-            <element signature="e#3006#3007#0" expanded="true" />
-            <element signature="e#3038#3039#0" expanded="true" />
-            <element signature="e#3085#3086#0" expanded="true" />
-            <element signature="e#3127#3128#0" expanded="true" />
-            <element signature="e#3156#3157#0" expanded="true" />
-            <element signature="e#3184#3185#0" expanded="true" />
-            <element signature="e#3223#3224#0" expanded="true" />
-            <element signature="e#3257#3258#0" expanded="true" />
-            <element signature="e#3304#3305#0" expanded="true" />
-            <element signature="e#3347#3348#0" expanded="true" />
-            <element signature="e#3522#3523#0" expanded="true" />
-            <element signature="e#3556#3557#0" expanded="true" />
-            <element signature="e#3610#3611#0" expanded="true" />
-            <element signature="e#3656#3657#0" expanded="true" />
-            <element signature="e#3699#3700#0" expanded="true" />
-            <element signature="e#3733#3734#0" expanded="true" />
-            <element signature="e#3792#3793#0" expanded="true" />
-            <element signature="e#3838#3839#0" expanded="true" />
-            <element signature="e#3866#3867#0" expanded="true" />
-            <element signature="e#3893#3894#0" expanded="true" />
-            <element signature="e#3930#3931#0" expanded="true" />
-            <element signature="e#3962#3963#0" expanded="true" />
+            <element signature="e#2690#2691#0" expanded="true" />
+            <element signature="e#2722#2723#0" expanded="true" />
+            <element signature="e#2776#2777#0" expanded="true" />
+            <element signature="e#2838#2839#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Student/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="1773" column="0" lean-forward="false" selection-start-line="1773" selection-start-column="0" selection-end-line="1773" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/TableView/UserStatisticsLeaderBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="25" />
+        <state relative-caret-position="-7">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
-            <element signature="e#264#265#0" expanded="false" />
-            <element signature="e#291#292#0" expanded="false" />
-            <element signature="e#331#332#0" expanded="false" />
-            <element signature="e#363#364#0" expanded="false" />
-            <element signature="e#397#398#0" expanded="false" />
-            <element signature="e#426#427#0" expanded="false" />
-            <element signature="e#471#472#0" expanded="false" />
-            <element signature="e#507#508#0" expanded="false" />
+            <element signature="method#exit#0;class#GameController#0" expanded="false" />
+            <element signature="e#3652#3909#0" expanded="false" />
+            <element signature="e#3952#4209#0" expanded="false" />
+            <element signature="e#4252#4509#0" expanded="false" />
+            <element signature="e#4552#4809#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/TableView/UserStatisticsContestRank.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Student/MainMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-          <folding>
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticsTeachersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="80" column="37" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        <state relative-caret-position="-7">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticsController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Student/QuizFinishedController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/mainMenu.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/userTeamLessOptions.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/users/students.ser">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="60" lean-forward="false" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
+        <state relative-caret-position="-7">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Student/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/attributes/teams.ser">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="89" lean-forward="true" selection-start-line="1" selection-start-column="89" selection-end-line="1" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
-          <caret line="34" column="39" lean-forward="false" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1176#1177#0" expanded="true" />
-            <element signature="e#1216#1217#0" expanded="true" />
-            <element signature="e#1248#1249#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1378#1379#0" expanded="true" />
-            <element signature="e#1426#1427#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="35" lean-forward="false" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="e#1300#1301#0" expanded="true" />
-            <element signature="e#1338#1339#0" expanded="true" />
-            <element signature="e#1370#1371#0" expanded="true" />
-            <element signature="e#1413#1414#0" expanded="true" />
-            <element signature="e#1447#1448#0" expanded="true" />
-            <element signature="e#1506#1507#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1624#1625#0" expanded="true" />
-            <element signature="e#1677#1678#0" expanded="true" />
-            <element signature="e#1718#1719#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/SchoolClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1555">
-          <caret line="191" column="58" lean-forward="false" selection-start-line="191" selection-start-column="58" selection-end-line="191" selection-end-column="58" />
+        <state relative-caret-position="-7">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3480">
-          <caret line="270" column="24" lean-forward="false" selection-start-line="270" selection-start-column="24" selection-end-line="270" selection-end-column="24" />
+        <state relative-caret-position="170">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/SettingsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/TableView/TeamRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/css/subjectList.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/lesson.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/generate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/competition.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/quiz.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/startCompetitionScene.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/settings.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/main.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="222" lean-forward="false" selection-start-line="17" selection-start-column="222" selection-end-line="17" selection-end-column="222" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/game.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/Windows4.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/westernButtons.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/window.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/Windows3.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/Windows2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/Windowfull.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/buttons.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/Windows1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/House.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/img/background.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Student/GameIntroController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/chooseTypeOfGame.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/chosenGameMenu.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/competitionIntroScene.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Student/SchoolGames.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <element signature="e#313#314#0" expanded="true" />
-            <element signature="e#361#362#0" expanded="true" />
-            <element signature="e#401#402#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
+            <element signature="method#toChooseTypeOfGame#0;class#SchoolGames#0" expanded="false" />
+            <element signature="method#available#0;class#SchoolGames#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/UserTeamLessCreate.java">
+    <entry file="file://$PROJECT_DIR$/src/FXML/gameIntro.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="43" column="34" lean-forward="true" selection-start-line="38" selection-start-column="11" selection-end-line="43" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/UserTeamLessOptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="30" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#toJoinTeam#0;class#UserTeamLessOptions#0" expanded="false" />
-            <element signature="method#toMainMenu#0;class#UserTeamLessOptions#0" expanded="false" />
-          </folding>
-        </state>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/UserTeamLessJoin.java">
+    <entry file="file://$PROJECT_DIR$/src/FXML/game.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/userTeamLessJoin.fxml">
+    <entry file="file://$PROJECT_DIR$/src/FXML/leaderboards.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="20" column="80" lean-forward="false" selection-start-line="20" selection-start-column="80" selection-end-line="20" selection-end-column="80" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/loseMenu.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/startCompetitionScene.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/subjectlist.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/login.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="77" lean-forward="true" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
           <folding />
         </state>
       </provider>

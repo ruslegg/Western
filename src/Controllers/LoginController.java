@@ -2,15 +2,11 @@ package Controllers;/**
  * Created by Constantine on 10/23/2017.
  */
 
+import Controllers.Student.RegisterController;
 import Model.*;
-import com.mysql.jdbc.StringUtils;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -21,26 +17,15 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+
 import java.io.*;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.Scanner;
-
-import includes.MYSQL;
 import org.mindrot.jbcrypt.BCrypt;
-import sun.audio.AudioData;
 import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
-
-import javax.sound.sampled.*;
 
 public class LoginController implements Initializable {
     @FXML
@@ -95,7 +80,7 @@ public class LoginController implements Initializable {
         GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
         Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/css/menu.css");
+        scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
 
@@ -148,7 +133,7 @@ public class LoginController implements Initializable {
                 stage = (Stage) loginButton.getScene().getWindow();
                 Scene scene = new Scene(root);
                 root.getStyleClass().add("scene-background");
-                scene.getStylesheets().add("/css/menu.css");
+                scene.getStylesheets().add("/assets/css/menu.css");
                 stage.setScene(scene);
                 if (SettingsController.effects) {
                     LoginController.soundPlayer.play();
@@ -184,7 +169,7 @@ public class LoginController implements Initializable {
         File classes = new File("src/data/attributes/classes.ser");
         File questions = new File("src/data/attributes/questions.ser");
         File teams = new File("src/data/attributes/teams.ser");
-        File teamRequest = new File("sr/data/requests/students.ser");
+        File teamRequest = new File("src/data/requests/students.ser");
 
         FileInputStream fileIn = null;
         ObjectInputStream in = null;

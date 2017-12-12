@@ -11,13 +11,6 @@ public class Team implements Serializable {
     public Team(String name, String abbreviation) {
         this.name = name;
         this.abbreviation = abbreviation;
-        try {
-            serialize();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
     public Team() {

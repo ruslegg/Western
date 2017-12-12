@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javax.sound.sampled.LineUnavailableException;
@@ -81,7 +80,7 @@ public class SettingsController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
             Scene scene = new Scene(root, 1280, 720);
             root.getStyleClass().add("scene-background");
-            scene.getStylesheets().add("/css/menu.css");
+            scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);
         }
         else if(LoginController.menuID==1){
@@ -90,7 +89,7 @@ public class SettingsController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
             Scene scene = new Scene(root, 1280, 720);
             root.getStyleClass().add("scene-background");
-            scene.getStylesheets().add("/css/menu.css");
+            scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);
         } else if (LoginController.menuID==2){
             stage = (Stage) backButton.getScene().getWindow();
@@ -98,7 +97,7 @@ public class SettingsController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));
             Scene scene = new Scene(root, 1280, 720);
             root.getStyleClass().add("scene-background");
-            scene.getStylesheets().add("/css/menu.css");
+            scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);
         }
     }

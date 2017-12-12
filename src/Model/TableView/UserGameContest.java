@@ -10,13 +10,19 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class UserGameContest {
-    String contestSubject, fromDate,toDate,daysLeft;
+    String contestSubject,toDate,daysLeft;
+    int id,teacherId;
 
-    public UserGameContest(String contestSubject, String fromDate, String toDate) throws ParseException {
+    public UserGameContest(int id,String contestSubject, String toDate, int teacherId) {
         this.contestSubject = contestSubject;
-        this.fromDate = fromDate;
         this.toDate = toDate;
-        this.daysLeft=countDaysLeft(toDate);
+        this.id = id;
+        this.teacherId = teacherId;
+        try {
+            this.daysLeft = countDaysLeft(toDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public String countDaysLeft(String toDateString) throws ParseException {
@@ -26,10 +32,46 @@ public class UserGameContest {
         long toDateLong = toDate.getTime();
         long currentLong = currentDate.getTime();
         long days = (toDateLong-currentLong)/(1000*60*60*24);
-
-
         return String.valueOf(days+1);
+    }
 
+    public String getContestSubject() {
+        return contestSubject;
+    }
 
+    public void setContestSubject(String contestSubject) {
+        this.contestSubject = contestSubject;
+    }
+
+    public String getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(String toDate) {
+        this.toDate = toDate;
+    }
+
+    public String getDaysLeft() {
+        return daysLeft;
+    }
+
+    public void setDaysLeft(String daysLeft) {
+        this.daysLeft = daysLeft;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 }

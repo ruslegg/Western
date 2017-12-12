@@ -1,0 +1,17 @@
+.scene-background{
+    -fx-background-image: url("/assets/img/background.png");
+    -fx-background-size: 1280px;
+    -fx-background-repeat: no-repeat;
+    }
+.button {
+    -fx-border-radius: 11px;
+    -fx-box-shadow: 2px 2px 4px #736c73;
+    -fx-background-image: url("/assets/img/buttons.png");
+    -fx-font-family: "Western Bang Bang";
+    -fx-color: #ffffff;
+    -fx-font-size: 20px;
+    -fx-background: #d98434;
+    -fx-padding: 10px 20px 10px 20px;
+    -fx-border: solid #9e7420 2px;
+    text-decoration: none;
+}
