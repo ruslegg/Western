@@ -179,6 +179,26 @@ public class RegisterController implements Initializable {
                 passwordShort=false;
             }
         }
+        if(!RegisterController.isTeacher) {
+            if(classLetterComboBox.isDisabled()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error #5");
+                alert.setHeaderText("Class not selected.");
+                alert.setContentText("You must select the class you belong to.");
+                alert.showAndWait();
+                passwordShort = true;
+            }
+            else if(classLetterComboBox.getSelectionModel().getSelectedItem() == null){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error #5");
+                alert.setHeaderText("Class letter not selected.");
+                alert.setContentText("You must select your class letter.");
+                alert.showAndWait();
+                passwordShort = true;
+            }
+
+        }
+
         if(!passwordShort){
                 String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
                 if (isTeacher){

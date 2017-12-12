@@ -34,7 +34,7 @@ public class ChosenGameMenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         for (Results results: LoginController.resultsList
              ) {
-            if (results.getType() == quizType && results.getContestID() == quizId){
+            if (results.getType() == quizType && results.getContestID() == quizId && results.getUserID() == LoginController.student.getId()){
                 playButton.setDisable(true);
                 break;
             }
