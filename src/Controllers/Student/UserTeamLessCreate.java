@@ -33,8 +33,8 @@ public class UserTeamLessCreate  implements Initializable{
     }
 
     public void createTeam() throws IOException {
-        boolean teamNameCorrect = false;
-        boolean teamAbbreviationCorrect = false;
+        boolean teamNameCorrect = true;
+        boolean teamAbbreviationCorrect = true;
         int teamExist = 0;
         if (teamNameTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -52,9 +52,7 @@ public class UserTeamLessCreate  implements Initializable{
             alert.showAndWait();
             teamNameCorrect=false;
         }
-        else{
-            teamNameCorrect=true;
-        }
+
         if (teamAbbreviationTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Team Creation Error #3");
@@ -66,14 +64,12 @@ public class UserTeamLessCreate  implements Initializable{
         else if(teamAbbreviationTextField.getText().length()!=3){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Team Creation Error #4");
-            alert.setHeaderText("Team abbreviation is short");
-            alert.setContentText("Your team abbreviation size must be more than 3 characters");
+            alert.setHeaderText("Invalid number of characters");
+            alert.setContentText("Your team abbreviation must have 3 characters");
             alert.showAndWait();
             teamAbbreviationCorrect=false;
         }
-        else{
-            teamAbbreviationCorrect=true;
-        }
+
         if (teamNameCorrect && teamAbbreviationCorrect){
             for (Team team: LoginController.teamList
                  ) {
@@ -85,20 +81,21 @@ public class UserTeamLessCreate  implements Initializable{
                 }
 
             }
-        }
-        if (teamExist==0){
-            Team team = new Team(teamNameTextField.getText(),teamAbbreviationTextField.getText());
-            try {
-                team.serialize();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+            if (teamExist==0){
+                Team team = new Team(teamNameTextField.getText(),teamAbbreviationTextField.getText());
+                try {
+                    team.serialize();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                LoginController.student.setTeam(team);
+                LoginController.student.setTeamLeader(true);
             }
-            LoginController.student.setTeam(team);
-            LoginController.student.setTeamLeader(true);
         }
+
         stage = (Stage) createButton.getScene().getWindow();
         VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/userTeamInformation.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
