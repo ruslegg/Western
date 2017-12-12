@@ -87,6 +87,23 @@ public class Student extends User implements Serializable {
         in.close();
         fileIn.close();
     }
+    public void createTeamSerialize() throws IOException {
+        File file = new File("src/data/users/students.ser");
+        FileOutputStream fileOut = new FileOutputStream(file,false);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(LoginController.studentList);
+        out.close();
+        fileOut.close();
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        try {
+            LoginController.studentList = (ArrayList) in.readObject();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        in.close();
+        fileIn.close();
+    }
 
 
     public Team getTeam() {

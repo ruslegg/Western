@@ -42,6 +42,7 @@ public class RandomQuestionsOptionsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        questions.clear();
         getMaximumValue();
 
         numberTextField.textProperty().addListener(new ChangeListener<String>() {
@@ -76,6 +77,7 @@ public class RandomQuestionsOptionsController implements Initializable {
             alert.setHeaderText("Invalid number of desired questions");
             alert.setContentText("The maximum number of questions is "+maxQuestions+". Please try again.");
             alert.showAndWait();
+            numberTextField.setText(String.valueOf(maxQuestions));
             isOkay=false;
         }
         if (isOkay){

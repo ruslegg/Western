@@ -37,6 +37,7 @@ public class UserTeamInformation implements Initializable {
     public TableColumn<TeamMembersRequest, Integer> requestId;
     public TableColumn<TeamMembersRequest, String> requestName;
     public Button backButton, approveButton;
+    public Label requestLabel;
 
     ObservableList<TeamLeaderBoard> leaderBoardList = FXCollections.observableArrayList();
     ObservableList<TeamMembers> membersList = FXCollections.observableArrayList();
@@ -45,6 +46,11 @@ public class UserTeamInformation implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if (!LoginController.student.isTeamLeader()){
+            teamRequestsTableView.setVisible(false);
+            requestLabel.setVisible(false);
+            approveButton.setVisible(false);
+        }
         getLeaderBoardData();
         getMembersData();
         getRequestsData();

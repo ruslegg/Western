@@ -21,5 +21,6 @@
          </children>
       </HBox>
       <Button fx:id="createButton" mnemonicParsing="false" onMouseClicked="#createTeam" text="Create" />
+      <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toMainMenu" text="Back" />
    </children>
 </VBox>

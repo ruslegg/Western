@@ -21,7 +21,7 @@ public class UserTeamLessCreate  implements Initializable{
 
     @FXML
     public TextField teamNameTextField,teamAbbreviationTextField;
-    public Button createButton;
+    public Button createButton,backButton;
 
 
     @Override
@@ -90,9 +90,19 @@ public class UserTeamLessCreate  implements Initializable{
                 }
                 LoginController.student.setTeam(team);
                 LoginController.student.setTeamLeader(true);
+                LoginController.student.createTeamSerialize();
             }
         }
 
+        stage = (Stage) createButton.getScene().getWindow();
+        VBox root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/assets/css/menu.css");
+        stage.setScene(scene);
+    }
+    public void toMainMenu() throws IOException {
         stage = (Stage) createButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));

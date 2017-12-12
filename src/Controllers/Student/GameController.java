@@ -29,9 +29,9 @@ import java.util.ResourceBundle;
 public class GameController implements Initializable {
     private Stage stage;
     @FXML
-    Button answerButton1,answerButton2,answerButton3,answerButton4,doorButton,exitButton;
+    Button answerButton1,answerButton2,answerButton3,answerButton4,exitButton;
     @FXML
-    Label answerLabel1,answerLabel2,answerLabel3,answerLabel4,questionNumberLabel,clockLabel,questionLabel;
+    Label questionNumberLabel,questionLabel;
     @FXML
     ImageView questionPersonImage;
     Question question;
