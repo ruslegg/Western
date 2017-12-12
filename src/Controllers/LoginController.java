@@ -26,6 +26,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import org.mindrot.jbcrypt.BCrypt;
 import sun.audio.AudioPlayer;
+import sun.jvm.hotspot.asm.Register;
 
 public class LoginController implements Initializable {
     @FXML
@@ -36,12 +37,11 @@ public class LoginController implements Initializable {
     private Button loginButton;
 
     private Stage stage;
-    private static File musicFile=new File("src/assets/musicTheme.mp3");
-    private static final String musicSource=musicFile.toURI().toString();
+    private static File musicFile = new File("src/assets/musicTheme.mp3");
+    private static final String musicSource = musicFile.toURI().toString();
     static Media musicMedia = new Media(musicSource);
     static MediaPlayer musicPlayer = new MediaPlayer(musicMedia);
     public static final AudioClip soundPlayer = new AudioClip(AudioPlayer.class.getResource("/assets/press.mp3").toString());
-    public int userID;
     public static int menuID;
     public static Teacher teacher = new Teacher();
     public static Student student = new Student();
@@ -72,8 +72,10 @@ public class LoginController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == teacherButton){
             RegisterController.isTeacher=true;
-        } else if (result.get() == studentButton){
-        } else {}
+        }
+        else {
+            RegisterController.isTeacher = false;
+        }
         // Get the current stage.
         stage = (Stage) loginButton.getScene().getWindow();
         // Change the current stage.
