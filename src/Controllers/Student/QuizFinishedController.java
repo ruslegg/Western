@@ -27,7 +27,7 @@ public class QuizFinishedController implements Initializable  {
     @FXML
     public Label answerRateLabel;
     @FXML
-    public Button leaderBoardButton,restartButton,mainMenuButton;
+    public Button mainMenuButton;
     public static int correctAnswers=0;
     public static double numberOfQuestions=0;
     public double correctAnswerPercentage;
@@ -40,16 +40,13 @@ public class QuizFinishedController implements Initializable  {
 
         correctAnswerPercentage = Math.round(((correctAnswers * 100) / numberOfQuestions) * 100d) / 100d;
         answerRateLabel.setText(String.valueOf(correctAnswerPercentage) + "%");
-        Results results = new Results(LoginController.student.getId(),LoginController.student.getName(),LoginController.student.getTeam().getAbbreviation(),
-                LoginController.student.getTeam().getName(),ChosenGameMenuController.getTeacherId(),ChosenGameMenuController.getQuizType(),
-                ChosenGameMenuController.getQuizId(),ChosenGameMenuController.getQuizName(),correctAnswers*20,correctAnswerPercentage,LoginController.student.getSchoolClass());
-        try {
-            results.serialize();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        if (!GameController.isRandom){
+            Results results = new Results(LoginController.student.getId(),LoginController.student.getName(),LoginController.student.getTeam().getAbbreviation(),
+                    LoginController.student.getTeam().getName(),ChosenGameMenuController.getTeacherId(),ChosenGameMenuController.getQuizType(),
+                    ChosenGameMenuController.getQuizId(),ChosenGameMenuController.getQuizName(),correctAnswers*20,correctAnswerPercentage,LoginController.student.getSchoolClass());
         }
+
+
     }
 
 

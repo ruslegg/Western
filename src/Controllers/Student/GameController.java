@@ -3,6 +3,7 @@ package Controllers.Student;
 import Controllers.LoginController;
 import Controllers.SettingsController;
 import Model.Question;
+import Model.SchoolClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,10 +15,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -33,8 +38,10 @@ public class GameController implements Initializable {
     ObservableList<Question> questions = FXCollections.observableArrayList();
     int questionNumber = 1;
     int correctAnswers = 0;
+    public static boolean isRandom = false;
+    public static int randomNumber = 0;
 
-    public static String fieldString = "";
+
 
     public void newQuestion() throws IOException {
         if(questionNumber==questions.size()-1){
@@ -141,10 +148,18 @@ public class GameController implements Initializable {
     }
 
     public void getQuestions() {
-        for (Question question : LoginController.questionsList
-                ) {
-            if (question.getQuizType() == ChosenGameMenuController.getQuizType() && question.getQuizID() == ChosenGameMenuController.getQuizId()) {
-                questions.add(question);
+        if (isRandom){
+            Collections.shuffle(RandomQuestionsOptionsController.questions);
+            for (int i=0;i<randomNumber;i++){
+                questions.add(RandomQuestionsOptionsController.questions.get(i));
+            }
+        }
+        else {
+            for (Question question : LoginController.questionsList
+                    ) {
+                if (question.getQuizType() == ChosenGameMenuController.getQuizType() && question.getQuizID() == ChosenGameMenuController.getQuizId()) {
+                    questions.add(question);
+                }
             }
         }
     }
