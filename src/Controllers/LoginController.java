@@ -73,17 +73,20 @@ public class LoginController implements Initializable {
         if (result.get() == teacherButton){
             RegisterController.isTeacher=true;
         }
-        else {
+        else if(result.get() == studentButton){
             RegisterController.isTeacher = false;
         }
-        // Get the current stage.
-        stage = (Stage) loginButton.getScene().getWindow();
-        // Change the current stage.
-        GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
-        Scene scene = new Scene(root, 1280, 720);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
+
+        if(result.get() != cancelButton){
+            // Get the current stage.
+            stage = (Stage) loginButton.getScene().getWindow();
+            // Change the current stage.
+            GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
+            Scene scene = new Scene(root, 1280, 720);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/assets/css/menu.css");
+            stage.setScene(scene);
+        }
     }
 
 
