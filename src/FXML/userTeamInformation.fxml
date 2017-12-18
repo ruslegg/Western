@@ -8,45 +8,55 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.UserTeamInformation">
+<VBox alignment="CENTER" maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.UserTeamInformation">
    <children>
-      <HBox alignment="CENTER" >
+      <HBox alignment="CENTER" spacing="330.0">
          <children>
-            <Label text="Leaderboard" />
-            <Label text="Members" />
-            <Label fx:id="requestLabel" text="Requests" />
+            <Label text="Leaderboard">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label text="Members">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="requestLabel" text="Requests">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" >
+      <HBox alignment="CENTER" spacing="20.0">
          <children>
-            <TableView fx:id="teamLeaderBoardTableView" >
+            <TableView fx:id="teamLeaderBoardTableView" prefHeight="600.0" prefWidth="400.0">
               <columns>
-                <TableColumn fx:id="teamName" text="Team Name" />
-                <TableColumn fx:id="teamPoints" sortType="DESCENDING" text="Team Points" />
+                <TableColumn fx:id="teamName" minWidth="199.0" prefWidth="199.0" resizable="false" text="Team Name" />
+                <TableColumn fx:id="teamPoints" minWidth="199.0" prefWidth="199.0" resizable="false" sortType="DESCENDING" text="Team Points" />
               </columns>
             </TableView>
-            <TableView fx:id="teamMembersTableView" >
+            <TableView fx:id="teamMembersTableView" prefHeight="600.0" prefWidth="400.0">
               <columns>
-                <TableColumn fx:id="teamMember" editable="false" sortable="false" text="Team Member" />
-                <TableColumn fx:id="memberPoints" editable="false" sortType="DESCENDING" text="Points" />
+                <TableColumn fx:id="teamMember" editable="false" minWidth="199.0" prefWidth="199.0" resizable="false" sortable="false" text="Team Member" />
+                <TableColumn fx:id="memberPoints" editable="false" minWidth="199.0" prefWidth="199.0" resizable="false" sortType="DESCENDING" text="Points" />
               </columns>
             </TableView>
-            <TableView fx:id="teamRequestsTableView" >
+            <TableView fx:id="teamRequestsTableView" prefHeight="600.0" prefWidth="400.0">
               <columns>
-                <TableColumn fx:id="requestId" text="Student ID" />
-                  <TableColumn fx:id="requestName" text="Student name" />
+                <TableColumn fx:id="requestId" minWidth="199.0" prefWidth="199.0" resizable="false" text="Student ID" />
+                  <TableColumn fx:id="requestName" minWidth="199.0" prefWidth="199.0" resizable="false" text="Student name" />
               </columns>
             </TableView>
          </children>
       </HBox>
-      <ButtonBar >
+      <ButtonBar>
         <buttons>
-          <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toMainMenu" text="Back" />
-            <Button fx:id="approveButton" mnemonicParsing="false" onMouseClicked="#approveRequest" text="Approve" />
+          <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toMainMenu" prefHeight="0.0" text="Back" />
+            <Button fx:id="approveButton" mnemonicParsing="false" onMouseClicked="#approveRequest" prefHeight="0.0" text="Approve" />
         </buttons>
          <VBox.margin>
-            <Insets />
+            <Insets bottom="10.0" right="20.0" top="10.0" />
          </VBox.margin>
       </ButtonBar>
    </children>

@@ -12,11 +12,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sun.rmi.runtime.Log;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -52,7 +54,7 @@ public class GameController implements Initializable {
         else {
             question = questions.get(questionNumber);
             questionNumberLabel.setText("Question number: " + String.valueOf(questionNumber + 1));
-            questionLabel.setText("Question: " + question.getQuestion());
+            questionLabel.setText(question.getQuestion());
             answerButton1.setText(question.getAnswer1());
             answerButton2.setText(question.getAnswer2());
             answerButton3.setText(question.getAnswer3());
@@ -67,7 +69,8 @@ public class GameController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/assets/css/mainMenu.assets.css");
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
     public void checkAnswer(String answer) throws IOException, SQLException {
@@ -94,13 +97,19 @@ public class GameController implements Initializable {
             Pane root;
             root = FXMLLoader.load(getClass().getResource("/FXML/quizFinished.fxml"));
             Scene scene = new Scene(root);
-            scene.getStylesheets().add("/assets/css/quizfinished.assets.css");
+        root.getStyleClass().add("scene-background");
+
+        scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);
         }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        File file = new File("src/assets/img/sheriff.png");
+        Image image = new Image(file.toURI().toString());
+        questionPersonImage.setImage(image);
+        exitButton.getStyleClass().add("exitButton");
         questionNumber = 0;
         getQuestions();
         try {

@@ -45,6 +45,7 @@ public class ChosenGameMenuController implements Initializable {
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/school-games.fxml"));
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
@@ -56,6 +57,7 @@ public class ChosenGameMenuController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/game.css");
         stage.setScene(scene);
     }
@@ -67,6 +69,7 @@ public class ChosenGameMenuController implements Initializable {
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/subjectLeaderBoard.fxml"));
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }

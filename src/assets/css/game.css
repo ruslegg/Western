@@ -1,6 +1,36 @@
-#pane{
-    -fx-background-image: url("/assets/img/House.png");
+.scene-background{
+    -fx-background-image: url("/assets/img/game-background.png");
+    -fx-background-size: 1280px;
+    -fx-background-repeat: no-repeat;
 }
-.button{
+.button {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 164px;
     -fx-background-image: url("/assets/img/Windowfull.png");
+    -fx-background-size: 200px;
+    -fx-font-family: "Western Bang Bang";
+    -fx-font-size: 40px;
+    -fx-text-fill: #000000;
+}
+.button:hover{
+    -fx-background-image: url("/assets/img/Windows4.png");
+
+}
+.exitButton{
+    -fx-pref-width: 170px;
+    -fx-pref-height: 67px;
+    -fx-background-image: url("/assets/img/button-background.png");
+    -fx-background-size: 170px;
+    -fx-background-radius: 5,4,3,5;
+    -fx-font-family: "Western Bang Bang";
+    -fx-padding: 10px 20px 10px 20px;
+    -fx-font-size: 40px;
+    -fx-text-fill: #EDDFB0;
+}
+.exitButton:hover{
+    -fx-background-image: url("/assets/img/button-background.png");
+}
+.label{
+    -fx-font-family: "Western Bang Bang";
+    -fx-font-size: 30px;
 }

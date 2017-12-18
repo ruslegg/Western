@@ -146,6 +146,7 @@ public class SchoolGames implements Initializable {
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chosenGameMenu.fxml"));
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
@@ -158,6 +159,7 @@ public class SchoolGames implements Initializable {
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
         Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
