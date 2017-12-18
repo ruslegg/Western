@@ -1,6 +1,7 @@
 package Controllers.Student;
 
 import Controllers.LoginController;
+import Controllers.SettingsController;
 import Model.Results;
 import Model.Team;
 import javafx.fxml.FXML;
@@ -34,6 +35,9 @@ public class UserTeamLessCreate  implements Initializable{
     }
 
     public void createTeam() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         boolean teamNameCorrect = true;
         boolean teamAbbreviationCorrect = true;
         int teamExist = 0;
@@ -140,6 +144,9 @@ public class UserTeamLessCreate  implements Initializable{
 
     }
     public void toMainMenu() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) createButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));

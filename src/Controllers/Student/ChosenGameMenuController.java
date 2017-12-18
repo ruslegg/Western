@@ -1,6 +1,7 @@
 package Controllers.Student;
 
 import Controllers.LoginController;
+import Controllers.SettingsController;
 import Model.Results;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,12 +25,7 @@ public class ChosenGameMenuController implements Initializable {
 
     @FXML
     public Button playButton,leaderBoardButton,backButton;
-
-
-
-
-
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         for (Results results: LoginController.resultsList
@@ -42,6 +38,9 @@ public class ChosenGameMenuController implements Initializable {
     }
 
     public void toSchoolGames() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/school-games.fxml"));
@@ -50,6 +49,9 @@ public class ChosenGameMenuController implements Initializable {
         stage.setScene(scene);
     }
     public void playGame() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
@@ -58,6 +60,9 @@ public class ChosenGameMenuController implements Initializable {
         stage.setScene(scene);
     }
     public void toSubjectLeaderBoard() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/subjectLeaderBoard.fxml"));

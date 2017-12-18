@@ -1,6 +1,7 @@
 package Controllers.Student;
 
 import Controllers.LoginController;
+import Controllers.SettingsController;
 import Model.Results;
 import Model.Student;
 import Model.TableView.TeamLeaderBoard;
@@ -145,6 +146,9 @@ public class UserTeamInformation implements Initializable {
     }
 
     public void toMainMenu() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
@@ -155,6 +159,9 @@ public class UserTeamInformation implements Initializable {
     }
 
     public void approveRequest() {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         boolean selected = true;
         if (teamRequestsTableView.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

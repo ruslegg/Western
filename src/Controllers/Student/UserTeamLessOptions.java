@@ -1,5 +1,7 @@
 package Controllers.Student;
 
+import Controllers.LoginController;
+import Controllers.SettingsController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +16,9 @@ public class UserTeamLessOptions {
     public Button createButton,joinButton,backButton;
 
     public void toCreateTeam() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) createButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/userTeamLessCreate.fxml"));
@@ -23,6 +28,9 @@ public class UserTeamLessOptions {
         stage.setScene(scene);
     }
     public void toJoinTeam() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) joinButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/userTeamLessJoin.fxml"));
@@ -32,6 +40,9 @@ public class UserTeamLessOptions {
         stage.setScene(scene);
     }
     public void toMainMenu() throws IOException{
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));

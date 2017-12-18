@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -12,10 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Teacher.StatisticsTeachersController">
+<VBox minHeight="720.0" minWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Teacher.StatisticsTeachersController">
    <children>
-      <HBox alignment="CENTER" >
+      <HBox alignment="CENTER">
          <children>
               <Label alignment="CENTER" contentDisplay="CENTER" text="Competition">
                <font>
@@ -35,16 +40,16 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER" >
+      <HBox alignment="CENTER">
          <children>
-              <TableView fx:id="competitionTableView" >
+              <TableView fx:id="competitionTableView">
                <columns>
                   <TableColumn fx:id="competitionId" text="Competition ID" />
                   <TableColumn fx:id="competitionName" text="Competition Subject" />
                   <TableColumn fx:id="competitionNumber" text="Number of students" />
                </columns>
             </TableView>
-              <TableView fx:id="contestsTableView" >
+              <TableView fx:id="contestsTableView">
                <columns>
                   <TableColumn fx:id="contestId" text="Contest ID" />
                   <TableColumn fx:id="contestName" text="Contest Subject" />

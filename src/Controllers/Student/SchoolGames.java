@@ -125,6 +125,9 @@ public class SchoolGames implements Initializable {
     }
 
     public void playGame(MouseEvent event) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         if (!competitionTableView.getSelectionModel().isEmpty()){
             ChosenGameMenuController.setQuizType(0);
             ChosenGameMenuController.setQuizId(competitionTableView.getSelectionModel().getSelectedItem().getId());
@@ -148,6 +151,9 @@ public class SchoolGames implements Initializable {
     }
 
     public void toMainMenu(MouseEvent mouseEvent) throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));

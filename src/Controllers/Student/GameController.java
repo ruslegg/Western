@@ -109,6 +109,9 @@ public class GameController implements Initializable {
             e.printStackTrace();
         }
         answerButton1.setOnMouseClicked(event -> {
+            if (SettingsController.effects){
+                LoginController.soundPlayer.play();
+            }
             try {
                 checkAnswer(answerButton1.getText());
             } catch (IOException e) {
@@ -118,6 +121,9 @@ public class GameController implements Initializable {
             }
         });
         answerButton2.setOnMouseClicked(event -> {
+            if (SettingsController.effects){
+                LoginController.soundPlayer.play();
+            }
             try {
                 checkAnswer(answerButton2.getText());
             } catch (IOException e) {
@@ -127,6 +133,9 @@ public class GameController implements Initializable {
             }
         });
         answerButton3.setOnMouseClicked(event -> {
+            if (SettingsController.effects){
+                LoginController.soundPlayer.play();
+            }
             try {
                 checkAnswer(answerButton3.getText());
             } catch (IOException e) {
@@ -136,6 +145,9 @@ public class GameController implements Initializable {
             }
         });
         answerButton4.setOnMouseClicked(event -> {
+            if (SettingsController.effects){
+                LoginController.soundPlayer.play();
+            }
             try {
                 checkAnswer(answerButton4.getText());
             } catch (IOException e) {

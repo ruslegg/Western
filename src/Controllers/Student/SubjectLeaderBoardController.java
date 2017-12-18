@@ -1,6 +1,7 @@
 package Controllers.Student;
 
 import Controllers.LoginController;
+import Controllers.SettingsController;
 import Model.Results;
 import Model.TableView.UserGameSubjectLeaderBoard;
 import javafx.collections.FXCollections;
@@ -63,6 +64,9 @@ public class SubjectLeaderBoardController implements Initializable{
         }
     }
     public void toChosenGameMenu() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chosenGameMenu.fxml"));

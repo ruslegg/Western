@@ -56,11 +56,6 @@ public class LoginController implements Initializable {
     public static ArrayList<Team> teamList = new ArrayList<>();
     public static ArrayList<Student> teamRequests = new ArrayList<>();
 
-
-
-
-
-
     public void showRegisterDialog(MouseEvent event) throws IOException, SQLException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("User type");
@@ -82,15 +77,13 @@ public class LoginController implements Initializable {
             // Get the current stage.
             stage = (Stage) loginButton.getScene().getWindow();
             // Change the current stage.
-            GridPane root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
-            Scene scene = new Scene(root, 1280, 720);
+            VBox root = FXMLLoader.load(getClass().getResource("/FXML/register.fxml"));
+            Scene scene = new Scene(root);
             root.getStyleClass().add("scene-background");
             scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);
         }
     }
-
-
 
     public void checkCredentials(MouseEvent event) throws IOException, SQLException {
         boolean foundUser = false;

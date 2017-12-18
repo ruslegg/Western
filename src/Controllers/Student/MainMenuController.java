@@ -33,6 +33,9 @@ public class MainMenuController implements Initializable {
     }
 
     public void toTeam() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         if (LoginController.student.getTeam().getName().length()>1){
             stage = (Stage) teamButton.getScene().getWindow();
             VBox root;
@@ -57,9 +60,6 @@ public class MainMenuController implements Initializable {
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
         stage = (Stage) startButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
@@ -70,9 +70,6 @@ public class MainMenuController implements Initializable {
     }
 
     public void toSettings() throws IOException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
@@ -89,9 +86,6 @@ public class MainMenuController implements Initializable {
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
         stage = (Stage) statisticsButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/statistics.fxml"));
@@ -102,6 +96,9 @@ public class MainMenuController implements Initializable {
     }
 
     public void quit(){
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         System.exit(0);
     }
 

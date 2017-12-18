@@ -65,7 +65,7 @@ public class AdminTeacherSettings implements Initializable {
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));
         stage = (Stage) backButton.getScene().getWindow();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);

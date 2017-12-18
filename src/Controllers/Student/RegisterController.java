@@ -63,11 +63,10 @@ public class RegisterController implements Initializable {
                         if (i==classNumberList.size()-1 && checkNumber == 0 ){
                             classNumberList.add(schoolClass.getNumber());
                         }
-
                     }
                 }
             }
-            }
+        }
             classComboBox.setItems(classNumberList);
             classComboBox.valueProperty().addListener(new ChangeListener<Integer>() {
                 @Override public void changed(ObservableValue ov, Integer t, Integer t1) {
@@ -240,6 +239,9 @@ public class RegisterController implements Initializable {
 
 
     public void showLoginDialog(MouseEvent event) throws IOException, SQLException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         GridPane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
         stage = (Stage) signUpButton.getScene().getWindow();

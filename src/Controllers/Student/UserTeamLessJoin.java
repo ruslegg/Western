@@ -1,6 +1,7 @@
 package Controllers.Student;
 
 import Controllers.LoginController;
+import Controllers.SettingsController;
 import Model.Student;
 import Model.TableView.TeamRequest;
 import Model.Team;
@@ -46,6 +47,9 @@ public class UserTeamLessJoin implements Initializable {
         }
     }
     public void requestJoin() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         boolean selected = true;
         if (joinTeamTableView.getSelectionModel().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -89,6 +93,9 @@ public class UserTeamLessJoin implements Initializable {
         }
     }
     public void toTeamLessOptions() throws IOException {
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));

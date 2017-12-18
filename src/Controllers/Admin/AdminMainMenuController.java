@@ -21,7 +21,7 @@ public class AdminMainMenuController implements Initializable {
         stage = (Stage) teacherButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/adminTeacherSettings.fxml"));
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
@@ -30,7 +30,7 @@ public class AdminMainMenuController implements Initializable {
         stage = (Stage) teacherButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/settings.fxml"));
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);

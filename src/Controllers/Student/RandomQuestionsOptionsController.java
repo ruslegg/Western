@@ -53,19 +53,33 @@ public class RandomQuestionsOptionsController implements Initializable {
     }
 
     public void minusOne(){
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText())-1));
     }
     public void minusTen(){
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText())-10));
     }
     public void plusOne(){
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText())+1));
     }
     public void plusTen(){
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText())+10));
     }
     public void play() throws IOException {
-
+        if (SettingsController.effects){
+            LoginController.soundPlayer.play();
+        }
         boolean isOkay = true;
         GameController.isRandom=true;
         if (Integer.parseInt(numberTextField.getText()) > maxQuestions){
