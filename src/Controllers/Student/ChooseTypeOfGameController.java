@@ -57,20 +57,32 @@ public class ChooseTypeOfGameController implements Initializable {
         stage.setScene(scene);
     }
 
-    public void toMainMenu(MouseEvent event) throws IOException, InterruptedException {
+    /*public void toMainMenu(MouseEvent event) throws IOException, InterruptedException {
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        root.getStyleClass().add("scene-background");
-        Scene scene = new Scene(root, 1280, 720);
+        //root.getStyleClass().add("scene-background");
+        Scene scene = new Scene(root);
+        //Scene scene = new Scene(root, 1280, 720);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
         System.out.println("Back");
+    }*/
 
+    public void toMainMenu(MouseEvent event) throws IOException {
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        stage = (Stage) backButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        Scene scene = new Scene(root, 1280, 720);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/assets/css/menu.css");
+        stage.setScene(scene);
     }
-
 }

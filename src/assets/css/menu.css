@@ -5,7 +5,7 @@
     }
 .button {
     -fx-border-radius: 11px;
-    -fx-box-shadow: 2px 2px 4px #736c73;
+    -fx-box-shadow: 2px; /*2px 4px #736c73;*/
     -fx-background-image: url("/assets/img/buttons.png");
     -fx-font-family: "Western Bang Bang";
     -fx-color: #ffffff;

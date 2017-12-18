@@ -8,32 +8,32 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Admin.AdminTeacherSettings">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Admin.AdminTeacherSettings">
    <children>
-      <HBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="200.0">
+      <HBox alignment="TOP_CENTER" >
          <children>
-            <TableView fx:id="teacherTableView" prefHeight="200.0" prefWidth="620.0">
+            <TableView fx:id="teacherTableView" >
                <columns>
-                  <TableColumn fx:id="teacherName" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="teacherCompetitions" prefWidth="75.0" text="Competitions" />
-                  <TableColumn fx:id="teacherContests" prefWidth="75.0" text="Contests" />
+                  <TableColumn fx:id="teacherName" text="Name" />
+                  <TableColumn fx:id="teacherCompetitions" text="Competitions" />
+                  <TableColumn fx:id="teacherContests" text="Contests" />
                </columns>
             </TableView>
-            <TableView fx:id="teacherRequestsTableView" prefHeight="200.0" prefWidth="620.0">
+            <TableView fx:id="teacherRequestsTableView" >
               <columns>
-                <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="name" text="Name" />
               </columns>
             </TableView>
          </children>
       </HBox>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar >
         <buttons>
             <Button fx:id="approveButton" mnemonicParsing="false" onMouseClicked="#approveRequest" text="Approve" />
             <Button fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#deleteRequest" text="Delete" />
           <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toAdminMainMenu" text="Back" />
         </buttons>
          <padding>
-            <Insets right="20.0" />
+            <Insets/>
          </padding>
       </ButtonBar>
    </children>

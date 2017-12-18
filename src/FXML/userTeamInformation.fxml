@@ -9,44 +9,44 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.UserTeamInformation">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.UserTeamInformation">
    <children>
-      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0" spacing="380.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="Leaderboard" />
             <Label text="Members" />
             <Label fx:id="requestLabel" text="Requests" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="600.0" prefWidth="1280.0" spacing="35.0">
+      <HBox alignment="CENTER" >
          <children>
-            <TableView fx:id="teamLeaderBoardTableView" prefHeight="200.0" prefWidth="400.0">
+            <TableView fx:id="teamLeaderBoardTableView" >
               <columns>
-                <TableColumn fx:id="teamName" prefWidth="75.0" text="Team Name" />
-                <TableColumn fx:id="teamPoints" prefWidth="75.0" sortType="DESCENDING" text="Team Points" />
+                <TableColumn fx:id="teamName" text="Team Name" />
+                <TableColumn fx:id="teamPoints" sortType="DESCENDING" text="Team Points" />
               </columns>
             </TableView>
-            <TableView fx:id="teamMembersTableView" prefHeight="200.0" prefWidth="400.0">
+            <TableView fx:id="teamMembersTableView" >
               <columns>
-                <TableColumn fx:id="teamMember" editable="false" prefWidth="75.0" sortable="false" text="Team Member" />
-                <TableColumn fx:id="memberPoints" editable="false" prefWidth="75.0" sortType="DESCENDING" text="Points" />
+                <TableColumn fx:id="teamMember" editable="false" sortable="false" text="Team Member" />
+                <TableColumn fx:id="memberPoints" editable="false" sortType="DESCENDING" text="Points" />
               </columns>
             </TableView>
-            <TableView fx:id="teamRequestsTableView" prefHeight="200.0" prefWidth="400.0">
+            <TableView fx:id="teamRequestsTableView" >
               <columns>
-                <TableColumn fx:id="requestId" prefWidth="75.0" text="Student ID" />
-                  <TableColumn fx:id="requestName" prefWidth="75.0" text="Student name" />
+                <TableColumn fx:id="requestId" text="Student ID" />
+                  <TableColumn fx:id="requestName" text="Student name" />
               </columns>
             </TableView>
          </children>
       </HBox>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar >
         <buttons>
           <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toMainMenu" text="Back" />
             <Button fx:id="approveButton" mnemonicParsing="false" onMouseClicked="#approveRequest" text="Approve" />
         </buttons>
          <VBox.margin>
-            <Insets right="40.0" />
+            <Insets />
          </VBox.margin>
       </ButtonBar>
    </children>

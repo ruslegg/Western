@@ -98,12 +98,10 @@ public class SchoolGames implements Initializable {
         int competitionId = -1;
         int contestId = -1;
         int classCorrect = 0;
-        for (Question question : LoginController.questionsList
-                ) {
+        for (Question question : LoginController.questionsList) {
             classCorrect=0;
             ArrayList<SchoolClass> classList = question.getClassList();
-            for (SchoolClass schoolClass: classList
-                 ) {
+            for (SchoolClass schoolClass: classList) {
                 if (schoolClass.getNumber() == LoginController.student.getSchoolClass().getNumber() && schoolClass.getLetter().equals(LoginController.student.getSchoolClass().getLetter())){
                     classCorrect=1;
                 }

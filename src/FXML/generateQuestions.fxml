@@ -10,48 +10,48 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Teacher.GenerateQuestionsController">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Teacher.GenerateQuestionsController">
    <children>
       <Label fx:id="questionNumberLabel" contentDisplay="CENTER" text="Question" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="Question" />
             <TextField fx:id="questionTextField" alignment="CENTER" promptText="Question">
                <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets />
                </padding>
             </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="Answer #1" />
             <TextField fx:id="answer1TextField" promptText="Answer" />
             <CheckBox fx:id="correct1" mnemonicParsing="false" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="Answer #2" />
             <TextField fx:id="answer2TextField" promptText="Answer" />
             <CheckBox fx:id="correct2" mnemonicParsing="false" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="Answer #3" />
             <TextField fx:id="answer3TextField" promptText="Answer" />
             <CheckBox fx:id="correct3" mnemonicParsing="false" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="Answer #4" />
             <TextField fx:id="answer4TextField" promptText="Answer" />
             <CheckBox fx:id="correct4" mnemonicParsing="false" />
          </children>
       </HBox>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar >
         <buttons>
           <Button fx:id="nextQuestionButton" mnemonicParsing="false" onMouseClicked="#nextQuestion" text="Next question" />
             <Button fx:id="finishButton" mnemonicParsing="false" onMouseClicked="#toMainMenu" text="Finish" />

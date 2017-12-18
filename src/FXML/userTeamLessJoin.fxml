@@ -7,21 +7,21 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.UserTeamLessJoin">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.UserTeamLessJoin">
    <children>
-      <TableView fx:id="joinTeamTableView" maxWidth="600.0" prefHeight="600.0" prefWidth="400.0">
+      <TableView fx:id="joinTeamTableView" >
         <columns>
-          <TableColumn fx:id="teamName" prefWidth="400.0" text="Team Name" />
-          <TableColumn fx:id="teamAbbreviation" prefWidth="200.0" text="Team Abbreviation" />
+          <TableColumn fx:id="teamName" text="Team Name" />
+          <TableColumn fx:id="teamAbbreviation" text="Team Abbreviation" />
         </columns>
       </TableView>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar >
         <buttons>
           <Button fx:id="requestButton" mnemonicParsing="false" onMouseClicked="#requestJoin" text="Request" />
             <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toTeamLessOptions" text="Back" />
         </buttons>
          <VBox.margin>
-            <Insets right="340.0" top="20.0" />
+            <Insets />
          </VBox.margin>
       </ButtonBar>
    </children>

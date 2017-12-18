@@ -26,7 +26,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import org.mindrot.jbcrypt.BCrypt;
 import sun.audio.AudioPlayer;
-import sun.jvm.hotspot.asm.Register;
+//import sun.jvm.hotspot.asm.Register;
 
 public class LoginController implements Initializable {
     @FXML

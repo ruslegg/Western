@@ -42,12 +42,6 @@ public class GenerateQuestionsController implements Initializable {
     @FXML
     private Button nextQuestionButton,finishButton;
 
-
-
-
-
-
-
     public void nextQuestion(MouseEvent mouseEvent) throws IOException {
         if (finish && questionTextField.getText().isEmpty() && answer1TextField.getText().isEmpty() && answer2TextField.getText().isEmpty() && answer3TextField.getText().isEmpty() && answer4TextField.getText().isEmpty() && (!correct1.isSelected()||!correct2.isSelected()||!correct3.isSelected()||!correct4.isSelected())) {
                 classList.clear();

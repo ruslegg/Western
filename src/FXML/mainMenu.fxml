@@ -3,12 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.MainMenuController">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.MainMenuController">
    <children>
-      <Button fx:id="startButton" mnemonicParsing="false" onMouseClicked="#toTypeOfGame" prefHeight="27.0" prefWidth="113.0" text="Start" />
-      <Button fx:id="teamButton" mnemonicParsing="false" onMouseClicked="#toTeam" prefHeight="27.0" prefWidth="113.0" text="Team" />
-      <Button fx:id="settingsButton" mnemonicParsing="false" onMouseClicked="#toSettings" prefHeight="27.0" prefWidth="113.0" text="Settings" />
-      <Button fx:id="statisticsButton" mnemonicParsing="false" onMouseClicked="#toStatistics" prefHeight="27.0" prefWidth="113.0" text="Statistics" />
-      <Button fx:id="quitButton" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="27.0" prefWidth="113.0" text="Quit" />
+      <Button fx:id="startButton" mnemonicParsing="false" onMouseClicked="#toTypeOfGame" text="Start" />
+      <Button fx:id="teamButton" mnemonicParsing="false" onMouseClicked="#toTeam" text="Team" />
+      <Button fx:id="settingsButton" mnemonicParsing="false" onMouseClicked="#toSettings" text="Settings" />
+      <Button fx:id="statisticsButton" mnemonicParsing="false" onMouseClicked="#toStatistics" text="Statistics" />
+      <Button fx:id="quitButton" mnemonicParsing="false" onMouseClicked="#quit" text="Quit" />
    </children>
 </VBox>

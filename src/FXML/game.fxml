@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.GameController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.GameController">
    <top>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1280.0" spacing="300.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="exitButton" mnemonicParsing="false" onMouseClicked="#exit" text="Exit" />
             <Label fx:id="questionNumberLabel" text="Question number" />
@@ -30,43 +30,43 @@
    <center>
       <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
+          <RowConstraints vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <GridPane fx:id="buttonGridPane" alignment="TOP_CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowSpan="4">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints  vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="TOP_CENTER" >
                      <children>
-                        <HBox alignment="TOP_CENTER" prefHeight="195.0" spacing="70.0">
+                        <HBox alignment="TOP_CENTER" >
                            <children>
-                              <Button fx:id="answerButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="115.0" text="AnswerButton 1" />
-                              <Button fx:id="answerButton2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" text="AnswerButton2" />
+                              <Button fx:id="answerButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="AnswerButton 1" />
+                              <Button fx:id="answerButton2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="AnswerButton2" />
                            </children>
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="TOP_CENTER" prefHeight="195.0" spacing="70.0">
+                        <HBox alignment="TOP_CENTER" >
                            <children>
                               <Button fx:id="answerButton3" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="AnswerButton3" />
                               <Button fx:id="answerButton4" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="AnswerButton4" />
                            </children>
                            <padding>
-                              <Insets top="20.0" />
+                              <Insets />
                            </padding>
                         </HBox>
                      </children>
@@ -76,12 +76,12 @@
                   </VBox>
                </children>
             </GridPane>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox >
                <children>
-                  <ImageView fx:id="questionPersonImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="questionPersonImage" pickOnBounds="true" preserveRatio="true" />
                </children>
             </HBox>
-            <Label fx:id="questionLabel" alignment="CENTER" prefHeight="153.0" prefWidth="394.0" text="Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question " wrapText="true" GridPane.rowIndex="1" />
+            <Label fx:id="questionLabel" alignment="CENTER" text="Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question Big Long Question " wrapText="true" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </center>

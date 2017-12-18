@@ -10,30 +10,30 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.RegisterController">
+<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Student.RegisterController">
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="405.0" minWidth="10.0" prefWidth="355.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="345.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+      <ColumnConstraints hgrow="SOMETIMES" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox alignment="CENTER" maxWidth="-Infinity" spacing="20.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+      <VBox alignment="CENTER"  GridPane.columnIndex="1" GridPane.halignment="RIGHT">
          <children>
-          <TextField fx:id="firstName" maxWidth="-Infinity" prefWidth="200.0" promptText="First Name" />
-          <TextField id="name" fx:id="lastName" maxWidth="-Infinity" prefWidth="200.0" promptText="Last Name" />
-          <TextField id="user" fx:id="username" maxWidth="-Infinity" prefWidth="200.0" promptText="Username" />
-          <PasswordField fx:id="password" maxWidth="-Infinity" prefWidth="200.0" promptText="Password" />
-            <ComboBox fx:id="classComboBox" prefWidth="150.0" promptText="Class" />
-            <ComboBox fx:id="classLetterComboBox" prefWidth="150.0" promptText="Letter" />
+          <TextField fx:id="firstName" promptText="First Name" />
+          <TextField id="name" fx:id="lastName" promptText="Last Name" />
+          <TextField id="user" fx:id="username" promptText="Username" />
+          <PasswordField fx:id="password" promptText="Password" />
+            <ComboBox fx:id="classComboBox" promptText="Class" />
+            <ComboBox fx:id="classLetterComboBox" promptText="Letter" />
           <Button fx:id="signUpButton" mnemonicParsing="false" onMouseClicked="#registerAccount" text="Sign Up" />
           <Button id="backButton" mnemonicParsing="false" onMouseClicked="#showLoginDialog" text="Back" />
          </children>
          <padding>
-            <Insets right="20.0" />
+            <Insets />
          </padding>
       </VBox>
    </children>

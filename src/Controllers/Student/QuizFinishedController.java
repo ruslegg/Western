@@ -37,7 +37,6 @@ public class QuizFinishedController implements Initializable  {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         correctAnswerPercentage = Math.round(((correctAnswers * 100) / numberOfQuestions) * 100d) / 100d;
         answerRateLabel.setText(String.valueOf(correctAnswerPercentage) + "%");
         if (!GameController.isRandom){
@@ -45,8 +44,6 @@ public class QuizFinishedController implements Initializable  {
                     LoginController.student.getTeam().getName(),ChosenGameMenuController.getTeacherId(),ChosenGameMenuController.getQuizType(),
                     ChosenGameMenuController.getQuizId(),ChosenGameMenuController.getQuizName(),correctAnswers*20,correctAnswerPercentage,LoginController.student.getSchoolClass());
         }
-
-
     }
 
 

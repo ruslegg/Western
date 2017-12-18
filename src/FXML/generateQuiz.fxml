@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Teacher.GenerateQuizController">
+<VBox xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Teacher.GenerateQuizController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="Class" />
-            <ComboBox fx:id="classComboBox" prefWidth="150.0" />
+            <ComboBox fx:id="classComboBox" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="Letter" />
             <CheckBox fx:id="aCheck" mnemonicParsing="false" text="A" />
@@ -29,18 +29,18 @@
             <CheckBox fx:id="eCheck" mnemonicParsing="false" text="E" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" >
          <children>
             <CheckBox fx:id="competitionCheck" mnemonicParsing="false" text="Competition" />
             <CheckBox fx:id="contestCheck" mnemonicParsing="false" text="Contest" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" >
          <children>
-            <TextField fx:id="subjectTextField" alignment="CENTER" maxWidth="-Infinity" promptText="Subject" />
+            <TextField fx:id="subjectTextField" alignment="CENTER" promptText="Subject" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <HBox alignment="CENTER" >
          <children>
             <Label text="From" />
             <Label text="To">
@@ -51,7 +51,7 @@
             <DatePicker fx:id="toDatePicker" />
          </children>
       </HBox>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar >
         <buttons>
           <Button fx:id="backButton" mnemonicParsing="false" text="Back" onMouseClicked="#toCreateOptions" />
             <Button fx:id="nextButton" mnemonicParsing="false" onMouseClicked="#toQuestions" text="Next" />
