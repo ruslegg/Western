@@ -36,7 +36,7 @@ public class GameController implements Initializable {
     ImageView questionPersonImage;
     Question question;
     ObservableList<Question> questions = FXCollections.observableArrayList();
-    int questionNumber = 1;
+    int questionNumber = 0;
     int correctAnswers = 0;
     public static boolean isRandom = false;
     public static int randomNumber = 0;
@@ -44,8 +44,8 @@ public class GameController implements Initializable {
 
 
     public void newQuestion() throws IOException {
-        if(questionNumber==questions.size()-1){
-            QuizFinishedController.numberOfQuestions=questions.size()-1;
+        if(questionNumber==questions.size()){
+            QuizFinishedController.numberOfQuestions=questions.size();
             QuizFinishedController.correctAnswers=correctAnswers;
             results();
         }

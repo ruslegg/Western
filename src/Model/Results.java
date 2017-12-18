@@ -80,6 +80,19 @@ public class Results implements Serializable{
         in.close();
         fileIn.close();
     }
+    public static void refresh() throws IOException, ClassNotFoundException {
+        File file = new File("src/data/attributes/results.ser");
+        FileOutputStream fileOut = new FileOutputStream(file,false);
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(LoginController.resultsList);
+        out.close();
+        fileOut.close();
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        LoginController.resultsList = (ArrayList) in.readObject();
+        in.close();
+        fileIn.close();
+    }
 
 
 

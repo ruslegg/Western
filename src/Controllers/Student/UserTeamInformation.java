@@ -169,8 +169,16 @@ public class UserTeamInformation implements Initializable {
                     ) {
                 if (student.getId() == teamRequestsTableView.getSelectionModel().getSelectedItem().getRequestId()) {
                     student.setTeam(LoginController.student.getTeam());
+                    for (Results results: LoginController.resultsList
+                         ) {
+                        if (student.getId() == results.getUserID()){
+                            results.setTeamName(LoginController.student.getTeam().getName());
+                            results.setTeamAbbreviation(LoginController.student.getTeam().getAbbreviation());
+                        }
+                    }
                     try {
                         student.deleteTeamRequest();
+                        Results.refresh();
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (ClassNotFoundException e) {

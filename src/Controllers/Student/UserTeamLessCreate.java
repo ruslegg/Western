@@ -1,6 +1,7 @@
 package Controllers.Student;
 
 import Controllers.LoginController;
+import Model.Results;
 import Model.Team;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -110,6 +111,18 @@ public class UserTeamLessCreate  implements Initializable{
                 LoginController.student.setTeam(team);
                 LoginController.student.setTeamLeader(true);
                 LoginController.student.createTeamSerialize();
+                for (Results results: LoginController.resultsList
+                     ) {
+                    if (results.getUserID() == LoginController.student.getId()){
+                        results.setTeamName(team.getName());
+                        results.setTeamAbbreviation(team.getAbbreviation());
+                    }
+                }
+                try {
+                    Results.refresh();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Creation successful");
                 alert.setHeaderText("Team creation successful");
