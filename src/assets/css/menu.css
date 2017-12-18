@@ -28,3 +28,6 @@
     -fx-min-height: 720px;
     -x-pref-height: 720px;
 }
+.axis {
+    -fx-tick-label-fill: #FFFFFF;
+}
