@@ -9,9 +9,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-
-
-
         try {
             Font.loadFont(getClass().getResourceAsStream("/assets/Western.otf"), 20);
             GridPane root = FXMLLoader.load(getClass().getResource("FXML/login.fxml"));

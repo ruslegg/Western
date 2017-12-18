@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -131,7 +132,7 @@ public class LoginController implements Initializable {
         }
         if(foundUser) {
             if (BCrypt.checkpw(password.getText(), userPassword)) {
-                Pane root=new Pane();
+                VBox root=new VBox();
                 if (menuID==0){root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));}
                 else if(menuID==1){root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
                 }else if(menuID==2){root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));}
