@@ -125,28 +125,65 @@ public class GenerateQuizController implements Initializable{
     }
 
     public void toQuestions(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
+        boolean quizCorrect = true;
+        if (classComboBox.getSelectionModel().isEmpty() || (!aCheck.isSelected() && !bCheck.isSelected() && !cCheck.isSelected() && !dCheck.isSelected())){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Field not selected");
+            alert.setHeaderText("The class choice is not selected");
+            alert.setContentText("You haven't selected any class. Please select a class and try again");
+            alert.showAndWait();
+            quizCorrect = false;
+        }
+        if (!competitionCheck.isSelected() && !contestCheck.isSelected()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Type not selected");
+            alert.setHeaderText("The quiz type is not selected");
+            alert.setContentText("You haven't selected the type of quiz. Please select a class and try again");
+            alert.showAndWait();
+            quizCorrect = false;
+        }
+        if (subjectTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Field empty");
+            alert.setHeaderText("The subject field is empty");
+            alert.setContentText("You haven't insert the name of quiz. Please insert the name try again");
+            alert.showAndWait();
+            quizCorrect = false;
+        }
+        if (contestCheck.isSelected() && (fromDatePicker.getValue() == null || toDatePicker.getValue() == null)){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Time not selected");
+            alert.setHeaderText("The contest time is not selected");
+            alert.setContentText("You haven't selected the time of the contest. Please select the time and try again");
+            alert.showAndWait();
+            quizCorrect = false;
         }
         if (SettingsController.effects){
             LoginController.soundPlayer.play();
         }
-        stage = (Stage) nextButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/generateQuestions.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
-        if (aCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"A"));
-        if (bCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"B"));
-        if (cCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"C"));
-        if (dCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"D"));
-        if (eCheck.isSelected()) GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(),"E"));
-        GenerateQuestionsController.setSubject(subjectTextField.getText());
-        GenerateQuestionsController.setQuizType(quizType);
-        GenerateQuestionsController.setFromDatePicker(fromDatePicker);
-        GenerateQuestionsController.setToDatePicker(toDatePicker);
+        if (quizCorrect) {
+            stage = (Stage) nextButton.getScene().getWindow();
+            VBox root;
+            root = FXMLLoader.load(getClass().getResource("/FXML/generateQuestions.fxml"));
+            Scene scene = new Scene(root);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/assets/css/menu.css");
+            stage.setScene(scene);
+            if (aCheck.isSelected())
+                GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(), "A"));
+            if (bCheck.isSelected())
+                GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(), "B"));
+            if (cCheck.isSelected())
+                GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(), "C"));
+            if (dCheck.isSelected())
+                GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(), "D"));
+            if (eCheck.isSelected())
+                GenerateQuestionsController.getClassList().add(new SchoolClass((Integer) classComboBox.getSelectionModel().getSelectedItem(), "E"));
+            GenerateQuestionsController.setSubject(subjectTextField.getText());
+            GenerateQuestionsController.setQuizType(quizType);
+            GenerateQuestionsController.setFromDatePicker(fromDatePicker);
+            GenerateQuestionsController.setToDatePicker(toDatePicker);
+        }
     }
 
     public void toCreateOptions(MouseEvent mouseEvent) throws IOException {

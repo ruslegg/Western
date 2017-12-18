@@ -32,6 +32,7 @@ public class GenerateQuestionsController implements Initializable {
     int competitionId=-1;
     int contestId=-1;
     private Stage stage;
+    boolean finish = false;
     @FXML
     private Label questionNumberLabel;
     @FXML
@@ -48,67 +49,120 @@ public class GenerateQuestionsController implements Initializable {
 
 
     public void nextQuestion(MouseEvent mouseEvent) throws IOException {
-        questionNumber++;
-        questionNumberLabel.setText("Question #" + questionNumber);
-        if (quizType == 0) {
-            Question question = new Question(competitionId+1, LoginController.teacher.getId(),0,classList,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject());
+        if (finish && questionTextField.getText().isEmpty() && answer1TextField.getText().isEmpty() && answer2TextField.getText().isEmpty() && answer3TextField.getText().isEmpty() && answer4TextField.getText().isEmpty() && (!correct1.isSelected()||!correct2.isSelected()||!correct3.isSelected()||!correct4.isSelected())) {
+                classList.clear();
+                subject="";
+                quizType=0;
+                fromDatePicker= new DatePicker();
+                toDatePicker = new DatePicker();
+                questionNumberLabel.setText("");
+                stage = (Stage) nextQuestionButton.getScene().getWindow();
+                VBox root;
+                root = FXMLLoader.load(getClass().getResource("/FXML/createOptionsTeacher.fxml"));
+                Scene scene = new Scene(root);
+                root.getStyleClass().add("scene-background");
+                scene.getStylesheets().add("/assets/css/menu.css");
+                stage.setScene(scene);
+            }
+        else {
+            boolean questionCorrect = true;
+            if (questionTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Field empty");
+                alert.setHeaderText("The question field is empty");
+                alert.setContentText("Your question field appears to be blank. Please insert a question and try again.");
+                alert.showAndWait();
+                questionCorrect = false;
+            }
+            if (answer1TextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Field empty");
+                alert.setHeaderText("The answer field is empty");
+                alert.setContentText("Your answer 1 field appears to be blank. Please insert an answer and try again.");
+                alert.showAndWait();
+                questionCorrect = false;
+            }
+            if (answer2TextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Field empty");
+                alert.setHeaderText("The answer field is empty");
+                alert.setContentText("Your answer 2 field appears to be blank. Please insert an answer and try again.");
+                alert.showAndWait();
+                questionCorrect = false;
+            }
+            if (answer3TextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Field empty");
+                alert.setHeaderText("The answer field is empty");
+                alert.setContentText("Your answer 3 field appears to be blank. Please insert an answer and try again.");
+                alert.showAndWait();
+                questionCorrect = false;
+            }
+            if (answer4TextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Field empty");
+                alert.setHeaderText("The answer field is empty");
+                alert.setContentText("Your answer 4 field appears to be blank. Please insert an answer and try again.");
+                alert.showAndWait();
+                questionCorrect = false;
+            }
+            if (!correct1.isSelected() && !correct2.isSelected() && !correct3.isSelected() && !correct4.isSelected()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("CheckBox empty");
+                alert.setHeaderText("The correct answer box is not selected");
+                alert.setContentText("Your correct answer check-box appears to be not selected. Please select a correct answer and try again.");
+                alert.showAndWait();
+                questionCorrect = false;
+            } else {
+                questionCorrect = true;
+            }
+            if (questionCorrect) {
+                questionNumber++;
+                questionNumberLabel.setText("Question #" + questionNumber);
+                if (quizType == 0) {
+                    Question question = new Question(competitionId + 1, LoginController.teacher.getId(), 0, classList, questionTextField.getText(), answer1TextField.getText(), answer2TextField.getText(), answer3TextField.getText(), answer4TextField.getText(), correctAnswer, getSubject());
+                } else {
+                    String fromDateString = fromDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                    String toDateString = toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                    Question question = new Question(contestId + 1, LoginController.teacher.getId(), 1, classList, questionTextField.getText(), answer1TextField.getText(), answer2TextField.getText(), answer3TextField.getText(), answer4TextField.getText(), correctAnswer, getSubject(), fromDateString, toDateString);
+                }
+                questionTextField.clear();
+                answer1TextField.clear();
+                answer2TextField.clear();
+                answer3TextField.clear();
+                answer4TextField.clear();
+                correct1.setSelected(false);
+                correct2.setSelected(false);
+                correct3.setSelected(false);
+                correct4.setSelected(false);
+                if (finish) {
+                    classList.clear();
+                    subject = "";
+                    quizType = 0;
+                    fromDatePicker = new DatePicker();
+                    toDatePicker = new DatePicker();
+                    questionNumberLabel.setText("");
+                    stage = (Stage) nextQuestionButton.getScene().getWindow();
+                    VBox root;
+                    root = FXMLLoader.load(getClass().getResource("/FXML/createOptionsTeacher.fxml"));
+                    Scene scene = new Scene(root);
+                    root.getStyleClass().add("scene-background");
+                    scene.getStylesheets().add("/assets/css/menu.css");
+                    stage.setScene(scene);
+                }
+
+
+            }
         }
-        else{
-            String fromDateString=fromDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            String toDateString=toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            Question question = new Question(contestId+1,LoginController.teacher.getId(),1,classList,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),fromDateString,toDateString);
-        }
-        correct1.setSelected(false);
-        correct2.setSelected(false);
-        correct3.setSelected(false);
-        correct4.setSelected(false);
-        questionTextField.clear();
-        answer1TextField.clear();
-        answer2TextField.clear();
-        answer3TextField.clear();
-        answer4TextField.clear();
+
 
     }
 
     public void toMainMenu(MouseEvent mouseEvent) throws IOException {
-        if (questionTextField.getText().isEmpty() || answer1TextField.getText().isEmpty() || answer2TextField.getText().isEmpty() || answer3TextField.getText().isEmpty() || answer4TextField.getText().isEmpty()) {
-        }
-        else {
-            if (quizType == 0) {
-                Question question = new Question(competitionId+1,LoginController.teacher.getId(),0,classList,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject());
-                competitionId++;
-            }
-            else{
-                String fromDateString=fromDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                String toDateString=toDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                Question question = new Question(contestId+1,LoginController.teacher.getId(),1,classList,questionTextField.getText(),answer1TextField.getText(),answer2TextField.getText(),answer3TextField.getText(),answer4TextField.getText(),correctAnswer ,getSubject(),fromDateString,toDateString);
-                contestId++;
-            }
-        }
-        classList.clear();
-        subject="";
-        quizType=0;
-        fromDatePicker= new DatePicker();
-        toDatePicker = new DatePicker();
-        questionNumberLabel.setText("");
-        questionTextField.clear();
-        answer1TextField.clear();
-        answer2TextField.clear();
-        answer3TextField.clear();
-        answer4TextField.clear();
-        correct1.setSelected(false);
-        correct2.setSelected(false);
-        correct3.setSelected(false);
-        correct4.setSelected(false);
-        stage = (Stage) nextQuestionButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/createOptionsTeacher.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
-
+        finish=true;
+        nextQuestion(mouseEvent);
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         questionNumberLabel.setText("Question #" + questionNumber);
