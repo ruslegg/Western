@@ -15,7 +15,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+import sun.audio.AudioPlayer;
 import sun.rmi.runtime.Log;
 
 import java.io.File;
@@ -42,6 +44,9 @@ public class GameController implements Initializable {
     int correctAnswers = 0;
     public static boolean isRandom = false;
     public static int randomNumber = 0;
+    public AudioClip correctAnswer = new AudioClip(AudioPlayer.class.getResource("/assets/correct.mp3").toString());
+    public AudioClip wrongAnswer = new AudioClip(AudioPlayer.class.getResource("/assets/wrong.mp3").toString());
+
 
 
 
@@ -74,16 +79,15 @@ public class GameController implements Initializable {
         stage.setScene(scene);
     }
     public void checkAnswer(String answer) throws IOException, SQLException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
+
         if (answer.equals(question.getCorrectAnswer())){
+            correctAnswer.play();
             questionNumber++;
             correctAnswers++;
             newQuestion();
-            System.out.println("correct");
         }
         else{
+            wrongAnswer.play();
             questionNumber++;
             newQuestion();
             System.out.println("incorrect");

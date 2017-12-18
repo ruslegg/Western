@@ -3,7 +3,7 @@
     -fx-background-size: 1280px;
     -fx-background-repeat: no-repeat;
 }
-.button {
+.quiz-button{
     -fx-min-width: 170px;
     -fx-min-height: 67px;
     -fx-background-image: url("/assets/img/button-background.png");
@@ -13,23 +13,4 @@
     -fx-padding: 10px 20px 10px 20px;
     -fx-font-size: 40px;
     -fx-text-fill: #EDDFB0;
-}
-.button Text{
-    -fx-effect: dropshadow(gaussian, #000000, 1, 1.0, 2, 2);
-
-}
-
-.axis {
-    -fx-tick-label-fill: #FFFFFF;
-}
-.check-box{
-    -fx-font-size: 30px;
-    -fx-font-family: "Western Bang Bang";
-}
-.congratulation{
-    -fx-font-size:50px;
-}
-.label{
-    -fx-font-family: "Western Bang Bang";
-    -fx-font-size: 30px;
 }

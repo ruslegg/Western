@@ -78,7 +78,7 @@ public class SettingsController implements Initializable {
             stage = (Stage) backButton.getScene().getWindow();
             Pane root;
             root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-            Scene scene = new Scene(root, 1280, 720);
+            Scene scene = new Scene(root);
             root.getStyleClass().add("scene-background");
             scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);
@@ -87,7 +87,7 @@ public class SettingsController implements Initializable {
             stage = (Stage) backButton.getScene().getWindow();
             Pane root;
             root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
-            Scene scene = new Scene(root, 1280, 720);
+            Scene scene = new Scene(root);
             root.getStyleClass().add("scene-background");
             scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);
@@ -95,7 +95,7 @@ public class SettingsController implements Initializable {
             stage = (Stage) backButton.getScene().getWindow();
             Pane root;
             root = FXMLLoader.load(getClass().getResource("/FXML/adminMainMenu.fxml"));
-            Scene scene = new Scene(root, 1280, 720);
+            Scene scene = new Scene(root);
             root.getStyleClass().add("scene-background");
             scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);

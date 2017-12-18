@@ -13,7 +13,7 @@ public class Main extends Application {
         try {
             Font.loadFont(getClass().getResourceAsStream("/assets/Western.otf"), 20);
             VBox root = FXMLLoader.load(getClass().getResource("FXML/login.fxml"));
-            Scene scene = new Scene(root,1280, 720);
+            Scene scene = new Scene(root);
             root.getStyleClass().add("scene-background");
             scene.getStylesheets().add("/assets/css/menu.css");
             primaryStage.setScene(scene);

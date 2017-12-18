@@ -58,7 +58,9 @@ public class TeacherMenuController implements Initializable {
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/statisticsTeacher.fxml"));
         root.getStyleClass().add("scene-background");
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/assets/css/menu.css");
+
 
         stage.setScene(scene);
 
@@ -87,7 +89,7 @@ public class TeacherMenuController implements Initializable {
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/teacherMenu.fxml"));
         root.getStyleClass().add("scene-background");
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);

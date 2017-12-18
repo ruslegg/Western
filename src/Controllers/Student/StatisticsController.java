@@ -73,7 +73,7 @@ public class StatisticsController implements Initializable {
         contestRank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         statisticsLeaderBoardTableView.setItems(leaderBoardList);
         statisticsContestRankTableView.setItems(contestList);
-
+        lineChart.setLegendVisible(false);
 
     }
 
@@ -84,7 +84,7 @@ public class StatisticsController implements Initializable {
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
@@ -164,7 +164,6 @@ public class StatisticsController implements Initializable {
 
         //LineChart data
         XYChart.Series series = new XYChart.Series();
-        lineChart.getXAxis().setLabel("Class");
         for (Results result : LoginController.resultsList
                 ) {
             if (result.getUserID() == LoginController.student.getId()) {

@@ -48,7 +48,7 @@
       </HBox>
       <LineChart fx:id="lineChart" prefHeight="300.0" title="Competition Statistics">
         <xAxis>
-          <CategoryAxis label="Subject" side="BOTTOM" />
+          <CategoryAxis side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis minorTickVisible="false" side="LEFT" tickMarkVisible="false" />

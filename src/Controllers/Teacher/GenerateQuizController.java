@@ -45,6 +45,8 @@ public class GenerateQuizController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         fromDatePicker.setDisable(true);
         toDatePicker.setDisable(true);
+        backButton.getStyleClass().add("quiz-button");
+        nextButton.getStyleClass().add("quiz-button");
         aCheck.setDisable(true);
         bCheck.setDisable(true);
         cCheck.setDisable(true);
@@ -94,7 +96,6 @@ public class GenerateQuizController implements Initializable{
             }
         });
         competitionCheck.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if(competitionCheck.isSelected()){
                     quizType=0;
@@ -105,7 +106,6 @@ public class GenerateQuizController implements Initializable{
             }
         });
         contestCheck.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if(contestCheck.isSelected()){
                     quizType=1;

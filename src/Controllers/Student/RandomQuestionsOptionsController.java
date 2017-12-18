@@ -98,7 +98,7 @@ public class RandomQuestionsOptionsController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
             Scene scene = new Scene(root);
             root.getStyleClass().add("scene-background");
-            scene.getStylesheets().add("/assets/css/menu.css");
+            scene.getStylesheets().add("/assets/css/game.css");
             stage.setScene(scene);
             System.out.println("Normal");
         }
@@ -128,7 +128,7 @@ public class RandomQuestionsOptionsController implements Initializable {
         stage = (Stage) backButton.getScene().getWindow();
         Pane root;
         root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);

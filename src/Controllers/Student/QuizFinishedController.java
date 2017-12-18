@@ -37,8 +37,10 @@ public class QuizFinishedController implements Initializable  {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        congratulationLabel.getStyleClass().add("congratulation");
         correctAnswerPercentage = Math.round(((correctAnswers * 100) / numberOfQuestions) * 100d) / 100d;
         answerRateLabel.setText(String.valueOf(correctAnswerPercentage) + "%");
+        scoreLabel.setText(String.valueOf(correctAnswers*20));
         if (!GameController.isRandom){
             Results results = new Results(LoginController.student.getId(),LoginController.student.getName(),LoginController.student.getTeam().getAbbreviation(),
                     LoginController.student.getTeam().getName(),ChosenGameMenuController.getTeacherId(),ChosenGameMenuController.getQuizType(),

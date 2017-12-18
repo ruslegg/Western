@@ -40,7 +40,7 @@ public class CreateOptionsTeachersController implements Initializable{
         root = FXMLLoader.load(getClass().getResource("/FXML/generateQuiz.fxml"));
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
+        scene.getStylesheets().add("/assets/css/quiz.css");
         stage.setScene(scene);
     }
 
@@ -48,7 +48,7 @@ public class CreateOptionsTeachersController implements Initializable{
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
@@ -59,7 +59,7 @@ public class CreateOptionsTeachersController implements Initializable{
         stage = (Stage) classButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/createClass.fxml"));
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root);
         scene.getStylesheets().add("/assets/css/menu.css");
         root.getStyleClass().add("scene-background");
         stage.setScene(scene);

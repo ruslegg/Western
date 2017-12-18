@@ -77,7 +77,6 @@ public class StatisticsTeachersController implements Initializable {
         contestsTableView.getColumns().addAll(contestId,contestName,contestNumber);
         competitionTableView.setItems(teacherCompetitionsList);
         contestsTableView.setItems(teacherContestsList);
-        barChart.getXAxis().setLabel("Class");
         barChart.getYAxis().setLabel("Number of students");
         XYChart.Series series = new XYChart.Series();
 
@@ -86,6 +85,7 @@ public class StatisticsTeachersController implements Initializable {
             series.getData().add(new XYChart.Data(classList.get(i).getSchoolClass().getNumber()+classList.get(i).getSchoolClass().getLetter(), classList.get(i).getNumber()));
 
         barChart.getData().add(series);
+        barChart.setLegendVisible(false);
     }
 
 
@@ -96,7 +96,7 @@ public class StatisticsTeachersController implements Initializable {
         stage = (Stage) backButton.getScene().getWindow();
         VBox root;
         root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
-        Scene scene = new Scene(root,1280,720);
+        Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
