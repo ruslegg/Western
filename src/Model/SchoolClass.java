@@ -12,7 +12,6 @@ public class SchoolClass implements Serializable {
     public SchoolClass(int number, String letter) throws IOException, ClassNotFoundException {
         this.number = number;
         this.letter = letter;
-        serialize();
     }
 
     public SchoolClass() {

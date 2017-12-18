@@ -44,7 +44,6 @@ public class RandomQuestionsOptionsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         questions.clear();
         getMaximumValue();
-
         numberTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {

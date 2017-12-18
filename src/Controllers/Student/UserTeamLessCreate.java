@@ -52,10 +52,25 @@ public class UserTeamLessCreate  implements Initializable{
             alert.showAndWait();
             teamNameCorrect=false;
         }
+        else{
+            for (Team team: LoginController.teamList
+                 ) {
+                if (team.getName().equals(teamNameTextField.getText())){
+                    teamNameTextField.clear();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Team Creation Error #3");
+                    alert.setHeaderText("Team name already exists");
+                    alert.setContentText("Your team name already exists in our database. Please try another name");
+                    alert.showAndWait();
+                    teamNameCorrect=false;
+                    break;
+                }
+            }
+        }
 
         if (teamAbbreviationTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Team Creation Error #3");
+            alert.setTitle("Team Creation Error #4");
             alert.setHeaderText("Team Abbreviation is empty");
             alert.setContentText("Your team abbreviation insertion is empty. Please try again");
             alert.showAndWait();
@@ -63,25 +78,29 @@ public class UserTeamLessCreate  implements Initializable{
         }
         else if(teamAbbreviationTextField.getText().length()!=3){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Team Creation Error #4");
+            alert.setTitle("Team Creation Error #5");
             alert.setHeaderText("Invalid number of characters");
             alert.setContentText("Your team abbreviation must have 3 characters");
             alert.showAndWait();
             teamAbbreviationCorrect=false;
         }
-
-        if (teamNameCorrect && teamAbbreviationCorrect){
+        else{
             for (Team team: LoginController.teamList
                  ) {
-                if (team.getName().equals(teamNameTextField.getText())){
-                    teamExist++;
+                if (team.getAbbreviation().equals(teamAbbreviationTextField.getText())){
+                    teamAbbreviationTextField.clear();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Team Creation Error #6");
+                    alert.setHeaderText("Team abbreviation exists");
+                    alert.setContentText("Your team abbreviation already exists in our database");
+                    alert.showAndWait();
+                    teamAbbreviationCorrect=false;
+                    break;
                 }
-                else if(team.getAbbreviation().equals(teamAbbreviationTextField.getText())){
-                    teamExist++;
-                }
-
             }
-            if (teamExist==0){
+        }
+
+            if (teamNameCorrect && teamAbbreviationCorrect){
                 Team team = new Team(teamNameTextField.getText(),teamAbbreviationTextField.getText());
                 try {
                     team.serialize();
@@ -91,16 +110,21 @@ public class UserTeamLessCreate  implements Initializable{
                 LoginController.student.setTeam(team);
                 LoginController.student.setTeamLeader(true);
                 LoginController.student.createTeamSerialize();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Creation successful");
+                alert.setHeaderText("Team creation successful");
+                alert.setContentText("Your team has been successfully created");
+                alert.showAndWait();
+                stage = (Stage) createButton.getScene().getWindow();
+                VBox root;
+                root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+                Scene scene = new Scene(root);
+                root.getStyleClass().add("scene-background");
+                scene.getStylesheets().add("/assets/css/menu.css");
+                stage.setScene(scene);
             }
-        }
 
-        stage = (Stage) createButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
+
     }
     public void toMainMenu() throws IOException {
         stage = (Stage) createButton.getScene().getWindow();
