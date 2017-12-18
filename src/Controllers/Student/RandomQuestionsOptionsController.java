@@ -1,6 +1,7 @@
 package Controllers.Student;
 
 import Controllers.LoginController;
+import Controllers.SettingsController;
 import Model.Question;
 import Model.SchoolClass;
 import javafx.beans.value.ChangeListener;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -28,17 +30,13 @@ public class RandomQuestionsOptionsController implements Initializable {
     @FXML
     Button playButton;
     @FXML
+    Button backButton;
+    @FXML
     public TextField numberTextField;
 
     public int maxQuestions = 0;
 
     public static ObservableList<Question> questions = FXCollections.observableArrayList();
-
-
-
-
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -107,5 +105,18 @@ public class RandomQuestionsOptionsController implements Initializable {
 
         }
         maxQuestions = questions.size();
+    }
+
+    public void toChooseGameType(MouseEvent event) throws IOException {
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        stage = (Stage) backButton.getScene().getWindow();
+        Pane root;
+        root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
+        Scene scene = new Scene(root, 1280, 720);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/assets/css/menu.css");
+        stage.setScene(scene);
     }
 }
