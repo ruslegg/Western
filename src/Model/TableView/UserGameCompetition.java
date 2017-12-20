@@ -1,8 +1,11 @@
 package Model.TableView;
 
+/**
+ * Object standing for Competition TableView in Student's Games
+ */
 public class UserGameCompetition {
-    String subject;
-    int id,teacherId;
+    private String subject;
+    private int id, teacherId;
 
     public UserGameCompetition(String subject, int id, int teacherId) {
         this.subject = subject;
@@ -30,7 +33,4 @@ public class UserGameCompetition {
         return teacherId;
     }
 
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
-    }
 }

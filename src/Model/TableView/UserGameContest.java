@@ -1,19 +1,17 @@
 package Model.TableView;
 
-import sun.util.calendar.LocalGregorianCalendar;
-
-import javax.swing.text.DateFormatter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
+/**
+ * Object that stands for Contest TableView in Student's Games
+ */
 public class UserGameContest {
-    String contestSubject,toDate,daysLeft;
-    int id,teacherId;
+    private String contestSubject, toDate, daysLeft;
+    private int id, teacherId;
 
-    public UserGameContest(int id,String contestSubject, String toDate, int teacherId) {
+    public UserGameContest(int id, String contestSubject, String toDate, int teacherId) {
         this.contestSubject = contestSubject;
         this.toDate = toDate;
         this.id = id;
@@ -25,39 +23,27 @@ public class UserGameContest {
         }
     }
 
+    /**
+     * Calculcates days left for the contest
+     *
+     * @param toDateString - date until contest is available
+     * @return days left
+     * @throws ParseException caused by date formatter
+     */
     public String countDaysLeft(String toDateString) throws ParseException {
         SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
         Date toDate = dateFormatter.parse(toDateString);
         Date currentDate = new Date();
         long toDateLong = toDate.getTime();
         long currentLong = currentDate.getTime();
-        long days = (toDateLong-currentLong)/(1000*60*60*24);
-        return String.valueOf(days+1);
+        long days = (toDateLong - currentLong) / (1000 * 60 * 60 * 24);
+        return String.valueOf(days + 1);
     }
 
     public String getContestSubject() {
         return contestSubject;
     }
 
-    public void setContestSubject(String contestSubject) {
-        this.contestSubject = contestSubject;
-    }
-
-    public String getToDate() {
-        return toDate;
-    }
-
-    public void setToDate(String toDate) {
-        this.toDate = toDate;
-    }
-
-    public String getDaysLeft() {
-        return daysLeft;
-    }
-
-    public void setDaysLeft(String daysLeft) {
-        this.daysLeft = daysLeft;
-    }
 
     public int getId() {
         return id;
@@ -71,7 +57,4 @@ public class UserGameContest {
         return teacherId;
     }
 
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
-    }
 }

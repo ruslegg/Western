@@ -4,99 +4,126 @@ import Controllers.LoginController;
 import Controllers.SettingsController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-
-public class MainMenuController implements Initializable {
+/**
+ * Controller that manipulates Student's Main Menu
+ */
+public class MainMenuController {
     private Stage stage;
+
     @FXML
     public Button startButton;
-    @FXML
     public Button settingsButton;
-    @FXML
     public Button statisticsButton;
-    @FXML
-    public Button quitButton,teamButton;
-    @Override
+    public Button quitButton, teamButton;
 
-    public void initialize(URL location, ResourceBundle resources) {
-
-
-    }
-
-    public void toTeam() throws IOException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        if (LoginController.student.getTeam().getName().length()>1){
-            stage = (Stage) teamButton.getScene().getWindow();
-            VBox root;
-            root = FXMLLoader.load(getClass().getResource("/FXML/userTeamInformation.fxml"));
-            Scene scene = new Scene(root);
-            root.getStyleClass().add("scene-background");
-            scene.getStylesheets().add("/assets/css/menu.css");
-            stage.setScene(scene);
-        }
-        else{
-            stage = (Stage) teamButton.getScene().getWindow();
-            VBox root;
-            root = FXMLLoader.load(getClass().getResource("/FXML/userTeamLessOptions.fxml"));
-            Scene scene = new Scene(root);
-            root.getStyleClass().add("scene-background");
-            scene.getStylesheets().add("/assets/css/menu.css");
-            stage.setScene(scene);
-        }
-    }
-
-    public void toTypeOfGame() throws IOException {
-        if (SettingsController.effects){
+    /**
+     * Switches to Type Of Game Scene, where the student can choose type of game that he wants to play.
+     */
+    public void toTypeOfGame(){
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) startButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/chooseTypeOfGame.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
 
-    public void toSettings() throws IOException {
-        if (SettingsController.effects){
+    /**
+     * Switches to Student's Team "Dashboard", initially performing a check whether he has a team or not. By choice
+     * is assigned to corresponding scene
+     */
+    public void toTeam() {
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        if (LoginController.getStudent().getTeam().getName().length() > 1) {
+            stage = (Stage) teamButton.getScene().getWindow();
+            VBox root = new VBox();
+            try {
+                root = FXMLLoader.load(getClass().getResource("/View/userTeamInformation.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene scene = new Scene(root);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/assets/css/menu.css");
+            stage.setScene(scene);
+        } else {
+            stage = (Stage) teamButton.getScene().getWindow();
+            VBox root = new VBox();
+            try {
+                root = FXMLLoader.load(getClass().getResource("/View/userTeamLessOptions.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene scene = new Scene(root);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/assets/css/menu.css");
+            stage.setScene(scene);
+        }
+    }
+
+    /**
+     * Switches to Settings Scene
+     */
+    public void toSettings(){
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) settingsButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/settings.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/settings.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
 
-    public void toStatistics() throws IOException {
-        if (SettingsController.effects){
+    /**
+     * Switches to Student's Statistics
+     */
+    public void toStatistics() {
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) statisticsButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/statistics.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/statistics.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
 
-    public void quit(){
-        if (SettingsController.effects){
+    /**
+     * Quits the game
+     */
+    public void quit() {
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         System.exit(0);

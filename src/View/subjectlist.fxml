@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141"
+            fx:controller="Controllers.Student.SchoolGamesController">
+    <right>
+        <VBox alignment="CENTER">
+            <children>
+                <!--<Button fx:id="nextButton" mnemonicParsing="false" onMouseClicked="#toCompetitionIntro" text="Next" />-->
+                <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toChooseTypeOfGame" text="Back"/>
+            </children>
+        </VBox>
+    </right>
+    <center>
+        <ScrollPane BorderPane.alignment="CENTER">
+            <content>
+                <VBox fx:id="vBox" alignment="TOP_CENTER"/>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

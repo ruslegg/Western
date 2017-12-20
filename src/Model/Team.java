@@ -5,9 +5,17 @@ import Controllers.LoginController;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * This object stands for the teams for the students
+ */
 public class Team implements Serializable {
-    String name,abbreviation;
+    private String name, abbreviation;
 
+    /**
+     * Creates a new Team Object
+     * @param name - constructor's value
+     * @param abbreviation constructor's value
+     */
     public Team(String name, String abbreviation) {
         this.name = name;
         this.abbreviation = abbreviation;
@@ -16,17 +24,22 @@ public class Team implements Serializable {
     public Team() {
     }
 
+    /**
+     * Serialized to a file and retrieving the information from the file in order to avoid conflicts
+     * @throws IOException caused by serialization
+     * @throws ClassNotFoundException caused by serialization
+     */
     public void serialize() throws IOException, ClassNotFoundException {
-        LoginController.teamList.add(this);
+        LoginController.getTeamList().add(this);
         File file = new File("src/data/attributes/teams.ser");
         FileOutputStream fileOut = new FileOutputStream(file);
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        out.writeObject(LoginController.teamList);
+        out.writeObject(LoginController.getTeamList());
         out.close();
         fileOut.close();
         FileInputStream fileIn = new FileInputStream(file);
         ObjectInputStream in = new ObjectInputStream(fileIn);
-        LoginController.teamList=(ArrayList) in.readObject();
+        LoginController.setTeamList((ArrayList) in.readObject());
     }
 
 
@@ -40,9 +53,5 @@ public class Team implements Serializable {
 
     public String getAbbreviation() {
         return abbreviation;
-    }
-
-    public void setAbbreviation(String abbreviation) {
-        this.abbreviation = abbreviation;
     }
 }

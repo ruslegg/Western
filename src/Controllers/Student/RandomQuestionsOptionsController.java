@@ -17,27 +17,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller that responds for future Normal Game Controller, where the student can choose how many questions
+ * he wants to play from available.
+ */
 public class RandomQuestionsOptionsController implements Initializable {
-    private Stage stage;
-
+    private static ObservableList<Question> questions = FXCollections.observableArrayList();
     @FXML
-    Button playButton;
-    @FXML
-    Button backButton;
-    @FXML
+    public Button playButton;
+    public Button backButton;
     public TextField numberTextField;
+    private Stage stage;
+    private int maxQuestions = 0;
 
-    public int maxQuestions = 0;
-
-    public static ObservableList<Question> questions = FXCollections.observableArrayList();
-
+    /**
+     * Clears questions ObservableList in order to avoid conflicts
+     * Performs getMaximumValue() in order to see maximum questions available to the student
+     * Change Listener that helps to limit student's choice only to numbers and a limited number of characters.
+     * @param location not used
+     * @param resources not used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         questions.clear();
@@ -52,68 +58,59 @@ public class RandomQuestionsOptionsController implements Initializable {
         });
     }
 
-    public void minusOne(){
-        if (SettingsController.effects){
+    /**
+     * Decrements TextField's value by one
+     */
+    public void minusOne() {
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
-        numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText())-1));
+        numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText()) - 1));
     }
-    public void minusTen(){
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText())-10));
-    }
-    public void plusOne(){
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText())+1));
-    }
-    public void plusTen(){
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText())+10));
-    }
-    public void play() throws IOException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        boolean isOkay = true;
-        GameController.isRandom=true;
-        if (Integer.parseInt(numberTextField.getText()) > maxQuestions){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Invalid number");
-            alert.setHeaderText("Invalid number of desired questions");
-            alert.setContentText("The maximum number of questions is "+maxQuestions+". Please try again.");
-            alert.showAndWait();
-            numberTextField.setText(String.valueOf(maxQuestions));
-            isOkay=false;
-        }
-        if (isOkay){
-            GameController.randomNumber=Integer.parseInt(numberTextField.getText());
-            stage = (Stage) playButton.getScene().getWindow();
-            Pane root;
-            root = FXMLLoader.load(getClass().getResource("/FXML/game.fxml"));
-            Scene scene = new Scene(root);
-            root.getStyleClass().add("scene-background");
-            scene.getStylesheets().add("/assets/css/game.css");
-            stage.setScene(scene);
-            System.out.println("Normal");
-        }
 
+    /**
+     * Decrements TextField's value by ten
+     */
+    public void minusTen() {
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText()) - 10));
     }
-    public void getMaximumValue(){
-        for (Question question: LoginController.questionsList
+
+    /**
+     * Increments TextField's value by one
+     */
+    public void plusOne() {
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText()) + 1));
+    }
+
+    /**
+     * Increments TextField's value by ten
+     */
+    public void plusTen() {
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        numberTextField.setText(String.valueOf(Integer.valueOf(numberTextField.getText()) + 10));
+    }
+
+    /**
+     * Using several for-each loops, checks for maximum questions available for the logged in student specifically
+     */
+    public void getMaximumValue() {
+        for (Question question : LoginController.getQuestionsList()
                 ) {
             ArrayList<SchoolClass> classList = question.getClassList();
-            for (SchoolClass schoolClass: classList
+            for (SchoolClass schoolClass : classList
                     ) {
-                if (schoolClass.getNumber() == LoginController.student.getSchoolClass().getNumber() &&
-                        schoolClass.getLetter().equals(LoginController.student.getSchoolClass().getLetter())){
-                        questions.add(question);
-                        break;
+                if (schoolClass.getNumber() == LoginController.getStudent().getSchoolClass().getNumber() &&
+                        schoolClass.getLetter().equals(LoginController.getStudent().getSchoolClass().getLetter())) {
+                    questions.add(question);
+                    break;
                 }
             }
 
@@ -121,16 +118,64 @@ public class RandomQuestionsOptionsController implements Initializable {
         maxQuestions = questions.size();
     }
 
-    public void toChooseGameType(MouseEvent event) throws IOException {
+    /**
+     * Switches to Game Controller, where student can play a Normal Game with the desired number of questions.
+     * Check is performed if the value from TextField is bigger than available questions, and sets the TextField's value
+     * to maximum possible value.
+     */
+    public void play(){
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        boolean isOkay = true;
+        GameController.setRandom(true);
+        if (Integer.parseInt(numberTextField.getText()) > maxQuestions) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Invalid number");
+            alert.setHeaderText("Invalid number of desired questions");
+            alert.setContentText("The maximum number of questions is " + maxQuestions + ". Please try again.");
+            alert.showAndWait();
+            numberTextField.setText(String.valueOf(maxQuestions));
+            isOkay = false;
+        }
+        if (isOkay) {
+            GameController.setRandomNumber(Integer.parseInt(numberTextField.getText()));
+            stage = (Stage) playButton.getScene().getWindow();
+            VBox root = new VBox();
+            try {
+                root = FXMLLoader.load(getClass().getResource("/View/game.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene scene = new Scene(root);
+            root.getStyleClass().add("scene-background");
+            scene.getStylesheets().add("/assets/css/game.css");
+            stage.setScene(scene);
+        }
+    }
+
+    /**
+     * Switches back to Type Of Game Scene
+     */
+    public void toChooseGameType(){
         if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) backButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/chooseTypeOfGame.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/chooseTypeOfGame.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
+
+    public static ObservableList<Question> getQuestions() {
+        return questions;
+    }
+
 }

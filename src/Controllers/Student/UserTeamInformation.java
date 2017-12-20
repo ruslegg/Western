@@ -15,18 +15,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
+/**
+ * Holds the team information for the students that are already in a team
+ * Additional "Team Requests" functionality for the TeamLeader
+ */
 public class UserTeamInformation implements Initializable {
-    private Stage stage;
-
     @FXML
     public TableView<TeamLeaderBoard> teamLeaderBoardTableView;
     public TableView<TeamMembers> teamMembersTableView;
@@ -39,15 +41,22 @@ public class UserTeamInformation implements Initializable {
     public TableColumn<TeamMembersRequest, String> requestName;
     public Button backButton, approveButton;
     public Label requestLabel;
+    private Stage stage;
+    private ObservableList<TeamLeaderBoard> leaderBoardList = FXCollections.observableArrayList();
+    private ObservableList<TeamMembers> membersList = FXCollections.observableArrayList();
+    private ObservableList<TeamMembersRequest> requestsList = FXCollections.observableArrayList();
+    private ObservableMap<String, Integer> membersHashMap = FXCollections.observableHashMap();
 
-    ObservableList<TeamLeaderBoard> leaderBoardList = FXCollections.observableArrayList();
-    ObservableList<TeamMembers> membersList = FXCollections.observableArrayList();
-    ObservableList<TeamMembersRequest> requestsList = FXCollections.observableArrayList();
-    ObservableMap<String, Integer> membersHashMap = FXCollections.observableHashMap();
-
+    /**
+     * Associates table columns with required data
+     * Calls getLeaderBoardData() getMembersData() and getRequestsData() methods in order to populate the lists
+     * Sorts tablecolumns by specific terms
+     * @param location not used
+     * @param resources not used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (!LoginController.student.isTeamLeader()){
+        if (!LoginController.getStudent().isTeamLeader()) {
             teamRequestsTableView.setVisible(false);
             requestLabel.setVisible(false);
             approveButton.setVisible(false);
@@ -74,12 +83,15 @@ public class UserTeamInformation implements Initializable {
 
     }
 
+    /**
+     * Uses  for-each loops through all the teams and results in order to gain information about team scores
+     */
     public void getLeaderBoardData() {
-        for (Team team : LoginController.teamList
+        for (Team team : LoginController.getTeamList()
                 ) {
             leaderBoardList.add(new TeamLeaderBoard(team.getName(), 0));
         }
-        for (Results result : LoginController.resultsList
+        for (Results result : LoginController.getResultsList()
                 ) {
             if (result.getTeamName().length() > 1) {
                 for (TeamLeaderBoard team : leaderBoardList
@@ -92,7 +104,7 @@ public class UserTeamInformation implements Initializable {
         }
         for (TeamLeaderBoard team : leaderBoardList
                 ) {
-            if (team.getName().equals(LoginController.student.getTeam().getName())) {
+            if (team.getName().equals(LoginController.getStudent().getTeam().getName())) {
                 teamLeaderBoardTableView.getSelectionModel().select(team);
                 break;
             }
@@ -100,16 +112,19 @@ public class UserTeamInformation implements Initializable {
 
     }
 
+    /**
+     * Uses for-each loops through all students and results in order to gain information about all team members
+     */
     public void getMembersData() {
-        for (Student student: LoginController.studentList
-             ) {
-            if (student.getTeam().getName().equals(LoginController.student.getTeam().getName())){
-                membersHashMap.put(student.getName(),0);
+        for (Student student : LoginController.getStudentList()
+                ) {
+            if (student.getTeam().getName().equals(LoginController.getStudent().getTeam().getName())) {
+                membersHashMap.put(student.getName(), 0);
             }
         }
-        for (Results result : LoginController.resultsList
+        for (Results result : LoginController.getResultsList()
                 ) {
-            if (result.getTeamName().equals(LoginController.student.getTeam().getName())) {
+            if (result.getTeamName().equals(LoginController.getStudent().getTeam().getName())) {
                 membersHashMap.put(result.getName(), membersHashMap.getOrDefault(result.getName(), 0) + result.getScore());
             }
 
@@ -119,7 +134,7 @@ public class UserTeamInformation implements Initializable {
             membersList.add(new TeamMembers(mapEntry.getKey(), mapEntry.getValue()));
         }
         for (TeamMembers member : membersList) {
-            if (member.getMemberName().equals(LoginController.student.getName())) {
+            if (member.getMemberName().equals(LoginController.getStudent().getName())) {
                 teamMembersTableView.getSelectionModel().select(member);
                 break;
             }
@@ -127,12 +142,15 @@ public class UserTeamInformation implements Initializable {
 
     }
 
+    /**
+     * Uses for-each loops through students in order to gain information about Team Requests from Students
+     */
     public void getRequestsData() {
         Set<Student> studentSet = new HashSet<>();
         ArrayList<Student> studentArrayList = new ArrayList<>();
-        for (Student student : LoginController.teamRequests
+        for (Student student : LoginController.getTeamRequests()
                 ) {
-            if (student.getTeam().getName().equals(LoginController.student.getTeam().getName())) {
+            if (student.getTeam().getName().equals(LoginController.getStudent().getTeam().getName())) {
                 studentArrayList.add(student);
             }
         }
@@ -145,21 +163,33 @@ public class UserTeamInformation implements Initializable {
         }
     }
 
-    public void toMainMenu() throws IOException {
-        if (SettingsController.effects){
+    /**
+     * Switches to Student's Main Menu Scene
+     */
+    public void toMainMenu(){
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) backButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/mainMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
 
+    /**
+     * Uses for-each loops to assign a student to a team.
+     * A no selection check is performed to avoid null-pointer exception
+     * When team members is added, student's team request is deleted from team requests list using deleteTeamRequests() method
+     */
     public void approveRequest() {
-        if (SettingsController.effects){
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         boolean selected = true;
@@ -172,15 +202,15 @@ public class UserTeamInformation implements Initializable {
             selected = false;
         }
         if (selected) {
-            for (Student student : LoginController.studentList
+            for (Student student : LoginController.getStudentList()
                     ) {
                 if (student.getId() == teamRequestsTableView.getSelectionModel().getSelectedItem().getRequestId()) {
-                    student.setTeam(LoginController.student.getTeam());
-                    for (Results results: LoginController.resultsList
-                         ) {
-                        if (student.getId() == results.getUserID()){
-                            results.setTeamName(LoginController.student.getTeam().getName());
-                            results.setTeamAbbreviation(LoginController.student.getTeam().getAbbreviation());
+                    student.setTeam(LoginController.getStudent().getTeam());
+                    for (Results results : LoginController.getResultsList()
+                            ) {
+                        if (student.getId() == results.getUserID()) {
+                            results.setTeamName(LoginController.getStudent().getTeam().getName());
+                            results.setTeamAbbreviation(LoginController.getStudent().getTeam().getAbbreviation());
                         }
                     }
                     try {
@@ -208,6 +238,4 @@ public class UserTeamInformation implements Initializable {
         }
     }
 
-
 }
-

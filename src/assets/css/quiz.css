@@ -1,14 +1,15 @@
-.scene-background{
+.scene-background {
     -fx-background-image: url("/assets/img/background.png");
     -fx-background-size: 1280px;
     -fx-background-repeat: no-repeat;
 }
-.quiz-button{
+
+.quiz-button {
     -fx-min-width: 170px;
     -fx-min-height: 67px;
     -fx-background-image: url("/assets/img/button-background.png");
     -fx-background-size: 170px;
-    -fx-background-radius: 5,4,3,5;
+    -fx-background-radius: 5, 4, 3, 5;
     -fx-font-family: "Western Bang Bang";
     -fx-padding: 10px 20px 10px 20px;
     -fx-font-size: 40px;

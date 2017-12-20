@@ -12,7 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.chart.*;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,45 +27,41 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller that is used to retrieve statistics from available data in order to inform the teacher.
+ * Statistics is giving information about how many persons from each class has played the games, how many
+ * students has played each specific competition and contest.
+ */
 public class StatisticsTeachersController implements Initializable {
     private Stage stage;
-    final CategoryAxis xAxis = new CategoryAxis();
-    final NumberAxis yAxis = new NumberAxis();
+
     @FXML
     public TableView<TeacherCompetition> competitionTableView;
-    @FXML
     public TableView<TeacherContest> contestsTableView;
-    @FXML
-    public TableColumn<TeacherCompetition,String> competitionName;
-    @FXML
-    public TableColumn<TeacherCompetition,Integer> competitionNumber,competitionId;
-    @FXML
-    public TableColumn<TeacherContest,String> contestName;
-    @FXML
-    public TableColumn<TeacherContest,Integer> contestNumber,contestId;
-    @FXML
+    public TableColumn<TeacherCompetition, String> competitionName;
+    public TableColumn<TeacherCompetition, Integer> competitionNumber, competitionId;
+    public TableColumn<TeacherContest, String> contestName;
+    public TableColumn<TeacherContest, Integer> contestNumber, contestId;
     public BarChart barChart;
-    @FXML
     public Button backButton;
 
-
-    ObservableList<TeacherCompetition> teacherCompetitionsList = FXCollections.observableArrayList();
-    ObservableList<TeacherContest> teacherContestsList = FXCollections.observableArrayList();
-    ArrayList<TeacherLineChart> classList = new ArrayList();
-
+    private ObservableList<TeacherCompetition> teacherCompetitionsList = FXCollections.observableArrayList();
+    private ObservableList<TeacherContest> teacherContestsList = FXCollections.observableArrayList();
+    private ArrayList<TeacherLineChart> classList = new ArrayList();
 
 
-
+    /**
+     * Retrieves required information through getData() method.
+     * Associating table columns with the data.
+     * Populate tableviews with the lists.
+     * Populates barChart with data.
+     *
+     * @param location not used
+     * @param resources not used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            getData();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
+        getData();
         competitionId.setCellValueFactory(new PropertyValueFactory<>("competitionId"));
         competitionName.setCellValueFactory(new PropertyValueFactory<>("competitionName"));
         competitionNumber.setCellValueFactory(new PropertyValueFactory<>("competitionNumber"));
@@ -73,8 +70,8 @@ public class StatisticsTeachersController implements Initializable {
         contestNumber.setCellValueFactory(new PropertyValueFactory<>("contestNumber"));
         competitionTableView.getColumns().clear();
         contestsTableView.getColumns().clear();
-        competitionTableView.getColumns().addAll(competitionId,competitionName,competitionNumber);
-        contestsTableView.getColumns().addAll(contestId,contestName,contestNumber);
+        competitionTableView.getColumns().addAll(competitionId, competitionName, competitionNumber);
+        contestsTableView.getColumns().addAll(contestId, contestName, contestNumber);
         competitionTableView.setItems(teacherCompetitionsList);
         contestsTableView.setItems(teacherContestsList);
         barChart.getYAxis().setLabel("Number of students");
@@ -82,30 +79,23 @@ public class StatisticsTeachersController implements Initializable {
 
 
         for (int i = 0; i < classList.size(); i++)
-            series.getData().add(new XYChart.Data(classList.get(i).getSchoolClass().getNumber()+classList.get(i).getSchoolClass().getLetter(), classList.get(i).getNumber()));
+            series.getData().add(new XYChart.Data(classList.get(i).getSchoolClass().getNumber() + classList.get(i).getSchoolClass().getLetter(), classList.get(i).getNumber()));
 
         barChart.getData().add(series);
         barChart.setLegendVisible(false);
     }
 
-
-    public void toMainMenu(MouseEvent event) throws IOException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        stage = (Stage) backButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
-
-    }
-    public void getData() throws IOException, ClassNotFoundException {
-        for (Results result : LoginController.resultsList
+    /**
+     * Populates ObservableLists using a for-each loop through all results that equals to teacher's id.
+     * Using a switch on quizType, chooses in which list should add the result.
+     *
+     * Populates classList using a for-each loop through all results sorts them by classes and increments whether this class
+     * has already participated, that gives a overview how many students from each class has played teacher's quizzes.
+     */
+    public void getData() {
+        for (Results result : LoginController.getResultsList()
                 ) {
-            if (result.getTeacherID() == LoginController.teacher.getId()) {
+            if (result.getTeacherID() == LoginController.getTeacher().getId()) {
                 int quizType = result.getType();
                 switch (quizType) {
                     case 0: {
@@ -113,7 +103,7 @@ public class StatisticsTeachersController implements Initializable {
                         for (TeacherCompetition teacherCompetition : teacherCompetitionsList) {
                             if (teacherCompetition.getCompetitionId() == result.getContestID()) {
                                 teacherCompetition.increment();
-                                exist=true;
+                                exist = true;
 
                             }
                         }
@@ -129,28 +119,27 @@ public class StatisticsTeachersController implements Initializable {
                         for (TeacherContest teacherContest : teacherContestsList) {
                             if (teacherContest.getContestId() == result.getContestID()) {
                                 teacherContest.increment();
-                                exist=true;
+                                exist = true;
                             }
                         }
-                            if (!exist) {
-                                TeacherContest newContest = new TeacherContest(result.getContestID(), result.getContestName());
-                                teacherContestsList.add(newContest);
-                                newContest.increment();
-                            }
+                        if (!exist) {
+                            TeacherContest newContest = new TeacherContest(result.getContestID(), result.getContestName());
+                            teacherContestsList.add(newContest);
+                            newContest.increment();
                         }
                     }
                 }
             }
-        for (Results results: LoginController.resultsList){
-            if (classList.isEmpty()){
+        }
+        for (Results results : LoginController.getResultsList()) {
+            if (classList.isEmpty()) {
                 TeacherLineChart teacherLineChart = new TeacherLineChart(results.getSchoolClass());
                 teacherLineChart.increment();
                 classList.add(teacherLineChart);
-            }
-            else{
-                int exist=0;
-                boolean added= false;
-                for (int i=0;i<classList.size();i++){
+            } else {
+                int exist = 0;
+                boolean added = false;
+                for (int i = 0; i < classList.size(); i++) {
                     if (!added) {
 
                         if (results.getSchoolClass().getNumber() == classList.get(i).getSchoolClass().getNumber()
@@ -171,8 +160,30 @@ public class StatisticsTeachersController implements Initializable {
 
         }
 
+    }
+
+    /**
+     * Switch to Teacher's Main Menu
+     */
+    public void toMainMenu(){
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
         }
+        stage = (Stage) backButton.getScene().getWindow();
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/teacherMainMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/assets/css/menu.css");
+        stage.setScene(scene);
 
     }
+
+
+}
 
 

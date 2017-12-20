@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<HBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER_LEFT" prefHeight="720.0" prefWidth="1280.0"
+      xmlns="http://javafx.com/javafx/8.0.141" fx:controller="Controllers.Student.GameController">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <children>
+                <Label fx:id="questionNumberLabel" text="Question number">
+                    <VBox.margin>
+                        <Insets bottom="50.0" top="10.0"/>
+                    </VBox.margin>
+                </Label>
+                <Label text="Question:"/>
+                <Label fx:id="questionLabel" alignment="CENTER" prefWidth="250.0"
+                       text="question question question question question question question question question "
+                       wrapText="true">
+                    <VBox.margin>
+                        <Insets bottom="100.0"/>
+                    </VBox.margin>
+                </Label>
+                <ImageView fx:id="questionPersonImage" fitHeight="310.0" fitWidth="300.0" pickOnBounds="true"
+                           preserveRatio="true"/>
+                <Button fx:id="exitButton" mnemonicParsing="false" onMouseClicked="#exit" text="Exit">
+                    <VBox.margin>
+                        <Insets top="50.0"/>
+                    </VBox.margin>
+                </Button>
+            </children>
+            <HBox.margin>
+                <Insets left="20.0"/>
+            </HBox.margin>
+        </VBox>
+        <VBox alignment="TOP_CENTER" spacing="100.0">
+            <children>
+                <HBox alignment="TOP_CENTER" spacing="150.0">
+                    <children>
+                        <Button fx:id="answerButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                prefHeight="164.0" prefWidth="200.0" text="AnswerButton 1">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="answerButton2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                prefHeight="164.0" prefWidth="200.0" text="AnswerButton2">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="TOP_CENTER" spacing="150.0">
+                    <children>
+                        <Button fx:id="answerButton3" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                prefHeight="164.0" prefWidth="200.0" text="AnswerButton3">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="answerButton4" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                prefHeight="164.0" prefWidth="200.0" text="AnswerButton4">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets/>
+                    </padding>
+                </HBox>
+            </children>
+            <HBox.margin>
+                <Insets left="240.0" top="40.0"/>
+            </HBox.margin>
+        </VBox>
+    </children>
+</HBox>

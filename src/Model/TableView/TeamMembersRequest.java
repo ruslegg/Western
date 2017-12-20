@@ -1,8 +1,11 @@
 package Model.TableView;
 
+/**
+ * Object standing for Team Requests TableView for team-leader
+ */
 public class TeamMembersRequest {
-    int requestId;
-    String requestName;
+    private int requestId;
+    private String requestName;
 
     public TeamMembersRequest(int requestId, String requestName) {
         this.requestId = requestId;

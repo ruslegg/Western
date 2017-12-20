@@ -1,10 +1,14 @@
 package Model.TableView;
 
+
+/**
+ * Object used in Teacher's Statistics in Admin's Menu for TableView
+ */
 public class AdminStatistics {
-    Integer teacherTableViewId;
-    String teacherTableViewName;
-    Integer teacherTableViewCompetitionNumber;
-    Integer teacherTableViewContestNumber;
+    private Integer teacherTableViewId;
+    private String teacherTableViewName;
+    private Integer teacherTableViewCompetitionNumber;
+    private Integer teacherTableViewContestNumber;
 
 
     public AdminStatistics(Integer teacherTableViewId, String teacherTableViewName, Integer teacherTableViewCompetitionNumber, Integer teacherTableViewContestNumber) {
@@ -14,10 +18,11 @@ public class AdminStatistics {
         this.teacherTableViewContestNumber = teacherTableViewContestNumber;
     }
 
-    public void incrementCompetition(){
+    public void incrementCompetition() {
         this.teacherTableViewCompetitionNumber++;
     }
-    public void incrementContest(){
+
+    public void incrementContest() {
         this.teacherTableViewContestNumber++;
     }
 
@@ -25,31 +30,4 @@ public class AdminStatistics {
         return teacherTableViewId;
     }
 
-    public void setTeacherTableViewId(Integer teacherTableViewId) {
-        this.teacherTableViewId = teacherTableViewId;
-    }
-
-    public String getTeacherTableViewName() {
-        return teacherTableViewName;
-    }
-
-    public void setTeacherTableViewName(String teacherTableViewName) {
-        this.teacherTableViewName = teacherTableViewName;
-    }
-
-    public Integer getTeacherTableViewCompetitionNumber() {
-        return teacherTableViewCompetitionNumber;
-    }
-
-    public void setTeacherTableViewCompetitionNumber(Integer teacherTableViewCompetitionNumber) {
-        this.teacherTableViewCompetitionNumber = teacherTableViewCompetitionNumber;
-    }
-
-    public Integer getTeacherTableViewContestNumber() {
-        return teacherTableViewContestNumber;
-    }
-
-    public void setTeacherTableViewContestNumber(Integer teacherTableViewContestNumber) {
-        this.teacherTableViewContestNumber = teacherTableViewContestNumber;
-    }
 }

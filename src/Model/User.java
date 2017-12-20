@@ -1,24 +1,40 @@
 package Model;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.Serializable;
 
+/**
+ * An abstract class that will be used for inheritance to Student, Teacher and Admin Objects
+ * This class stands for a basic functionality for an user to play the game
+ */
 abstract public class User implements Serializable {
-    int id;
-    String name;
-    String username;
-    String password;
+
+    private int id;
+    private String name,username,password;
 
     public User() {
-
     }
-    public abstract void serialize() throws IOException;
 
+    /**
+     * Creates a new user that can be used in the game
+     * @param id - Constructor's value
+     * @param name - Constructor's value
+     * @param username - Constructor's value
+     * @param password - Constructor's value
+     */
     public User(Integer id, String name, String username, String password) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
     }
+
+    /**
+     * Performs a serialization to a file using the directory written in method
+     * @throws IOException caused by serialization
+     */
+    public abstract void serialize() throws IOException;
+
 
     public int getId() {
         return id;
@@ -40,15 +56,7 @@ abstract public class User implements Serializable {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

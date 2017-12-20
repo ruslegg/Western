@@ -4,7 +4,6 @@ import Controllers.LoginController;
 import Controllers.SettingsController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -13,73 +12,72 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class ChooseTypeOfGameController implements Initializable {
-    private Stage stage;
+/**
+ * Controller that has the functionality to choose between type of game desired: Random(Normal) or Competition
+ */
+public class ChooseTypeOfGameController {
     @FXML
     public Button competitionButton;
-    @FXML
     public Button normalGameButton;
-    @FXML
     public Button backButton;
+    private Stage stage;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
-
-    public void toCompetition() throws IOException {
-        if (SettingsController.effects){
+    /**
+     * Switches to School Games Scene
+     */
+    public void toCompetition() {
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) competitionButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/school-games.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/school-games.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
         System.out.println("Competition");
-
     }
 
-    public void toRandom(MouseEvent event) throws IOException {
-        if (SettingsController.effects){
+    /**
+     * Switches to Random Games Scene
+     */
+    public void toRandom() {
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) normalGameButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/randomQuestionsOptions.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/randomQuestionsOptions.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
 
-    /*public void toMainMenu(MouseEvent event) throws IOException, InterruptedException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        stage = (Stage) backButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        //root.getStyleClass().add("scene-background");
-        Scene scene = new Scene(root);
-        //Scene scene = new Scene(root, 1280, 720);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
-        System.out.println("Back");
-    }*/
-
-    public void toMainMenu(MouseEvent event) throws IOException {
+    /**
+     * Switches to Student's Main Menu
+     */
+    public void toMainMenu() {
         if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) backButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/mainMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");

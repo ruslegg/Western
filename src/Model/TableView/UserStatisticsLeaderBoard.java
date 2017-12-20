@@ -1,8 +1,11 @@
 package Model.TableView;
 
+/**
+ * Object that stands for Student's Statistics Leader board TableView between all students
+ */
 public class UserStatisticsLeaderBoard {
-    String name;
-    Integer points;
+    private String name;
+    private Integer points;
 
     public UserStatisticsLeaderBoard(String name, Integer points) {
         this.name = name;
@@ -17,11 +20,4 @@ public class UserStatisticsLeaderBoard {
         this.name = name;
     }
 
-    public Integer getPoints() {
-        return points;
-    }
-
-    public void setPoints(Integer points) {
-        this.points = points;
-    }
 }

@@ -11,27 +11,35 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.*;
-import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller that stands for joining already existing teams
+ */
 public class UserTeamLessJoin implements Initializable {
-    private Stage stage;
-
     @FXML
     public TableView<TeamRequest> joinTeamTableView;
-    public TableColumn<TeamRequest, String> teamName,teamAbbreviation;
-    public Button requestButton,backButton;
+    public TableColumn<TeamRequest, String> teamName, teamAbbreviation;
+    public Button requestButton, backButton;
+    private Stage stage;
+    private ObservableList<TeamRequest> teamList = FXCollections.observableArrayList();
 
-    ObservableList<TeamRequest> teamList = FXCollections.observableArrayList();
-
-
+    /**
+     * Populates list using getTeams() method
+     * Associates table columns with required data
+     * @param location not used
+     * @param resources not used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         getTeams();
@@ -40,18 +48,47 @@ public class UserTeamLessJoin implements Initializable {
         joinTeamTableView.setItems(teamList);
     }
 
-    public void getTeams(){
-        for (Team team: LoginController.teamList
-             ) {
-            teamList.add(new TeamRequest(team.getName(),team.getAbbreviation()));
+    /**
+     * Populates the teamList using a for-each loop through all teams
+     */
+    public void getTeams() {
+        for (Team team : LoginController.getTeamList()
+                ) {
+            teamList.add(new TeamRequest(team.getName(), team.getAbbreviation()));
         }
     }
+
+    /**
+     * Switches to Teamless Options Scene
+     */
+    public void toTeamLessOptions(){
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        stage = (Stage) backButton.getScene().getWindow();
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/mainMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/assets/css/menu.css");
+        stage.setScene(scene);
+    }
+
+    /**
+     * Performs a check if selection is empty and an existing request to that specific team made.
+     * If checks are passed, a new team request is added to teamRequests list and switched to Student's Main Menu
+     * @throws IOException - Exception cause by serialization
+     */
     public void requestJoin() throws IOException {
-        if (SettingsController.effects){
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         boolean selected = true;
-        if (joinTeamTableView.getSelectionModel().isEmpty()){
+        if (joinTeamTableView.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Team Join Error");
             alert.setHeaderText("Selection is empty");
@@ -60,8 +97,8 @@ public class UserTeamLessJoin implements Initializable {
             selected = false;
         }
 
-        for (Student student : LoginController.teamRequests) {
-            if (student.getTeam().getName().equals(joinTeamTableView.getSelectionModel().getSelectedItem().getTeamName()) && student.getName().equals(LoginController.student.getName())) {
+        for (Student student : LoginController.getTeamRequests()) {
+            if (student.getTeam().getName().equals(joinTeamTableView.getSelectionModel().getSelectedItem().getTeamName()) && student.getName().equals(LoginController.getStudent().getName())) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Team Join Failed");
                 alert.setHeaderText("Team Join Has Failed");
@@ -72,36 +109,24 @@ public class UserTeamLessJoin implements Initializable {
             }
         }
 
-        if (selected){
+        if (selected) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Team Join Successful");
             alert.setHeaderText("Team Join successful");
             alert.setContentText("You have successfully requested to join a team. You now need to wait for the team-leader for approval");
             alert.showAndWait();
-            Student student = new Student(LoginController.student.getId(),LoginController.student.getName(),
-                    LoginController.student.getUsername(),LoginController.student.getPassword(),
+            Student student = new Student(LoginController.getStudent().getId(), LoginController.getStudent().getName(),
+                    LoginController.getStudent().getUsername(), LoginController.getStudent().getPassword(),
                     new Team(joinTeamTableView.getSelectionModel().getSelectedItem().getTeamName(),
-                            joinTeamTableView.getSelectionModel().getSelectedItem().getTeamAbbreviation()),LoginController.student.getSchoolClass());
+                            joinTeamTableView.getSelectionModel().getSelectedItem().getTeamAbbreviation()), LoginController.getStudent().getSchoolClass());
             student.serializeTeamRequest();
             stage = (Stage) backButton.getScene().getWindow();
             VBox root;
-            root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/View/mainMenu.fxml"));
             Scene scene = new Scene(root);
             root.getStyleClass().add("scene-background");
             scene.getStylesheets().add("/assets/css/menu.css");
             stage.setScene(scene);
         }
-    }
-    public void toTeamLessOptions() throws IOException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
-        }
-        stage = (Stage) backButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
     }
 }

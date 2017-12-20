@@ -4,50 +4,53 @@ import Controllers.LoginController;
 import Controllers.SettingsController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class CreateOptionsTeachersController implements Initializable{
+/**
+ * Controller that manipulates the Teacher Create Options Scene with 3 buttons
+ */
+public class CreateOptionsTeachersController {
+    @FXML
+    public Button gameButton, backButton, classButton;
     private Stage stage;
-    @FXML
-    public Button gameButton;
-    @FXML
-    public Button backButton;
-    @FXML
-    public Button classButton;
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-
-
-
-    public void toGame() throws IOException {
+    /**
+     * Switch to Generate Quiz Scene
+     */
+    public void toGame() {
         if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
 
         stage = (Stage) gameButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/generateQuiz.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/generateQuiz.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/quiz.css");
         stage.setScene(scene);
     }
 
-    public void toMainMenu() throws IOException{
+    /**
+     * Switch to Teacher Main Menu Scene
+     */
+    public void toMainMenu() {
         stage = (Stage) backButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/teacherMainMenu.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/teacherMainMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
@@ -55,10 +58,17 @@ public class CreateOptionsTeachersController implements Initializable{
         System.out.println("Back");
     }
 
-    public void toAddClass() throws IOException{
+    /**
+     * Switch to Creating new School Class Scene
+     */
+    public void toAddClass() {
         stage = (Stage) classButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/createClass.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/createClass.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/assets/css/menu.css");
         root.getStyleClass().add("scene-background");
@@ -66,4 +76,5 @@ public class CreateOptionsTeachersController implements Initializable{
 
 
     }
+
 }

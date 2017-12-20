@@ -4,7 +4,6 @@ import Controllers.LoginController;
 import Controllers.SettingsController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -13,50 +12,49 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class TeacherMenuController implements Initializable {
+/**
+ * Controller that holds the scene with Teacher's Main Menu, with 4 buttons: Create, Statistics, Settings and Quit.
+ */
+public class TeacherMenuController {
+    @FXML
+    public Button createButton, settingsButton, exitButton, statisticsButton, backButton;
     private Stage stage;
 
-    @FXML
-    public Button createButton;
-    @FXML
-    public Button settingsButton;
-    @FXML
-    public Button exitButton;
-    @FXML
-    public Button statisticsButton;
-    @FXML
-    public Button backButton;
-
-
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-
-    public void toCreateMenu() throws IOException{
+    /**
+     * Switches to Teacher's Create Options Scene
+     */
+    public void toCreateMenu(){
         if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
 
         stage = (Stage) createButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/createOptionsTeacher.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/createOptionsTeacher.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
-
-    public void toStatistics(MouseEvent event) throws IOException, InterruptedException {
-        if (SettingsController.effects){
+    /**
+     * Switches to Teacher's Statistics Scene
+     */
+    public void toStatistics() {
+        if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
         stage = (Stage) statisticsButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/statisticsTeacher.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/statisticsTeacher.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         root.getStyleClass().add("scene-background");
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/assets/css/menu.css");
@@ -66,39 +64,30 @@ public class TeacherMenuController implements Initializable {
 
 
     }
-
-    public void toSettings() throws IOException {
+    /**
+     * Switches to Settings Scene
+     */
+    public void toSettings() {
         if (SettingsController.effects) {
             LoginController.soundPlayer.play();
         }
 
         stage = (Stage) settingsButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/settings.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
-    }
-
-    public void toMainMenu(MouseEvent event) throws IOException, InterruptedException {
-        if (SettingsController.effects){
-            LoginController.soundPlayer.play();
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/settings.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        stage = (Stage) backButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/teacherMenu.fxml"));
-        root.getStyleClass().add("scene-background");
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
-        System.out.println("Back");
-
     }
-
-
-    public void quit(){
+    /**
+     * Exit the game
+     */
+    public void quit() {
         System.exit(0);
     }
 }

@@ -1,7 +1,10 @@
 package Model.TableView;
 
+/**
+ * Object standing for Student's Team Join TableView
+ */
 public class TeamRequest {
-    String teamName,teamAbbreviation;
+    private String teamName, teamAbbreviation;
 
     public TeamRequest(String teamName, String teamAbbreviation) {
         this.teamName = teamName;
@@ -12,15 +15,8 @@ public class TeamRequest {
         return teamName;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-
     public String getTeamAbbreviation() {
         return teamAbbreviation;
     }
 
-    public void setTeamAbbreviation(String teamAbbreviation) {
-        this.teamAbbreviation = teamAbbreviation;
-    }
 }

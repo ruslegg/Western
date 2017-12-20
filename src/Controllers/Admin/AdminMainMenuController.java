@@ -1,49 +1,62 @@
 package Controllers.Admin;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class AdminMainMenuController implements Initializable {
+/**
+ * Controller that holds up Admin's Main Menu Scene, with 3 buttons: Teacher's Settings, Settings and Quit.
+ */
+public class AdminMainMenuController {
     @FXML
-    private Button teacherButton;
+    public Button teacherButton;
 
     private Stage stage;
 
-    public void toTeacherSettings() throws IOException {
+    /**
+     * Switches to Teacher's Settings scene
+     */
+    public void toTeacherSettings(){
         stage = (Stage) teacherButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/adminTeacherSettings.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/adminTeacherSettings.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
-    public void toSettings() throws IOException {
+
+    /**
+     * Switches to Settings scene
+     */
+    public void toSettings(){
         stage = (Stage) teacherButton.getScene().getWindow();
-        VBox root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/settings.fxml"));
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/settings.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         root.getStyleClass().add("scene-background");
         scene.getStylesheets().add("/assets/css/menu.css");
         stage.setScene(scene);
     }
+
+    /**
+     * Exit the game
+     */
     public void quit() {
         System.exit(0);
-    }
-
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
     }
 
 }

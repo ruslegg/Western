@@ -2,23 +2,28 @@ package Model.TableView;
 
 import Model.SchoolClass;
 
+/**
+ * Object standing for Teacher Line Chart
+ */
 public class TeacherLineChart {
-    SchoolClass schoolClass;
-    int number=0;
+    private SchoolClass schoolClass;
+    private int number = 0;
 
     public TeacherLineChart(SchoolClass schoolClass) {
         this.schoolClass = schoolClass;
     }
-    public void increment(){
+
+    /**
+     * Increment number of student in that class
+     */
+    public void increment() {
         number++;
     }
+
     public SchoolClass getSchoolClass() {
         return schoolClass;
     }
 
-    public void setSchoolClass(SchoolClass schoolClass) {
-        this.schoolClass = schoolClass;
-    }
 
     public int getNumber() {
         return number;

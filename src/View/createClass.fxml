@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" minHeight="720.0" minWidth="1280.0" spacing="50.0"
+      xmlns="http://javafx.com/javafx/8" fx:controller="Controllers.Teacher.CreateClassController">
+    <children>
+        <HBox alignment="CENTER" spacing="20.0">
+            <children>
+                <Label text="Class number"/>
+                <TextField fx:id="classNumber" alignment="CENTER" promptText="6"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" spacing="34.0">
+            <children>
+                <Label text="Class letter"/>
+                <TextField fx:id="classLetter" alignment="CENTER" promptText="A"/>
+            </children>
+        </HBox>
+        <Button fx:id="submitButton" mnemonicParsing="false" onMouseClicked="#createClass" text="Submit"/>
+        <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toCreateMenu" text="Back"/>
+    </children>
+</VBox>

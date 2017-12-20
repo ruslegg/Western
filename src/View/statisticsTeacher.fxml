@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" minHeight="720.0" minWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141"
+      fx:controller="Controllers.Teacher.StatisticsTeachersController">
+    <children>
+        <HBox alignment="CENTER" minHeight="400.0" prefHeight="350.0" prefWidth="600.0" spacing="50.0">
+            <children>
+                <TableView fx:id="competitionTableView" prefHeight="350.0" prefWidth="600.0">
+                    <columns>
+                        <TableColumn fx:id="competitionId" minWidth="199.0" prefWidth="199.0" text="Competition ID"/>
+                        <TableColumn fx:id="competitionName" minWidth="199.0" prefWidth="199.0"
+                                     text="Competition Subject"/>
+                        <TableColumn fx:id="competitionNumber" minWidth="199.0" prefWidth="199.0"
+                                     text="Number of students"/>
+                    </columns>
+                </TableView>
+                <TableView fx:id="contestsTableView" prefHeight="350.0" prefWidth="600.0">
+                    <columns>
+                        <TableColumn fx:id="contestId" minWidth="199.0" prefWidth="199.0" text="Contest ID"/>
+                        <TableColumn fx:id="contestName" minWidth="199.0" prefWidth="199.0" text="Contest Subject"/>
+                        <TableColumn fx:id="contestNumber" minWidth="199.0" prefWidth="199.0"
+                                     text="Number of students"/>
+                    </columns>
+                </TableView>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+        </HBox>
+        <BarChart fx:id="barChart" prefHeight="230.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT"/>
+            </yAxis>
+        </BarChart>
+        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                        onMouseClicked="#toMainMenu" text="Back"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>

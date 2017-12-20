@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" minHeight="720.0" minWidth="1280.0" spacing="50.0"
+      xmlns="http://javafx.com/javafx/8" fx:controller="Controllers.Teacher.CreateOptionsTeachersController">
+    <children>
+        <Button fx:id="gameButton" mnemonicParsing="false" onMouseClicked="#toGame" text="Game"/>
+        <Button fx:id="classButton" mnemonicParsing="false" onMouseClicked="#toAddClass" text="Class"/>
+        <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#toMainMenu" text="Back"/>
+    </children>
+</VBox>

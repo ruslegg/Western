@@ -1,8 +1,11 @@
 package Model.TableView;
 
+/**
+ * Object standing for Team Leader-board TableView
+ */
 public class TeamLeaderBoard {
-    String name;
-    Integer points;
+    private String name;
+    private Integer points;
 
     public TeamLeaderBoard(String name, Integer points) {
         this.name = name;
@@ -13,19 +16,17 @@ public class TeamLeaderBoard {
         return name;
 
     }
-    public void addPoints(Integer points){
-        this.points+=points;
-    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public Integer getPoints() {
-        return points;
+    /**
+     * Adding points to the object
+     * @param points - adding parameter value to object's current points
+     */
+    public void addPoints(Integer points) {
+        this.points += points;
     }
 
-    public void setPoints(Integer points) {
-        this.points = points;
-    }
 }

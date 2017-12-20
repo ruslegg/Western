@@ -22,46 +22,47 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import java.io.*;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
+/**
+ * Controller that holds information about the student's statistics, such as:
+ * How much score the student have displayed in a Leaderboard with all students
+ * Which rank is the student in each contest that he participated
+ * A line chart that represents correct answer percentage by each quiz that he played to have an overview of his results
+ */
 public class StatisticsController implements Initializable {
-    private Stage stage;
     @FXML
-    public Label leaderboardButton;
-    @FXML
-    public Label contestRankButton;
-    @FXML
+    public Label leaderboardButton, contestRankButton;
     public TableView<UserStatisticsLeaderBoard> statisticsLeaderBoardTableView;
-    @FXML
     public TableView<UserStatisticsContestRank> statisticsContestRankTableView;
-    @FXML
     public TableColumn<UserStatisticsLeaderBoard, String> leaderBoardStudent;
-    @FXML
     public TableColumn<UserStatisticsLeaderBoard, Integer> leaderBoardPoints;
-    @FXML
     public TableColumn<UserStatisticsContestRank, String> contestSubject;
-    @FXML
     public TableColumn<UserStatisticsContestRank, Integer> contestRank;
-    @FXML
     public TableColumn<UserStatisticsContestRank, Integer> contestId;
-    @FXML
     public LineChart lineChart;
-    @FXML
     public Button backButton;
+    private Stage stage;
+    private ObservableMap<Student, Integer> leaderBoardHashMap = FXCollections.observableHashMap();
+    private ObservableList<UserStatisticsLeaderBoard> leaderBoardList = FXCollections.observableArrayList();
+    private ObservableList contestList = FXCollections.observableArrayList();
+    private ArrayList<Integer> participatedContests = new ArrayList();
+    private ArrayList<Results> participatedContestsResults = new ArrayList();
 
-
-    ObservableMap<Student, Integer> leaderBoardHashMap = FXCollections.observableHashMap();
-    ObservableList<UserStatisticsLeaderBoard> leaderBoardList = FXCollections.observableArrayList();
-    ObservableList contestList = FXCollections.observableArrayList();
-    ArrayList<Integer> participatedContests = new ArrayList();
-    ArrayList<Results> participatedContestsResults = new ArrayList();
-
-
+    /**
+     * Populates data using getData() method
+     * Associates available data with table columns
+     * @param location - not used
+     * @param resources - not used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         getData();
@@ -77,27 +78,20 @@ public class StatisticsController implements Initializable {
 
     }
 
-    public void toMainMenu(MouseEvent event) throws IOException {
-        if (SettingsController.effects) {
-            LoginController.soundPlayer.play();
-        }
-        stage = (Stage) backButton.getScene().getWindow();
-        Pane root;
-        root = FXMLLoader.load(getClass().getResource("/FXML/mainMenu.fxml"));
-        Scene scene = new Scene(root);
-        root.getStyleClass().add("scene-background");
-        scene.getStylesheets().add("/assets/css/menu.css");
-        stage.setScene(scene);
-    }
-
+    /**
+     * Uses HashMap (to avoid duplicates) and for-each loops, populates Leaderboard tableview
+     * Uses a for-each loop in order to populate the list and functionality(used from external sources) populates the contest
+     * tableview with participated by users contests and showing the rank of the user
+     * Uses a for-each loop to populate correct answer rate LineChart
+     */
     public void getData() {
         //LeaderBoard TableView
-        for (Results result : LoginController.resultsList
+        for (Results result : LoginController.getResultsList()
                 ) {
-            for (Student student : LoginController.studentList
+            for (Student student : LoginController.getStudentList()
                     ) {
                 if (result.getUserID() == student.getId()) {
-                    if (result.getType() == 0){
+                    if (result.getType() == 0) {
                         leaderBoardHashMap.put(student, leaderBoardHashMap.getOrDefault(student, 0) + result.getScore());
 
                     }
@@ -110,7 +104,7 @@ public class StatisticsController implements Initializable {
             leaderBoardList.add(new UserStatisticsLeaderBoard(mapEntry.getKey().getName(), mapEntry.getValue()));
         }
         for (int i = 0; i < leaderBoardList.size(); i++) {
-            if (LoginController.student.getName().equals(leaderBoardList.get(i).getName())) {
+            if (LoginController.getStudent().getName().equals(leaderBoardList.get(i).getName())) {
                 statisticsLeaderBoardTableView.getSelectionModel().select(leaderBoardList.get(i));
                 break;
             }
@@ -118,15 +112,15 @@ public class StatisticsController implements Initializable {
 
         //Contest TableView
 
-        for (Results results : LoginController.resultsList
+        for (Results results : LoginController.getResultsList()
                 ) {
-            if (results.getUserID() == LoginController.student.getId()) {
+            if (results.getUserID() == LoginController.getStudent().getId()) {
                 if (results.getType() == 1) {
                     participatedContests.add(results.getContestID());
                 }
             }
         }
-        for (Results results : LoginController.resultsList
+        for (Results results : LoginController.getResultsList()
                 ) {
             if (results.getType() == 1) {
                 for (int i = 0; i < participatedContests.size(); i++) {
@@ -156,7 +150,7 @@ public class StatisticsController implements Initializable {
         }
         for (Results result : testList
                 ) {
-            if (result.getName().equals(LoginController.student.getName())) {
+            if (result.getName().equals(LoginController.getStudent().getName())) {
                 contestList.add(new UserStatisticsContestRank(result.getContestID(), result.getContestName(), result.getRank()));
             }
         }
@@ -164,10 +158,10 @@ public class StatisticsController implements Initializable {
 
         //LineChart data
         XYChart.Series series = new XYChart.Series();
-        for (Results result : LoginController.resultsList
+        for (Results result : LoginController.getResultsList()
                 ) {
-            if (result.getUserID() == LoginController.student.getId()) {
-                if (result.getType() == 0){
+            if (result.getUserID() == LoginController.getStudent().getId()) {
+                if (result.getType() == 0) {
                     series.getData().add(new XYChart.Data(result.getContestName(), result.getCorrectAnswerPercent()));
                 }
             }
@@ -175,6 +169,27 @@ public class StatisticsController implements Initializable {
         lineChart.getData().add(series);
 
     }
+
+    /**
+     * Switches to Student's Main Menu
+     */
+    public void toMainMenu() {
+        if (SettingsController.effects) {
+            LoginController.soundPlayer.play();
+        }
+        stage = (Stage) backButton.getScene().getWindow();
+        VBox root = new VBox();
+        try {
+            root = FXMLLoader.load(getClass().getResource("/View/mainMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root);
+        root.getStyleClass().add("scene-background");
+        scene.getStylesheets().add("/assets/css/menu.css");
+        stage.setScene(scene);
+    }
+
 }
 
 
